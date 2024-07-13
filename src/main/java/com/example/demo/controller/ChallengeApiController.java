@@ -14,36 +14,70 @@ public class ChallengeApiController {
 
 
     @GetMapping("/challengeList")
-    public ChallengeModeDataList getChallangeList(@RequestParam(required = false, defaultValue = "0") int pageNo,
-                                                  @RequestParam(required = false, defaultValue = "30") int total,
-                                                  @RequestParam String level) {
+    public ChallengeModeDataList getChallangeList(@RequestParam String level) {
 
         // Build ChallengeDetails
         return new ChallengeModeDataList(Arrays.asList(
                         getChallengeModeData("BATTING", 101, Difficulty.EASY, "Level 1"),
                         getChallengeModeData("BATTING", 102, Difficulty.EASY, "Level 1"),
+                        getChallengeModeData("BOWLING", 103, Difficulty.EASY, "Level 1"),
+                        getChallengeModeData("BOWLING", 103, Difficulty.EASY, "Level 1"),
                         getChallengeModeData("BATTING", 103, Difficulty.EASY, "Level 1"),
 
-                        getChallengeModeData("BATTING", 104, Difficulty.MEDIUM, "Level 2"),
-                        getChallengeModeData("BATTING", 105, Difficulty.MEDIUM, "Level 2"),
+                        getChallengeModeData("BOWLING", 104, Difficulty.MEDIUM, "Level 2"),
+                        getChallengeModeData("BOWLING", 105, Difficulty.MEDIUM, "Level 2"),
                         getChallengeModeData("BATTING", 106, Difficulty.MEDIUM, "Level 2"),
                         getChallengeModeData("BATTING", 107, Difficulty.MEDIUM, "Level 2"),
 
                         getChallengeModeData("BATTING", 108, Difficulty.HARD, "Level 3"),
-                        getChallengeModeData("BATTING", 109, Difficulty.HARD, "Level 3"),
+                        getChallengeModeData("BOWLING", 109, Difficulty.HARD, "Level 3"),
                         getChallengeModeData("BATTING", 110, Difficulty.HARD, "Level 3"),
-                        getChallengeModeData("BATTING", 111, Difficulty.HARD, "Level 3"),
-                        getChallengeModeData("BATTING", 112, Difficulty.HARD, "Level 3"),
+                        getChallengeModeData("BOWLING", 111, Difficulty.HARD, "Level 3"),
+                        getChallengeModeData("BOWLING", 112, Difficulty.HARD, "Level 3"),
                         getChallengeModeData("BATTING", 113, Difficulty.HARD, "Level 3")
                 )
                 .stream()
                 .filter(challengeModeData -> challengeModeData.getChallengeDetails().getLevel().equals(level))
                 .collect(Collectors.toList())
         );
-
-
     }
 
+    @GetMapping("/progress")
+    public MyChallengeLevelProgress saveProgress(@RequestParam(defaultValue = "1") String level, @RequestParam(defaultValue = "BAN") String myTeam) {
+
+        int completedChallengeID = 101;
+
+        if (level.equals("1")) {
+            completedChallengeID = 101;
+
+        } else if (level.equals("2")) {
+            completedChallengeID = 104;
+
+        } else if (level.equals("3")) {
+            completedChallengeID = 108;
+        }
+
+        MyChallengeLevelProgress.ChallengeProgress challenge1 = new MyChallengeLevelProgress.ChallengeProgress.Builder()
+                .setMyTeamName(myTeam)
+                .setChallengeId(completedChallengeID)
+                .setSummary("Complete the first challenge")
+                .build();
+
+        MyChallengeLevelProgress myChallengeLevelProgress = new MyChallengeLevelProgress.Builder()
+                .setLevel("Beginner")
+                .setChallengeProgress(Arrays.asList(challenge1))
+                .build();
+
+        return myChallengeLevelProgress;
+    }
+
+    @GetMapping("/progress/update")
+    public String saveProgress(@RequestParam(defaultValue = "1") String level,
+                                                 @RequestParam int challengeId,
+                                                 @RequestParam String summary) {
+        //not saving anything in DB. this is just a dummy rest api
+        return "saved";
+    }
 
     @GetMapping("/levelList")
     public LevelList getLevelsList() {
@@ -54,7 +88,6 @@ public class ChallengeApiController {
         ));
 
     }
-
 
     private static ChallengeModeData getChallengeModeData(String challengeRole, int challengeId, Difficulty difficulty, String level) {
         ChallengeDetails challengeDetails = new ChallengeDetails.Builder()
@@ -97,6 +130,7 @@ public class ChallengeApiController {
                 .setBowlingRole(bowlingRole)
                 .setRewards(rewards)
                 .build();
+
         return challengeData;
     }
 
