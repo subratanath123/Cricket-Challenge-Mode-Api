@@ -43,24 +43,24 @@ public class ChallengeApiController {
     }
 
     @GetMapping("/progress")
-    public MyChallengeLevelProgress saveProgress(@RequestParam(defaultValue = "1") String level, @RequestParam(defaultValue = "BAN") String myTeam) {
+    public MyChallengeLevelProgress saveProgress(@RequestParam(defaultValue = "Level 1") String level, @RequestParam(defaultValue = "BAN") String myTeam) {
 
         int completedChallengeID = 101;
 
-        if (level.equals("1")) {
+        if (level.equals("Level 1")) {
             completedChallengeID = 101;
 
-        } else if (level.equals("2")) {
+        } else if (level.equals("Level 2")) {
             completedChallengeID = 104;
 
-        } else if (level.equals("3")) {
+        } else if (level.equals("Level 3")) {
             completedChallengeID = 108;
         }
 
         MyChallengeLevelProgress.ChallengeProgress challenge1 = new MyChallengeLevelProgress.ChallengeProgress.Builder()
                 .setMyTeamName(myTeam)
                 .setChallengeId(completedChallengeID)
-                .setSummary("Complete the first challenge")
+                .setSummary("Challenge Completed")
                 .build();
 
         MyChallengeLevelProgress myChallengeLevelProgress = new MyChallengeLevelProgress.Builder()
