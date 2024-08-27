@@ -14,27 +14,23 @@ public class ChallengeApiController {
 
 
     @GetMapping("/challengeList")
-    public ChallengeModeDataList getChallangeList(@RequestParam String level) {
+    public ChallengeModeDataList getChallangeList(@RequestParam String level, @RequestParam(defaultValue = "BAN") String myTeam) {
 
         // Build ChallengeDetails
         return new ChallengeModeDataList(Arrays.asList(
-                        getChallengeModeData("BATTING", 101, Difficulty.EASY, "Level 1"),
-                        getChallengeModeData("BATTING", 102, Difficulty.EASY, "Level 1"),
-                        getChallengeModeData("BOWLING", 103, Difficulty.EASY, "Level 1"),
-                        getChallengeModeData("BOWLING", 103, Difficulty.EASY, "Level 1"),
-                        getChallengeModeData("BATTING", 103, Difficulty.EASY, "Level 1"),
-
-                        getChallengeModeData("BOWLING", 104, Difficulty.MEDIUM, "Level 2"),
-                        getChallengeModeData("BOWLING", 105, Difficulty.MEDIUM, "Level 2"),
-                        getChallengeModeData("BATTING", 106, Difficulty.MEDIUM, "Level 2"),
-                        getChallengeModeData("BATTING", 107, Difficulty.MEDIUM, "Level 2"),
-
-                        getChallengeModeData("BATTING", 108, Difficulty.HARD, "Level 3"),
-                        getChallengeModeData("BOWLING", 109, Difficulty.HARD, "Level 3"),
-                        getChallengeModeData("BATTING", 110, Difficulty.HARD, "Level 3"),
-                        getChallengeModeData("BOWLING", 111, Difficulty.HARD, "Level 3"),
-                        getChallengeModeData("BOWLING", 112, Difficulty.HARD, "Level 3"),
-                        getChallengeModeData("BATTING", 113, Difficulty.HARD, "Level 3")
+                        getChallengeModeData("BATTING", myTeam, "IND", 12, 101, Difficulty.EASY, "Level 1"),
+                        getChallengeModeData("BATTING", myTeam, "PAK", 15, 102, Difficulty.EASY, "Level 1"),
+                        getChallengeModeData("BOWLING", myTeam, "AFG", 16, 103, Difficulty.EASY, "Level 1"),
+                        getChallengeModeData("BOWLING", myTeam, "WI", 18, 104, Difficulty.MEDIUM, "Level 2"),
+                        getChallengeModeData("BOWLING", myTeam, "NZ", 20, 105, Difficulty.MEDIUM, "Level 2"),
+                        getChallengeModeData("BATTING", myTeam, "AUS", 27, 106, Difficulty.MEDIUM, "Level 2"),
+                        getChallengeModeData("BATTING", myTeam, "BAN", 23, 107, Difficulty.MEDIUM, "Level 2"),
+                        getChallengeModeData("BATTING", myTeam, "IRE", 30, 108, Difficulty.HARD, "Level 3"),
+                        getChallengeModeData("BOWLING", myTeam, "SA", 21, 109, Difficulty.HARD, "Level 3"),
+                        getChallengeModeData("BATTING", myTeam, "ENG", 28, 110, Difficulty.HARD, "Level 3"),
+                        getChallengeModeData("BOWLING", myTeam, "PAK", 26, 111, Difficulty.HARD, "Level 3"),
+                        getChallengeModeData("BOWLING", myTeam, "NZ", 29, 112, Difficulty.HARD, "Level 3"),
+                        getChallengeModeData("BATTING", myTeam, "WI", 33, 113, Difficulty.HARD, "Level 3")
                 )
                 .stream()
                 .filter(challengeModeData -> challengeModeData.getChallengeDetails().getLevel().equals(level))
@@ -73,8 +69,8 @@ public class ChallengeApiController {
 
     @GetMapping("/progress/update")
     public String saveProgress(@RequestParam(defaultValue = "1") String level,
-                                                 @RequestParam int challengeId,
-                                                 @RequestParam String summary) {
+                               @RequestParam int challengeId,
+                               @RequestParam String summary) {
         //not saving anything in DB. this is just a dummy rest api
         return "saved";
     }
@@ -89,7 +85,7 @@ public class ChallengeApiController {
 
     }
 
-    private static ChallengeModeData getChallengeModeData(String challengeRole, int challengeId, Difficulty difficulty, String level) {
+    private static ChallengeModeData getChallengeModeData(String challengeRole, String myTeam, String team, int run, int challengeId, Difficulty difficulty, String level) {
         ChallengeDetails challengeDetails = new ChallengeDetails.Builder()
                 .setLevel(difficulty)
                 .setLevel(level)
@@ -98,13 +94,13 @@ public class ChallengeApiController {
         // Build BattingRole
         BattingRole battingRole = new BattingRole.Builder()
                 .setWicketLimit(1)
-                .setTargetRun(2)
+                .setTargetRun(run)
                 .setOverLimitation(1)
                 .build();
 
         // Build BowlingRole
         BowlingRole bowlingRole = new BowlingRole.Builder()
-                .setTargetRun(2)
+                .setTargetRun(run)
                 .setOverLimitation(1)
                 .build();
 
@@ -120,8 +116,8 @@ public class ChallengeApiController {
         ChallengeModeData challengeData = new ChallengeModeData.Builder()
                 .setChallengeId(challengeId)
                 .setChallengeTitle("Epic Challenge")
-                .setMyTeam("BAN")
-                .setOpponentTeam("IND")
+                .setMyTeam(myTeam)
+                .setOpponentTeam(team)
                 .setMatchType("T20")
                 .setVenue("MUMB")
                 .setChallengeRole(challengeRole)
