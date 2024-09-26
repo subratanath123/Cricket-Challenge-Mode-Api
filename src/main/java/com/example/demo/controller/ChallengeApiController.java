@@ -95,13 +95,13 @@ public class ChallengeApiController {
         BattingRole battingRole = new BattingRole.Builder()
                 .setWicketLimit(1)
                 .setTargetRun(run)
-                .setOverLimitation(1)
+                .setOverLimitation(3)
                 .build();
 
         // Build BowlingRole
         BowlingRole bowlingRole = new BowlingRole.Builder()
                 .setTargetRun(run)
-                .setOverLimitation(1)
+                .setOverLimitation(4)
                 .build();
 
         // Build Rewards
