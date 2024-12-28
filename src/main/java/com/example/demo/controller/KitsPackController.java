@@ -12,6 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.example.demo.controller.GameAssetController.teamListForKits;
 import static com.example.demo.dto.util.CacheUtils.nonConsumablePurchaseHistory;
 import static com.example.demo.dto.util.CacheUtils.subscriptionPurchaseHistory;
 import static com.example.demo.dto.util.ResourceUtils.nonConsumableProducts;
@@ -21,19 +22,6 @@ public class KitsPackController {
 
     @GetMapping("/kits/teams")
     public List<CardItem> getAvailableTeamsForKits() {
-
-        List<CardItem> teamListForKits = Arrays.asList(
-                new CardItem("PAK", "https://i.imgur.com/Z0qwQbu.png", "Buy Pakistan Team Jersey & Kits", "Details", "Parent", "/kits/teams/PAK"),
-                new CardItem("IND", "https://i.imgur.com/Z0qwQbu.png", "Buy India Team Jersey & Kits", "Details", "Parent", "/kits/teams/IND"),
-                new CardItem("BAN", "https://i.imgur.com/Z0qwQbu.png", "Buy Bangladesh Team Jersey & Kits", "Details", "Parent", "/kits/teams/BAN"),
-                new CardItem("ZIM", "https://i.imgur.com/Z0qwQbu.png", "Buy Zimbabwe Team Jersey & Kits", "Details", "Parent", "/kits/teams/ZIM"),
-                new CardItem("AUS", "https://i.imgur.com/Z0qwQbu.png", "Buy Australia Team Jersey & Kits", "Details", "Parent", "/kits/teams/AUS"),
-                new CardItem("SA", "https://i.imgur.com/Z0qwQbu.png", "Buy South Africa Team Jersey & Kits", "Details", "Parent", "/kits/teams/SA"),
-                new CardItem("SRI", "https://i.imgur.com/Z0qwQbu.png", "Buy Sri-Lanka Team Jersey & Kits", "Details", "Parent", "/kits/teams/SRI"),
-                new CardItem("NZ", "https://i.imgur.com/Z0qwQbu.png", "Buy New Zealand Team Jersey & Kits", "Details", "Parent", "/kits/teams/NZ"),
-                new CardItem("WI", "https://i.imgur.com/Z0qwQbu.png", "Buy West Indies Team Jersey & Kits", "Details", "Parent", "/kits/teams/WI")
-        );
-
         return teamListForKits;
     }
 

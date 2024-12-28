@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class NonConsumableProducts implements Serializable {
 
     private String id;
+    private boolean isDefault;
     private String metaInfo;
     private String category;
     private String packName;
@@ -14,12 +15,13 @@ public class NonConsumableProducts implements Serializable {
     private String nextUrl;
     private String objectType = "NonConsumableProducts";
     private String purchaseId;
+    private String payload;
 
     public NonConsumableProducts() {
     }
 
     public NonConsumableProducts(String id, String metaInfo, String packName, String price,
-                                 String information, String imageUrl, String category, String nextUrl) {
+                                 String information, String imageUrl, String category, String nextUrl, String payload, boolean isDefault) {
         this.id = id;
         this.metaInfo = metaInfo;
         this.packName = packName;
@@ -28,11 +30,13 @@ public class NonConsumableProducts implements Serializable {
         this.imageUrl = imageUrl;
         this.category = category;
         this.nextUrl = nextUrl;
+        this.payload = payload;
+        this.isDefault = isDefault;
     }
 
     public NonConsumableProducts(String id, String metaInfo, String packName, String price,
                                  String information, String imageUrl, String category, String nextUrl,
-                                 String purchaseId) {
+                                 String purchaseId, String payload, boolean isDefault) {
         this.id = id;
         this.metaInfo = metaInfo;
         this.packName = packName;
@@ -42,6 +46,24 @@ public class NonConsumableProducts implements Serializable {
         this.category = category;
         this.nextUrl = nextUrl;
         this.purchaseId = purchaseId;
+        this.payload = payload;
+        this.isDefault = isDefault;
+    }
+
+    public boolean isDefault() {
+        return isDefault;
+    }
+
+    public void setDefault(boolean aDefault) {
+        isDefault = aDefault;
+    }
+
+    public String getPayload() {
+        return payload;
+    }
+
+    public void setPayload(String payload) {
+        this.payload = payload;
     }
 
     public String getPurchaseId() {
@@ -51,6 +73,7 @@ public class NonConsumableProducts implements Serializable {
     public void setPurchaseId(String purchaseId) {
         this.purchaseId = purchaseId;
     }
+
     public String getObjectType() {
         return objectType;
     }

@@ -8,6 +8,7 @@ public class ConsumableProducts implements Serializable {
 
     private String id;
     private String category;
+    private String packName;
     private String metaInfo;
     private String price;
     private Date expiryDate;
@@ -17,15 +18,18 @@ public class ConsumableProducts implements Serializable {
     private List<String> freeProducts;
     private String purchaseId;
     private String nextUrl;
+    private String payload;
+    private boolean isDefault;
 
     public ConsumableProducts() {
     }
 
-    public ConsumableProducts(String id, String category, String metaInfo, String price,
+    public ConsumableProducts(String id, String category, String packName, String metaInfo, String price,
                               Date expiryDate, String information, String objectType, String imageUrl,
-                              List<String> freeProducts, String nextUrl) {
+                              List<String> freeProducts, String nextUrl, String payload, boolean isDefault) {
         this.id = id;
         this.category = category;
+        this.packName = packName;
         this.metaInfo = metaInfo;
         this.price = price;
         this.expiryDate = expiryDate;
@@ -34,13 +38,16 @@ public class ConsumableProducts implements Serializable {
         this.imageUrl = imageUrl;
         this.freeProducts = freeProducts;
         this.nextUrl = nextUrl;
+        this.payload = payload;
+        this.isDefault = isDefault;
     }
 
-    public ConsumableProducts(String id, String category, String metaInfo, String price,
+    public ConsumableProducts(String id, String category, String packName, String metaInfo, String price,
                               Date expiryDate, String information, String objectType, String imageUrl,
-                              List<String> freeProducts, String nextUrl, String purchaseId) {
+                              List<String> freeProducts, String nextUrl, String purchaseId, String payload, boolean isDefault) {
         this.id = id;
         this.category = category;
+        this.packName = packName;
         this.metaInfo = metaInfo;
         this.price = price;
         this.expiryDate = expiryDate;
@@ -50,6 +57,32 @@ public class ConsumableProducts implements Serializable {
         this.freeProducts = freeProducts;
         this.purchaseId = purchaseId;
         this.nextUrl = nextUrl;
+        this.payload = payload;
+        this.isDefault = isDefault;
+    }
+
+    public String getPackName() {
+        return packName;
+    }
+
+    public void setPackName(String packName) {
+        this.packName = packName;
+    }
+
+    public String getPayload() {
+        return payload;
+    }
+
+    public void setPayload(String payload) {
+        this.payload = payload;
+    }
+
+    public boolean isDefault() {
+        return isDefault;
+    }
+
+    public void setDefault(boolean aDefault) {
+        isDefault = aDefault;
     }
 
     public String getPurchaseId() {

@@ -14,18 +14,18 @@ import static com.example.demo.dto.util.CacheUtils.subscriptionPurchaseHistory;
 import static com.example.demo.dto.util.ResourceUtils.nonConsumableProducts;
 
 @RestController
-public class BattingPackController {
+public class BowlingPackController {
 
-    @GetMapping("/battingPacks")
+    @GetMapping("/bowlingPacks")
     public List<NonConsumableProducts> get() {
 
         return new ArrayList<>(nonConsumableProducts
-                .get("BattingPacks"));
+                .get("BowlingPacks"));
     }
 
-    @GetMapping("/battingPacks/purchased")
+    @GetMapping("/bowlingPacks/purchased")
     public List<NonConsumableProducts> purchase(@RequestParam String email) {
-        List<NonConsumableProducts> purchasedProducts = new ArrayList<>(nonConsumableProducts.get("BattingPacks"))
+        List<NonConsumableProducts> purchasedProducts = new ArrayList<>(nonConsumableProducts.get("BowlingPacks"))
                 .stream()
                 .filter(product -> subscriptionPurchaseHistory.getOrDefault(email, new ArrayList<>())
                         .stream()
@@ -35,7 +35,7 @@ public class BattingPackController {
 
         purchasedProducts.addAll(nonConsumablePurchaseHistory.getOrDefault(email, new ArrayList<>())
                 .stream()
-                .filter(nonConsumableProducts -> nonConsumableProducts.getCategory().equals("BattingPacks"))
+                .filter(nonConsumableProducts -> nonConsumableProducts.getCategory().equals("BowlingPacks"))
                 .collect(Collectors.toList()));
 
         return  purchasedProducts;

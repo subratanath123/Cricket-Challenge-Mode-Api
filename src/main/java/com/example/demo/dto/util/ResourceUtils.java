@@ -1,7 +1,10 @@
 package com.example.demo.dto.util;
 
+import com.example.demo.dto.gift.*;
 import com.example.demo.dto.subscription.ConsumableProducts;
 import com.example.demo.dto.subscription.NonConsumableProducts;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
@@ -18,82 +21,193 @@ public class ResourceUtils {
     public static final Map<String, List<ConsumableProducts>> consumableProducts = new HashMap<>();
     public static final Map<String, List<ConsumableProducts>> subscriptionProducts = new HashMap<>();
 
-
     static {
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        // Kits pack
+        KitsPackGift kitsPackGift1 = new KitsPackGift
+                .Builder()
+                .setJerseyWithShoeTextureUrl("https://i.imgur.com/c3c58YT.png")
+                .setJerseyWithPadHelmetGlovesTextureUrl("https://i.imgur.com/3Dn1WP3.png")
+                .setTeam("BAN")
+                .build();
+
+        KitsPackGift kitsPackGift2 = new KitsPackGift
+                .Builder()
+                .setJerseyWithShoeTextureUrl("https://i.imgur.com/7tCXKZv.png")
+                .setJerseyWithPadHelmetGlovesTextureUrl("https://i.imgur.com/2rXDDHn.png")
+                .setTeam("BAN")
+                .build();
+
+        String kitsPackGift1Json = null;
+        String kitsPackGift2Json = null;
+
+        try {
+            kitsPackGift1Json = objectMapper.writeValueAsString(kitsPackGift1);
+            kitsPackGift2Json = objectMapper.writeValueAsString(kitsPackGift2);
+        } catch (JsonProcessingException e) {
+        }
+
         List<NonConsumableProducts> nonConsuambleKitList = asList(
-                new NonConsumableProducts("1", "BAN", "Exclusive 1 Pack", "12 $", "Buy", "https://i.imgur.com/zwokeqa.png", "Kits", "/purchase/nonconsumable/Kits/1?email=#EMAIL#", "com.pack0"),
-                new NonConsumableProducts("2", "BAN", "Exclusive 2 Pack", "12 Diamonds", "Buy", "https://i.imgur.com/zwokeqa.png", "Kits", "/purchase/nonconsumable/Kits/2?email=#EMAIL#"),
-                new NonConsumableProducts("3", "BAN", "Exclusive 3 Pack", "12 Diamonds", "Buy", "https://i.imgur.com/zwokeqa.png", "Kits", "/purchase/nonconsumable/Kits/3?email=#EMAIL#"),
+                new NonConsumableProducts("111", "BAN", "Exclusive 1 Pack", "12 $", "Buy", "https://i.imgur.com/5qGmuny.png", "Kits", "/purchase/nonconsumable/Kits/1?email=#EMAIL#", "com.pack0", kitsPackGift1Json, false),
+                new NonConsumableProducts("222", "BAN", "Exclusive 2 Pack", "12 Diamonds", "Buy", "https://i.imgur.com/U4AxZin.png", "Kits", "/purchase/nonconsumable/Kits/2?email=#EMAIL#", kitsPackGift2Json, false),
+                new NonConsumableProducts("333", "BAN", "Exclusive 3 Pack", "12 Diamonds", "Buy", "https://i.imgur.com/U4AxZin.png", "Kits", "/purchase/nonconsumable/Kits/3?email=#EMAIL#", kitsPackGift2Json, false),
 
-                new NonConsumableProducts("4", "PAK", "Exclusive 1 Pack", "12 $", "Buy", "https://i.imgur.com/zwokeqa.png", "Kits", "/purchase/nonconsumable/Kits/4?email=#EMAIL#", "com.pack1"),
-                new NonConsumableProducts("5", "PAK", "Exclusive 2 Pack", "12 $", "Buy", "https://i.imgur.com/zwokeqa.png", "Kits", "/purchase/nonconsumable/Kits/5?email=#EMAIL#", "com.pack2"),
-                new NonConsumableProducts("6", "PAK", "Exclusive 3 Pack", "12 $", "Buy", "https://i.imgur.com/zwokeqa.png", "Kits", "/purchase/nonconsumable/Kits/6?email=#EMAIL#", "com.pack3"),
+                new NonConsumableProducts("4", "PAK", "Exclusive 1 Pack", "12 $", "Buy", "https://i.imgur.com/zwokeqa.png", "Kits", "/purchase/nonconsumable/Kits/4?email=#EMAIL#", "com.pack1", null, false),
+                new NonConsumableProducts("5", "PAK", "Exclusive 2 Pack", "12 $", "Buy", "https://i.imgur.com/zwokeqa.png", "Kits", "/purchase/nonconsumable/Kits/5?email=#EMAIL#", "com.pack2", null, false),
+                new NonConsumableProducts("6", "PAK", "Exclusive 3 Pack", "12 $", "Buy", "https://i.imgur.com/zwokeqa.png", "Kits", "/purchase/nonconsumable/Kits/6?email=#EMAIL#", "com.pack3", null, false),
 
-                new NonConsumableProducts("7", "SA", "Exclusive 1 Pack", "12 Coins", "Buy", "https://i.imgur.com/zwokeqa.png", "Kits", "/purchase/nonconsumable/Kits/7?email=#EMAIL#"),
-                new NonConsumableProducts("8", "SA", "Exclusive 2 Pack", "12 Coins", "Buy", "https://i.imgur.com/zwokeqa.png", "Kits", "/purchase/nonconsumable/Kits/8?email=#EMAIL#"),
-                new NonConsumableProducts("9", "SA", "Exclusive 3 Pack", "12 Coins", "Buy", "https://i.imgur.com/zwokeqa.png", "Kits", "/purchase/nonconsumable/Kits/9?email=#EMAIL#")
+                new NonConsumableProducts("7", "SA", "Exclusive 1 Pack", "12 Coins", "Buy", "https://i.imgur.com/zwokeqa.png", "Kits", "/purchase/nonconsumable/Kits/7?email=#EMAIL#", null, false),
+                new NonConsumableProducts("8", "SA", "Exclusive 2 Pack", "12 Coins", "Buy", "https://i.imgur.com/zwokeqa.png", "Kits", "/purchase/nonconsumable/Kits/8?email=#EMAIL#", null, false),
+                new NonConsumableProducts("9", "SA", "Exclusive 3 Pack", "12 Coins", "Buy", "https://i.imgur.com/zwokeqa.png", "Kits", "/purchase/nonconsumable/Kits/9?email=#EMAIL#", null, false)
         );
 
         nonConsumableProducts.put("Kits", nonConsuambleKitList);
 
 
         List<NonConsumableProducts> staudiumPackList = asList(
-                new NonConsumableProducts("1", "StadiumPacks", "Stadium 1 Pack", "12 Diamonds", "Buy", "https://i.imgur.com/zwokeqa.png", "StadiumPacks", "/purchase/nonconsumable/StadiumPacks/1?email=#EMAIL#"),
-                new NonConsumableProducts("2", "StadiumPacks", "Stadium 2 Pack", "12 Diamonds", "Buy", "https://i.imgur.com/zwokeqa.png", "StadiumPacks", "/purchase/nonconsumable/StadiumPacks/2?email=#EMAIL#"),
-                new NonConsumableProducts("3", "StadiumPacks", "Stadium 3 Pack", "12 $", "Buy", "https://i.imgur.com/zwokeqa.png", "StadiumPacks", "/purchase/nonconsumable/StadiumPacks/3?email=#EMAIL#", "com.pack5")
+                new NonConsumableProducts("10", "StadiumPacks", "Stadium 1 Pack", "12 Diamonds", "Buy", "https://i.imgur.com/zwokeqa.png", "StadiumPacks", "/purchase/nonconsumable/StadiumPacks/10?email=#EMAIL#", null, false),
+                new NonConsumableProducts("11", "StadiumPacks", "Stadium 2 Pack", "12 Diamonds", "Buy", "https://i.imgur.com/zwokeqa.png", "StadiumPacks", "/purchase/nonconsumable/StadiumPacks/11?email=#EMAIL#", null, false),
+                new NonConsumableProducts("12", "StadiumPacks", "Stadium 3 Pack", "12 $", "Buy", "https://i.imgur.com/zwokeqa.png", "StadiumPacks", "/purchase/nonconsumable/StadiumPacks/12?email=#EMAIL#", "com.pack4", null, false)
         );
 
         nonConsumableProducts.put("StadiumPacks", staudiumPackList);
 
 
         List<NonConsumableProducts> tournamentPackList = asList(
-                new NonConsumableProducts("1", "TournamentPacks", "Tournament 1 Pack", "12 Coins", "Buy", "https://i.imgur.com/zwokeqa.png", "TournamentPacks", "/purchase/nonconsumable/TournamentPacks/1?email=#EMAIL#"),
-                new NonConsumableProducts("2", "TournamentPacks", "Tournament 2 Pack", "12 $", "Buy", "https://i.imgur.com/zwokeqa.png", "TournamentPacks", "/purchase/nonconsumable/TournamentPacks/2?email=#EMAIL#", "com.pack6"),
-                new NonConsumableProducts("3", "TournamentPacks", "Tournament 3 Pack", "12 Coins", "Buy", "https://i.imgur.com/zwokeqa.png", "TournamentPacks", "/purchase/nonconsumable/TournamentPacks/3?email=#EMAIL#")
+                new NonConsumableProducts("13", "TournamentPacks", "Tournament 1 Pack", "12 Coins", "Buy", "https://i.imgur.com/zwokeqa.png", "TournamentPacks", "/purchase/nonconsumable/TournamentPacks/13?email=#EMAIL#", null, false),
+                new NonConsumableProducts("14", "TournamentPacks", "Tournament 2 Pack", "12 $", "Buy", "https://i.imgur.com/zwokeqa.png", "TournamentPacks", "/purchase/nonconsumable/TournamentPacks/14?email=#EMAIL#", "com.pack5", null, false),
+                new NonConsumableProducts("15", "TournamentPacks", "Tournament 3 Pack", "12 Coins", "Buy", "https://i.imgur.com/zwokeqa.png", "TournamentPacks", "/purchase/nonconsumable/TournamentPacks/15?email=#EMAIL#", null, false)
         );
 
         nonConsumableProducts.put("TournamentPacks", tournamentPackList);
 
+//        BattingGiftPack
+        BattingGift battingGift = new BattingGift
+                .Builder()
+                .setDefensePower(100)
+                .setShotPower(100)
+                .setTextureUrl("https://i.imgur.com/wyLVR8W.png")
+                .build();
+
+        BattingGift defaultBattingGift = new BattingGift
+                .Builder()
+                .setDefensePower(0)
+                .setShotPower(0)
+                .setTextureUrl("https://i.imgur.com/S3OSle0.png")
+                .build();
+
+        String battingGiftJson = null;
+        String defaultBattingGiftJson = null;
+        try {
+            battingGiftJson = objectMapper.writeValueAsString(battingGift);
+            defaultBattingGiftJson = objectMapper.writeValueAsString(defaultBattingGift);
+        } catch (JsonProcessingException e) {
+        }
 
         List<NonConsumableProducts> battingPackList = asList(
-                new NonConsumableProducts("1", "BattingPacks", "Batting 1 Pack", "12 Diamonds", "Buy", "https://i.imgur.com/zwokeqa.png", "BattingPacks", "/purchase/nonconsumable/BattingPacks/1?email=#EMAIL#"),
-                new NonConsumableProducts("2", "BattingPacks", "Batting 2 Pack", "12 Diamonds", "Buy", "https://i.imgur.com/zwokeqa.png", "BattingPacks", "/purchase/nonconsumable/BattingPacks/2?email=#EMAIL#"),
-                new NonConsumableProducts("3", "BattingPacks", "Batting 3 Pack", "12 Diamonds", "Buy", "https://i.imgur.com/zwokeqa.png", "BattingPacks", "/purchase/nonconsumable/BattingPacks/3?email=#EMAIL#")
+                new NonConsumableProducts("116", "BattingPacks", "Default Batting Pack", "0 Diamonds", "Use", "https://i.imgur.com/40vivT3.png", "BattingPacks", "/purchase/nonconsumable/BattingPacks/116?email=#EMAIL#", defaultBattingGiftJson, true),
+                new NonConsumableProducts("16", "BattingPacks", "Batting 1 Pack", "12 Diamonds", "Buy", "https://i.imgur.com/dut11kl.png", "BattingPacks", "/purchase/nonconsumable/BattingPacks/16?email=#EMAIL#", battingGiftJson, false),
+                new NonConsumableProducts("17", "BattingPacks", "Batting 2 Pack", "12 Diamonds", "Buy", "https://i.imgur.com/dut11kl.png", "BattingPacks", "/purchase/nonconsumable/BattingPacks/17?email=#EMAIL#", battingGiftJson, false),
+                new NonConsumableProducts("18", "BattingPacks", "Batting 3 Pack", "12 Diamonds", "Buy", "https://i.imgur.com/dut11kl.png", "BattingPacks", "/purchase/nonconsumable/BattingPacks/18?email=#EMAIL#", battingGiftJson, false)
         );
 
         nonConsumableProducts.put("BattingPacks", battingPackList);
 
+//        BowlingGift
+        BowlingGift bowlingGift1 = new BowlingGift
+                .Builder()
+                .setSpeed(80)
+                .setSwing(80)
+                .setTextureUrl("https://i.imgur.com/cT7LCsl.png")
+                .build();
+
+        BowlingGift bowlingGift2 = new BowlingGift
+                .Builder()
+                .setSpeed(60)
+                .setSwing(60)
+                .setTextureUrl("https://i.imgur.com/uKiKfzz.png")
+                .build();
+
+        String bowling1GiftJson = null;
+        String bowling2GiftJson = null;
+
+        try {
+            bowling1GiftJson = objectMapper.writeValueAsString(bowlingGift1);
+            bowling2GiftJson = objectMapper.writeValueAsString(bowlingGift2);
+        } catch (JsonProcessingException e) {
+        }
+
+        List<NonConsumableProducts> bowlingPackList = asList(
+                new NonConsumableProducts("1116", "BowlingPacks", "Bowling 1 Pack", "12 Diamonds", "Buy", "https://i.imgur.com/9Eqpc36.png", "BowlingPacks", "/purchase/nonconsumable/BattingPacks/1116?email=#EMAIL#", bowling1GiftJson, false),
+                new NonConsumableProducts("1117", "BowlingPacks", "Bowling 2 Pack", "12 Diamonds", "Buy", "https://i.imgur.com/IrjM5UD.png", "BowlingPacks", "/purchase/nonconsumable/BattingPacks/1117?email=#EMAIL#", bowling2GiftJson, false),
+                new NonConsumableProducts("1118", "BowlingPacks", "Bowling 3 Pack", "12 Diamonds", "Buy", "https://i.imgur.com/9Eqpc36.png", "BowlingPacks", "/purchase/nonconsumable/BattingPacks/1118?email=#EMAIL#", bowling1GiftJson, false)
+        );
+
+        nonConsumableProducts.put("BowlingPacks", bowlingPackList);
+
+
 
         ////Subscription packlist
         List<ConsumableProducts> subscriptionPackList = asList(
-                new ConsumableProducts("11", "Premium Subscription", "Subscription", "50 $", Date.from(Instant.now().plus(30, ChronoUnit.DAYS)),
+                new ConsumableProducts("19",
+                        "Premium Subscription",
+                        "Premium Subscription. Get Unlimited Offers",
+                        "Subscription",
+                        "50 $",
+                        Date.from(Instant.now().plus(30, ChronoUnit.DAYS)),
                         "Get Limited Time Offer",
                         "Subscription",
                         "https://i.imgur.com/Z0qwQbu.png",
                         asList("1", "2", "3"),
-                        "com.pack8")
+                        "/purchase/subscription/19?email=#EMAIL#",
+                        "com.pack100",
+                        null, false)
         );
 
 
         subscriptionProducts.put("Subscription", subscriptionPackList);
 
 
+//        CoinGiftPack
+        DiamondGift diamondGift = new DiamondGift
+                .Builder()
+                .setGift(1000)
+                .build();
+
+        String diamondGiftJson = null;
+        try {
+            diamondGiftJson = objectMapper.writeValueAsString(diamondGift);
+        } catch (JsonProcessingException e) {
+        }
+
         List<ConsumableProducts> diamondPackList = asList(
-                new ConsumableProducts("1", "DiamondPacks", "Diamond 1 Pack", "12 $",  Date.from(Instant.now().plus(30, ChronoUnit.DAYS)),"Buy", "ConsumableProducts" ,"https://i.imgur.com/zwokeqa.png", null, "/purchase/nonconsumable/DiamondPacks/1?email=#EMAIL#"),
-                new ConsumableProducts("2", "DiamondPacks", "Diamond 2 Pack", "12 $",  Date.from(Instant.now().plus(30, ChronoUnit.DAYS)),"Buy","ConsumableProducts" , "https://i.imgur.com/zwokeqa.png", null, "/purchase/nonconsumable/DiamondPacks/2?email=#EMAIL#"),
-                new ConsumableProducts("3", "DiamondPacks", "Diamond 3 Pack", "12 $",  Date.from(Instant.now().plus(30, ChronoUnit.DAYS)),"Buy","ConsumableProducts" , "https://i.imgur.com/zwokeqa.png", null, "/purchase/nonconsumable/DiamondPacks/3?email=#EMAIL#")
+                new ConsumableProducts("21", "DiamondPacks", "Diamond 1 Pack", "Diamond 1 Pack","12 $", Date.from(Instant.now().plus(30, ChronoUnit.DAYS)), "Buy", "ConsumableProducts", "https://i.imgur.com/zwokeqa.png", null, "/purchase/nonconsumable/DiamondPacks/21?email=#EMAIL#", "com.pack26", diamondGiftJson, false),
+                new ConsumableProducts("22", "DiamondPacks", "Diamond 2 Pack", "Diamond 2 Pack", "12 $", Date.from(Instant.now().plus(30, ChronoUnit.DAYS)), "Buy", "ConsumableProducts", "https://i.imgur.com/zwokeqa.png", null, "/purchase/nonconsumable/DiamondPacks/22?email=#EMAIL#", "com.pack27", diamondGiftJson, false),
+                new ConsumableProducts("23", "DiamondPacks", "Diamond 3 Pack", "Diamond 3 Pack", "12 $", Date.from(Instant.now().plus(30, ChronoUnit.DAYS)), "Buy", "ConsumableProducts", "https://i.imgur.com/zwokeqa.png", null, "/purchase/nonconsumable/DiamondPacks/23?email=#EMAIL#", "com.pack28", diamondGiftJson, false)
         );
 
         consumableProducts.put("DiamondPacks", diamondPackList);
 
+//        CoinGiftPack
+        CoinGift coinGift = new CoinGift
+                .Builder()
+                .setGift(1000)
+                .build();
+
+        String coinGiftJson = null;
+        try {
+            coinGiftJson = objectMapper.writeValueAsString(coinGift);
+        } catch (JsonProcessingException e) {
+        }
+
         List<ConsumableProducts> coinPackList = asList(
-                new ConsumableProducts("1", "CoinsPacks", "Coin 1 Pack", "12 $",  Date.from(Instant.now().plus(30, ChronoUnit.DAYS)),"Buy", "ConsumableProducts" ,"https://i.imgur.com/zwokeqa.png", null, "/purchase/nonconsumable/CoinsPacks/1?email=#EMAIL#", "com.pack4"),
-                new ConsumableProducts("2", "CoinsPacks", "Coin 2 Pack", "12 $",  Date.from(Instant.now().plus(30, ChronoUnit.DAYS)),"Buy", "ConsumableProducts" ,"https://i.imgur.com/zwokeqa.png", null, "CoinsPacks", "/purchase/nonconsumable/CoinsPacks/2?email=#EMAIL#"),
-                new ConsumableProducts("3", "CoinsPacks", "Coin 3 Pack", "12 $",  Date.from(Instant.now().plus(30, ChronoUnit.DAYS)),"Buy", "ConsumableProducts" ,"https://i.imgur.com/zwokeqa.png", null, "CoinsPacks", "/purchase/nonconsumable/CoinsPacks/3?email=#EMAIL#")
+                new ConsumableProducts("24", "CoinsPacks", "Coin 1 Pack","Coin 1 Pack", "12 $", Date.from(Instant.now().plus(30, ChronoUnit.DAYS)), "Buy", "ConsumableProducts", "https://i.imgur.com/zwokeqa.png", null, "/purchase/nonconsumable/CoinsPacks/24?email=#EMAIL#", "com.pack6", coinGiftJson, false),
+                new ConsumableProducts("25", "CoinsPacks", "Coin 2 Pack","Coin 2 Pack", "12 $", Date.from(Instant.now().plus(30, ChronoUnit.DAYS)), "Buy", "ConsumableProducts", "https://i.imgur.com/zwokeqa.png", null, "/purchase/nonconsumable/CoinsPacks/25?email=#EMAIL#", "com.pack7", coinGiftJson, false),
+                new ConsumableProducts("26", "CoinsPacks", "Coin 3 Pack","Coin 3 Pack", "12 $", Date.from(Instant.now().plus(30, ChronoUnit.DAYS)), "Buy", "ConsumableProducts", "https://i.imgur.com/zwokeqa.png", null, "/purchase/nonconsumable/CoinsPacks/26?email=#EMAIL#", "com.pack8", coinGiftJson, false)
         );
 
         consumableProducts.put("CoinsPacks", coinPackList);
-
 
     }
 

@@ -95,49 +95,4 @@ public class PurchaseController {
         return "failed";
     }
 
-
-    @GetMapping("/purchase/consumable/{category}/{id}")
-    public String purchaseConsumableProducts(@RequestParam String email,
-                                             @PathVariable String id,
-                                             @PathVariable String category) {
-
-        List<ConsumableProducts> purchaseHistoryOrDefault = consumablePurchaseHistory.getOrDefault(email, new ArrayList<>());
-
-        purchaseHistoryOrDefault
-                .add(
-                        consumableProducts
-                                .get(category)
-                                .stream()
-                                .filter(consumableProducts -> consumableProducts.getId().equals(id))
-                                .findFirst()
-                                .orElse(null)
-                );
-
-        consumablePurchaseHistory.put(email, purchaseHistoryOrDefault);
-
-        return "purchased";
-    }
-
-    @GetMapping("/purchase/nonconsumable/{category}/{id}")
-    public String purchaseNonConsumableProducts(@RequestParam String email,
-                                                @PathVariable String id,
-                                                @PathVariable String category) {
-
-        List<NonConsumableProducts> purchaseHistoryOrDefault = nonConsumablePurchaseHistory.getOrDefault(email, new ArrayList<>());
-
-        purchaseHistoryOrDefault
-                .add(
-                        nonConsumableProducts
-                                .get(category)
-                                .stream()
-                                .filter(nonConsumableProducts -> nonConsumableProducts.getId().equals(id))
-                                .findFirst()
-                                .orElse(null)
-                );
-
-        nonConsumablePurchaseHistory.put(email, purchaseHistoryOrDefault);
-
-        return "purchased";
-    }
-
 }

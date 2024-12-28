@@ -28,19 +28,7 @@ public class SubscriptionPackController {
 
     @GetMapping("/subscriptionPacks/purchased")
     public List<ConsumableProducts> purchase(@RequestParam String email) {
-
-        return new ArrayList<>(subscriptionPurchaseHistory.getOrDefault(email,
-                Arrays.asList(
-                        new ConsumableProducts("11", "Premium Subscription", "Subscription", "50 $",
-                                Date.from(Instant.now().plus(30, ChronoUnit.DAYS)),
-                                "Get Limited Time Offer",
-                                "Subscription",
-                                "https://i.imgur.com/Z0qwQbu.png",
-                                asList("1", "2", "3"),
-                                "/purchase/11")
-                )
-        )
-        );
+        return new ArrayList<>(subscriptionPurchaseHistory.getOrDefault(email, new ArrayList<>()));
     }
 
 }
