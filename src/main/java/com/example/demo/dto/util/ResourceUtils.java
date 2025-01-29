@@ -66,18 +66,26 @@ public class ResourceUtils {
 
 
         List<NonConsumableProducts> staudiumPackList = asList(
-                new NonConsumableProducts("10", "StadiumPacks", "Stadium 1 Pack", "12 Diamonds", "Buy", "https://i.imgur.com/zwokeqa.png", "StadiumPacks", "/purchase/nonconsumable/StadiumPacks/10?email=#EMAIL#", null, false),
-                new NonConsumableProducts("11", "StadiumPacks", "Stadium 2 Pack", "12 Diamonds", "Buy", "https://i.imgur.com/zwokeqa.png", "StadiumPacks", "/purchase/nonconsumable/StadiumPacks/11?email=#EMAIL#", null, false),
-                new NonConsumableProducts("12", "StadiumPacks", "Stadium 3 Pack", "12 $", "Buy", "https://i.imgur.com/zwokeqa.png", "StadiumPacks", "/purchase/nonconsumable/StadiumPacks/12?email=#EMAIL#", "com.pack4", null, false)
+                new NonConsumableProducts("10", "DUBAI", "Dubai Pack", "12 Diamonds", "Buy", "https://i.imgur.com/zwokeqa.png", "StadiumPacks", "/purchase/nonconsumable/StadiumPacks/10?email=#EMAIL#", null, false),
+                new NonConsumableProducts("11", "HAML", "Hamilton Pack", "12 Diamonds", "Buy", "https://i.imgur.com/zwokeqa.png", "StadiumPacks", "/purchase/nonconsumable/StadiumPacks/11?email=#EMAIL#", null, false),
+                new NonConsumableProducts("12", "MUMBAI", "Mumbai Pack", "12 $", "Buy", "https://i.imgur.com/zwokeqa.png", "StadiumPacks", "/purchase/nonconsumable/StadiumPacks/12?email=#EMAIL#", "com.pack4", null, false),
+                new NonConsumableProducts("122", "TRNTB", "Trent-Bridge Pack", "12 $", "Buy", "https://i.imgur.com/zwokeqa.png", "StadiumPacks", "/purchase/nonconsumable/StadiumPacks/122?email=#EMAIL#", "com.pack4", null, false)
         );
 
         nonConsumableProducts.put("StadiumPacks", staudiumPackList);
 
+        List<NonConsumableProducts> commentaryPackList = asList(
+                new NonConsumableProducts("10", "BANGLA", "Bangla Pack", "12 Diamonds", "Buy", "https://i.imgur.com/zwokeqa.png", "StadiumPacks", "/purchase/nonconsumable/StadiumPacks/10?email=#EMAIL#", null, false),
+                new NonConsumableProducts("10", "TAMIL", "Tamil Pack", "12 Diamonds", "Buy", "https://i.imgur.com/zwokeqa.png", "StadiumPacks", "/purchase/nonconsumable/StadiumPacks/10?email=#EMAIL#", null, false)
+        );
+
+        nonConsumableProducts.put("CommentaryPacks", commentaryPackList);
 
         List<NonConsumableProducts> tournamentPackList = asList(
-                new NonConsumableProducts("13", "TournamentPacks", "Tournament 1 Pack", "12 Coins", "Buy", "https://i.imgur.com/zwokeqa.png", "TournamentPacks", "/purchase/nonconsumable/TournamentPacks/13?email=#EMAIL#", null, false),
-                new NonConsumableProducts("14", "TournamentPacks", "Tournament 2 Pack", "12 $", "Buy", "https://i.imgur.com/zwokeqa.png", "TournamentPacks", "/purchase/nonconsumable/TournamentPacks/14?email=#EMAIL#", "com.pack5", null, false),
-                new NonConsumableProducts("15", "TournamentPacks", "Tournament 3 Pack", "12 Coins", "Buy", "https://i.imgur.com/zwokeqa.png", "TournamentPacks", "/purchase/nonconsumable/TournamentPacks/15?email=#EMAIL#", null, false)
+                new NonConsumableProducts("13", "World Cup", "World Cup Pack", "12 Coins", "Buy", "https://i.imgur.com/zwokeqa.png", "TournamentPacks", "/purchase/nonconsumable/TournamentPacks/13?email=#EMAIL#", null, false),
+                new NonConsumableProducts("14", "Champions Trophy", "Champions Trophy Pack", "12 $", "Buy", "https://i.imgur.com/zwokeqa.png", "TournamentPacks", "/purchase/nonconsumable/TournamentPacks/14?email=#EMAIL#", "com.pack5", null, false),
+                new NonConsumableProducts("15", "M15", "M15 Pack", "12 Coins", "Buy", "https://i.imgur.com/zwokeqa.png", "TournamentPacks", "/purchase/nonconsumable/TournamentPacks/15?email=#EMAIL#", null, false),
+                new NonConsumableProducts("16", "Legends Cup Journey", "Legends Cup Journey Pack", "12 Coins", "Buy", "https://i.imgur.com/zwokeqa.png", "TournamentPacks", "/purchase/nonconsumable/TournamentPacks/16?email=#EMAIL#", null, false)
         );
 
         nonConsumableProducts.put("TournamentPacks", tournamentPackList);
