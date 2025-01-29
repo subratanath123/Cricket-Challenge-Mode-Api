@@ -7,5 +7,6 @@ public enum PackEnum {
     BatPacks,
     KitsPacks,
     TournamentPacks,
+    CommentaryPacks,
     SubscriptionPacks
 }

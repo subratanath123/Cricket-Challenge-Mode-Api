@@ -75,8 +75,8 @@ public class ResourceUtils {
         nonConsumableProducts.put("StadiumPacks", staudiumPackList);
 
         List<NonConsumableProducts> commentaryPackList = asList(
-                new NonConsumableProducts("10", "BANGLA", "Bangla Pack", "12 Diamonds", "Buy", "https://i.imgur.com/zwokeqa.png", "StadiumPacks", "/purchase/nonconsumable/StadiumPacks/10?email=#EMAIL#", null, false),
-                new NonConsumableProducts("10", "TAMIL", "Tamil Pack", "12 Diamonds", "Buy", "https://i.imgur.com/zwokeqa.png", "StadiumPacks", "/purchase/nonconsumable/StadiumPacks/10?email=#EMAIL#", null, false)
+                new NonConsumableProducts("180", "BANGLA", "Bangla Pack", "12 Diamonds", "Buy", "https://i.imgur.com/zwokeqa.png", "CommentaryPacks", "/purchase/nonconsumable/CommentaryPacks/180?email=#EMAIL#", null, false),
+                new NonConsumableProducts("181", "TAMIL", "Tamil Pack", "12 Diamonds", "Buy", "https://i.imgur.com/zwokeqa.png", "CommentaryPacks", "/purchase/nonconsumable/CommentaryPacks/181?email=#EMAIL#", null, false)
         );
 
         nonConsumableProducts.put("CommentaryPacks", commentaryPackList);
