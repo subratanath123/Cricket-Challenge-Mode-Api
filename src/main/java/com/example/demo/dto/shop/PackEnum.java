@@ -8,5 +8,6 @@ public enum PackEnum {
     KitsPacks,
     TournamentPacks,
     CommentaryPacks,
-    SubscriptionPacks
+    SubscriptionPacks,
+    NoAdsPacks
 }

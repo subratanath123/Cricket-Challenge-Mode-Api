@@ -217,6 +217,12 @@ public class ResourceUtils {
 
         consumableProducts.put("CoinsPacks", coinPackList);
 
+        List<ConsumableProducts> noAdsPackList = asList(
+                new ConsumableProducts("126", "NoAdsPacks", "No Ads 1 Pack", "NoAds 1 Pack","12 $", Date.from(Instant.now().plus(30, ChronoUnit.DAYS)), "Buy", "ConsumableProducts", "https://i.imgur.com/zwokeqa.png", null, "/purchase/consumable/NoAdsPacks/126?email=#EMAIL#", "com.pack126", null, false)
+        );
+
+        consumableProducts.put("NoAdsPacks", noAdsPackList);
+
     }
 
 }

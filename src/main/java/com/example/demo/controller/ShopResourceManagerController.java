@@ -28,7 +28,8 @@ public class ShopResourceManagerController {
                 new Packs(KitsPacks.name(), "Kits Packs"),
                 new Packs(TournamentPacks.name(), "Tournament Packs"),
                 new Packs(CommentaryPacks.name(), "Commentary Packs"),
-                new Packs(SubscriptionPacks.name(), "Subscription Packs")
+                new Packs(SubscriptionPacks.name(), "Subscription Packs"),
+                new Packs(NoAdsPacks.name(), "NoAds Packs")
         );
     }
 
