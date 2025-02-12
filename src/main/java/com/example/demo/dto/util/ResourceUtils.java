@@ -167,7 +167,8 @@ public class ResourceUtils {
                         "Get Limited Time Offer",
                         "Subscription",
                         "https://i.imgur.com/Z0qwQbu.png",
-                        asList("1", "2", "3"),
+                        asList("1", "2", "3", "4", "5", "7", "8", "9", "10", "11", "12", "13", "1116", "1117",
+                                "1118", "16", "17", "18", "13", "14", "15", "16", "111", "222", "333"),
                         "/purchase/subscription/19?email=#EMAIL#",
                         "com.pack100",
                         null, false)
