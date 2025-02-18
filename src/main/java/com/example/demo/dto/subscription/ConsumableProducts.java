@@ -12,7 +12,25 @@ public class ConsumableProducts implements Serializable {
     private String metaInfo;
     private String price;
     private Date expiryDate;
-    private String information;
+    private String information = "Jodi Tomar Sathe Amar Dekha Hoy\n" +
+            "Jodi Tomar Sathe Abar Dekha Hoy\n" +
+            "E Shudhu Dekha Noy Binimoy Bonimoy\n" +
+            "Kotogulo Bochor Paar Hoye\n" +
+            "Sala tomaro lagiya, Jogini Sajibo\n" +
+            "Koyekta Golpo Roye Soye\n";
+
+    private String alertInformation = "The offer is Limited";
+    private String flipInformation = "Jodi Tomar Sathe Amar Dekha Hoy " +
+            "Jodi Tomar Sathe Abar Dekha Hoy " +
+            "E Shudhu Dekha Noy Binimoy Bonimoy " +
+            "Kotogulo Bochor Paar Hoye " +
+            "Koyekta Golpo Roye Soye " +
+            "Tomar Amar Abar Jodi Kotha Hoy " +
+            "Binimoy Bonimoy " +
+            "Ekta Sohor Amader Noy " +
+            "Ekta Golpo Amader Noy " +
+            "Tomar Amar Abar Jodi Kotha Hoy " +
+            "Binimoy Kotha Hoy";
     private String imageUrl;
     private String objectType = "ConsumableProducts";
     private List<String> freeProducts;
@@ -33,7 +51,7 @@ public class ConsumableProducts implements Serializable {
         this.metaInfo = metaInfo;
         this.price = price;
         this.expiryDate = expiryDate;
-        this.information = information;
+//        this.information = information;
         this.objectType = objectType;
         this.imageUrl = imageUrl;
         this.freeProducts = freeProducts;
@@ -171,5 +189,20 @@ public class ConsumableProducts implements Serializable {
 
     public void setNextUrl(String nextUrl) {
         this.nextUrl = nextUrl;
+    }
+    public String getAlertInformation() {
+        return alertInformation;
+    }
+
+    public void setAlertInformation(String alertInformation) {
+        this.alertInformation = alertInformation;
+    }
+
+    public String getFlipInformation() {
+        return flipInformation;
+    }
+
+    public void setFlipInformation(String flipInformation) {
+        this.flipInformation = flipInformation;
     }
 }

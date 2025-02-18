@@ -11,7 +11,24 @@ public class NonConsumableProducts implements Serializable {
     private String packName;
     private String imageUrl;
     private String price;
-    private String information;
+    private String information = "Jodi Tomar Sathe Amar Dekha Hoy\n" +
+            "Jodi Tomar Sathe Abar Dekha Hoy\n" +
+            "E Shudhu Dekha Noy Binimoy Bonimoy\n" +
+            "Kotogulo Bochor Paar Hoye\n" +
+            "Koyekta Golpo Roye Soye\n";
+
+    private String alertInformation = "The offer is Limited";
+    private String flipInformation =  "Jodi Tomar Sathe Amar Dekha Hoy " +
+            "Jodi Tomar Sathe Abar Dekha Hoy " +
+            "E Shudhu Dekha Noy Binimoy Bonimoy " +
+            "Kotogulo Bochor Paar Hoye " +
+            "Koyekta Golpo Roye Soye " +
+            "Tomar Amar Abar Jodi Kotha Hoy " +
+            "Binimoy Bonimoy " +
+            "Ekta Sohor Amader Noy " +
+            "Ekta Golpo Amader Noy " +
+            "Tomar Amar Abar Jodi Kotha Hoy " +
+            "Binimoy Kotha Hoy";
     private String nextUrl;
     private String objectType = "NonConsumableProducts";
     private String purchaseId;
@@ -26,7 +43,7 @@ public class NonConsumableProducts implements Serializable {
         this.metaInfo = metaInfo;
         this.packName = packName;
         this.price = price;
-        this.information = information;
+//        this.information = information;
         this.imageUrl = imageUrl;
         this.category = category;
         this.nextUrl = nextUrl;
@@ -144,5 +161,21 @@ public class NonConsumableProducts implements Serializable {
 
     public void setNextUrl(String nextUrl) {
         this.nextUrl = nextUrl;
+    }
+
+    public String getAlertInformation() {
+        return alertInformation;
+    }
+
+    public void setAlertInformation(String alertInformation) {
+        this.alertInformation = alertInformation;
+    }
+
+    public String getFlipInformation() {
+        return flipInformation;
+    }
+
+    public void setFlipInformation(String flipInformation) {
+        this.flipInformation = flipInformation;
     }
 }
