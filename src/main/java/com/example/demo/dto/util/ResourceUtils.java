@@ -219,7 +219,7 @@ public class ResourceUtils {
         consumableProducts.put("CoinsPacks", coinPackList);
 
         List<NonConsumableProducts> noAdsPackList = asList(
-             new NonConsumableProducts("126", "NoAdsPacks", "No Ads 1 Pack", "12 $", "Buy", "https://i.imgur.com/9Eqpc36.png", "NoAdsPacks", "/purchase/NoAdsPacks/BattingPacks/126?email=#EMAIL#",  "shadja.asdasdn.asda" ,null, false)
+             new NonConsumableProducts("126", "NoAdsPacks", "No Ads 1 Pack", "12 $", "Buy", "https://i.imgur.com/9Eqpc36.png", "NoAdsPacks", "/purchase/NoAdsPacks/NoAdsPacks/126?email=#EMAIL#",  "shadja.asdasdn.asda" ,null, false)
         );
 
         nonConsumableProducts.put("NoAdsPacks", noAdsPackList);

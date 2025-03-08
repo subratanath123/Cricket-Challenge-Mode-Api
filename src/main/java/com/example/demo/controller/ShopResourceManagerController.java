@@ -22,7 +22,7 @@ public class ShopResourceManagerController {
 
         return Arrays.asList(
                 new Packs(DiamondPacks.name(), "Diamond Packs"),
-                new Packs(CoinPacks.name(), "Coin Packs"),
+                new Packs(CoinsPacks.name(), "Coin Packs"),
                 new Packs(StadiumPacks.name(), "Stadium Packs"),
                 new Packs(BatPacks.name(), "Bat Packs"),
                 new Packs(KitsPacks.name(), "Kits Packs"),
