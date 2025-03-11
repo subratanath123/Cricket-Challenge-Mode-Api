@@ -20,17 +20,17 @@ public class ConsumableProducts implements Serializable {
             "Koyekta Golpo Roye Soye\n";
 
     private String alertInformation = "The offer is Limited";
-    private String flipInformation = "Jodi Tomar Sathe Amar Dekha Hoy " +
-            "Jodi Tomar Sathe Abar Dekha Hoy " +
-            "E Shudhu Dekha Noy Binimoy Bonimoy " +
-            "Kotogulo Bochor Paar Hoye " +
-            "Koyekta Golpo Roye Soye " +
-            "Tomar Amar Abar Jodi Kotha Hoy " +
-            "Binimoy Bonimoy " +
-            "Ekta Sohor Amader Noy " +
-            "Ekta Golpo Amader Noy " +
-            "Tomar Amar Abar Jodi Kotha Hoy " +
-            "Binimoy Kotha Hoy";
+    private String flipInformation = "* Jodi Tomar Sathe Amar Dekha Hoy " +
+            "* Jodi Tomar Sathe Abar Dekha Hoy " +
+            "* E Shudhu Dekha Noy Binimoy Bonimoy " +
+            "* Kotogulo Bochor Paar Hoye " +
+            "* Koyekta Golpo Roye Soye " +
+            "* Tomar Amar Abar Jodi Kotha Hoy " +
+            "* Binimoy Bonimoy " +
+            "* Ekta Sohor Amader Noy " +
+            "* Ekta Golpo Amader Noy " +
+            "* Tomar Amar Abar Jodi Kotha Hoy " +
+            "* Binimoy Kotha Hoy";
     private String imageUrl;
     private String objectType = "ConsumableProducts";
     private List<String> freeProducts;
