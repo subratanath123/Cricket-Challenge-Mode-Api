@@ -84,7 +84,7 @@ public class ResourceUtils {
                 new NonConsumableProducts("10", "DUBAI", "Dubai Pack", "12 Diamonds", "Buy", " https://i.imgur.com/CztRcF9.png", "StadiumPacks", "/purchase/nonconsumable/StadiumPacks/10?email=#EMAIL#", null, false),
                 new NonConsumableProducts("11", "HAML", "Hamilton Pack", "12 Diamonds", "Buy", "https://i.imgur.com/yMB4XyE.png", "StadiumPacks", "/purchase/nonconsumable/StadiumPacks/11?email=#EMAIL#", null, false),
                 new NonConsumableProducts("12", "MUMB", "Mumbai Pack", "12 $", "Buy", "https://i.imgur.com/JwuJP6U.png", "StadiumPacks", "/purchase/nonconsumable/StadiumPacks/12?email=#EMAIL#", "com.pack4", null, false),
-                new NonConsumableProducts("122", "TRNTB", "Trent-Bridge Pack", "12 $", "Buy", "https://i.imgur.com/YScVxbF.png", "StadiumPacks", "/purchase/nonconsumable/StadiumPacks/122?email=#EMAIL#", "com.pack4", null, false)
+                new NonConsumableProducts("122", "TRNTB", "Trent-Bridge Pack", "12 $", "Buy", "https://i.imgur.com/YScVxbF.png", "StadiumPacks", "/purchase/nonconsumable/StadiumPacks/122?email=#EMAIL#", "com.pack6", null, false)
         );
 
         nonConsumableProducts.put("StadiumPacks", staudiumPackList);
