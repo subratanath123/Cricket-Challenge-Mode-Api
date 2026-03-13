@@ -1,6 +1,11 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.subscription.NonConsumableProducts;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,8 +19,20 @@ import static com.example.demo.dto.util.CacheUtils.subscriptionPurchaseHistory;
 import static com.example.demo.dto.util.ResourceUtils.nonConsumableProducts;
 
 @RestController
+@Tag(name = "Bowling Packs", description = "API endpoints for managing bowling equipment packs. Bowling packs are non-consumable in-game items that provide players with different bowling equipment and ball options to enhance their cricket gameplay experience.")
 public class BowlingPackController {
 
+    @Operation(
+        summary = "Get all available bowling packs",
+        description = "Retrieves a complete list of all bowling packs available in the game store. " +
+                      "This endpoint returns all bowling equipment packs regardless of purchase status. " +
+                      "Each pack contains details like pack name, price, image URL, and metadata about the bowling equipment. " +
+                      "Use this endpoint to display the bowling packs catalog in the game shop."
+    )
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Successfully retrieved list of bowling packs"),
+        @ApiResponse(responseCode = "500", description = "Internal server error")
+    })
     @GetMapping("/bowlingPacks")
     public List<NonConsumableProducts> get() {
 
@@ -23,8 +40,30 @@ public class BowlingPackController {
                 .get("BowlingPacks"));
     }
 
+    @Operation(
+        summary = "Get purchased bowling packs for a user",
+        description = "Retrieves all bowling packs that have been purchased by a specific user. " +
+                      "This endpoint combines two sources: " +
+                      "1. Free bowling packs included with active subscriptions (checks if subscription provides free products or is a default subscription) " +
+                      "2. Bowling packs directly purchased by the user through in-app purchases. " +
+                      "Use this to unlock bowling equipment in the game based on user ownership. " +
+                      "The response includes all pack details for owned items only."
+    )
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Successfully retrieved purchased bowling packs"),
+        @ApiResponse(responseCode = "400", description = "Invalid email parameter"),
+        @ApiResponse(responseCode = "500", description = "Internal server error")
+    })
     @GetMapping("/bowlingPacks/purchased")
-    public List<NonConsumableProducts> purchase(@RequestParam String email) {
+    public List<NonConsumableProducts> purchase(
+        @Parameter(
+            description = "User's email address to identify their purchase history. " +
+                         "This is used as the unique identifier to fetch user-specific purchased items.",
+            required = true,
+            example = "player@example.com"
+        )
+        @RequestParam String email
+    ) {
         List<NonConsumableProducts> purchasedProducts = new ArrayList<>(nonConsumableProducts.get("BowlingPacks"))
                 .stream()
                 .filter(product -> subscriptionPurchaseHistory.getOrDefault(email, new ArrayList<>())

@@ -1,6 +1,11 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.subscription.NonConsumableProducts;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,9 +20,26 @@ import static com.example.demo.dto.util.CacheUtils.subscriptionPurchaseHistory;
 import static com.example.demo.dto.util.ResourceUtils.nonConsumableProducts;
 
 @RestController
+@Tag(name = "Stadium Packs", description = "API endpoints for managing stadium/venue packs. Stadium packs are non-consumable in-game items that unlock different cricket venues and grounds where matches can be played, enhancing the visual variety and immersion of the game.")
 public class StadiumPackController {
 
 
+    @Operation(
+        summary = "Get all available stadium packs",
+        description = "Retrieves a complete list of all stadium/venue packs available in the game store. " +
+                      "This endpoint returns all stadium unlock options with different iconic cricket grounds. " +
+                      "Each pack contains details like: " +
+                      "- Stadium name and location " +
+                      "- Price information " +
+                      "- Preview images of the stadium " +
+                      "- Stadium capacity and special features. " +
+                      "Stadiums are non-consumable and remain unlocked permanently once purchased. " +
+                      "Use this endpoint to display the stadium catalog in the game shop."
+    )
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Successfully retrieved list of stadium packs"),
+        @ApiResponse(responseCode = "500", description = "Internal server error")
+    })
     @GetMapping("/stadiumPacks")
     public List<NonConsumableProducts> get() {
 
@@ -25,8 +47,30 @@ public class StadiumPackController {
                 .get("StadiumPacks"));
     }
 
+    @Operation(
+        summary = "Get purchased stadium packs for a user",
+        description = "Retrieves all stadium packs that have been purchased by a specific user. " +
+                      "This endpoint combines two sources: " +
+                      "1. Free stadiums included with active subscriptions (bonus stadiums from premium subscriptions) " +
+                      "2. Stadiums directly purchased by the user through in-app purchases. " +
+                      "Use this to determine which stadium/venue options should be unlocked and available for match selection. " +
+                      "The response includes all stadium pack details for owned venues only."
+    )
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Successfully retrieved purchased stadium packs"),
+        @ApiResponse(responseCode = "400", description = "Invalid email parameter"),
+        @ApiResponse(responseCode = "500", description = "Internal server error")
+    })
     @GetMapping("/stadiumPacks/purchased")
-    public List<NonConsumableProducts> purchase(@RequestParam String email) {
+    public List<NonConsumableProducts> purchase(
+        @Parameter(
+            description = "User's email address to identify their purchase history. " +
+                         "This is used as the unique identifier to fetch user-specific purchased stadiums.",
+            required = true,
+            example = "player@example.com"
+        )
+        @RequestParam String email
+    ) {
         List<NonConsumableProducts> purchasedProducts = new ArrayList<>(nonConsumableProducts.get("StadiumPacks"))
                 .stream()
                 .filter(product -> subscriptionPurchaseHistory.getOrDefault(email, new ArrayList<>())
