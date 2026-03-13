@@ -21,20 +21,22 @@ public class ChallengeApiController {
 
     @Operation(
         summary = "Get challenge list filtered by level",
-        description = "Retrieves a list of cricket challenges for a specific difficulty level. " +
-                      "This endpoint filters challenges based on the requested level parameter. " +
-                      "Each challenge includes: " +
-                      "- Challenge ID and title " +
-                      "- Challenge role (BATTING or BOWLING) " +
-                      "- Your team vs opponent team " +
-                      "- Match type and venue " +
-                      "- Difficulty level (EASY, MEDIUM, HARD) " +
-                      "- Specific objectives: " +
-                      "  * Batting: Target runs, wicket limit, over limitation " +
-                      "  * Bowling: Target to defend, over limitation " +
-                      "- Rewards (XPs, coins, diamonds, stars). " +
-                      "Available levels: 'Level 1', 'Level 2', 'Level 3', etc. " +
-                      "Use this endpoint to display challenges for a specific level in the game UI."
+        description = "**Returns cricket challenges for a specific difficulty level.**\n\n" +
+                      "**Each Challenge Contains:**\n" +
+                      "- Challenge ID and title\n" +
+                      "- Role: BATTING or BOWLING\n" +
+                      "- Teams: Your team vs opponent\n" +
+                      "- Match details: Type (T20) and venue\n" +
+                      "- Difficulty: EASY, MEDIUM, or HARD\n\n" +
+                      "**Challenge Objectives:**\n" +
+                      "- **Batting Challenges:** Score target runs within wicket limit and overs\n" +
+                      "- **Bowling Challenges:** Defend target runs within over limitation\n\n" +
+                      "**Rewards:**\n" +
+                      "- XP points for progression\n" +
+                      "- Coins and Diamonds\n" +
+                      "- Stars for completion\n\n" +
+                      "**Available Levels:** 'Level 1', 'Level 2', 'Level 3', etc.\n\n" +
+                      "**Use Case:** Display challenges when user selects a level from the challenge menu."
     )
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Successfully retrieved challenge list"),
@@ -82,17 +84,17 @@ public class ChallengeApiController {
 
     @Operation(
         summary = "Get challenge progress for a level",
-        description = "Retrieves the challenge completion progress for a specific level. " +
-                      "This endpoint returns mock/sample progress data showing which challenges have been completed. " +
-                      "Progress includes: " +
-                      "- Level name " +
-                      "- Completed challenge IDs " +
-                      "- Challenge summaries. " +
-                      "The API currently returns hardcoded sample data based on the level parameter: " +
-                      "- Level 1: Challenge ID 101 completed " +
-                      "- Level 2: Challenge ID 104 completed " +
-                      "- Level 3: Challenge ID 108 completed. " +
-                      "Use this endpoint to display user's progress within a challenge level."
+        description = "**Retrieves challenge completion progress for a specific level.**\n\n" +
+                      "**Progress Data Includes:**\n" +
+                      "- Level name (e.g., 'Beginner')\n" +
+                      "- List of completed challenge IDs\n" +
+                      "- Summary text for each completion\n\n" +
+                      "**Sample Data Returned:**\n" +
+                      "- Level 1 → Challenge ID 101 marked complete\n" +
+                      "- Level 2 → Challenge ID 104 marked complete\n" +
+                      "- Level 3 → Challenge ID 108 marked complete\n\n" +
+                      "**Use Case:** Display user's progress and unlocked challenges in the UI.\n\n" +
+                      "⚠️ **Note:** Currently returns mock/hardcoded data. Implement database persistence for production."
     )
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Successfully retrieved challenge progress"),
@@ -142,16 +144,18 @@ public class ChallengeApiController {
     }
 
     @Operation(
-        summary = "Update/save challenge progress",
-        description = "Records the completion of a challenge. " +
-                      "This endpoint is called when a player completes a challenge to save their progress. " +
-                      "Parameters include: " +
-                      "- level: The challenge level (e.g., '1', '2', '3') " +
-                      "- challengeId: Unique identifier of the completed challenge " +
-                      "- summary: Summary or result of the challenge completion (e.g., 'Won by 5 wickets'). " +
-                      "NOTE: This is currently a mock endpoint that doesn't persist data to a database. " +
-                      "It always returns 'saved' as a success indicator. " +
-                      "In production, this should be implemented to save progress to persistent storage."
+        summary = "Save challenge completion",
+        description = "**Records when a player completes a challenge.**\n\n" +
+                      "**Required Data:**\n" +
+                      "- `level`: Challenge level (1, 2, 3, etc.)\n" +
+                      "- `challengeId`: ID of the completed challenge\n" +
+                      "- `summary`: Result description (e.g., 'Won by 5 wickets', 'All wickets taken')\n\n" +
+                      "**Response:**\n" +
+                      "- Returns: `\"saved\"` on success\n\n" +
+                      "**When to Call:**\n" +
+                      "Call this immediately after a player successfully completes a challenge to record their progress.\n\n" +
+                      "⚠️ **Important:** This is currently a mock endpoint. Always returns 'saved' but doesn't persist to database. " +
+                      "Implement database storage for production use."
     )
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Progress saved successfully, returns 'saved'"),
@@ -183,14 +187,15 @@ public class ChallengeApiController {
     }
 
     @Operation(
-        summary = "Get list of all available challenge levels",
-        description = "Retrieves a complete list of all challenge levels available in the game. " +
-                      "This endpoint returns level identifiers that can be used with other challenge endpoints. " +
-                      "Currently returns 7 levels: 'Level 1' through 'Level 7'. " +
-                      "Use this endpoint to: " +
-                      "1. Display level selection menu " +
-                      "2. Build challenge navigation UI " +
-                      "3. Determine how many levels exist in the game."
+        summary = "Get all available challenge levels",
+        description = "**Returns list of all challenge levels in the game.**\n\n" +
+                      "**Returns:**\n" +
+                      "Array of level names: `['Level 1', 'Level 2', 'Level 3', 'Level 4', 'Level 5', 'Level 6', 'Level 7']`\n\n" +
+                      "**Use Cases:**\n" +
+                      "1. Build level selection menu in the challenge mode UI\n" +
+                      "2. Determine total number of available levels\n" +
+                      "3. Validate level parameters before calling other endpoints\n\n" +
+                      "**Integration:** Call this once on challenge mode initialization to build your navigation."
     )
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Successfully retrieved level list"),

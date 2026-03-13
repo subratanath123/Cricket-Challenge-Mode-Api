@@ -28,17 +28,19 @@ public class SubscriptionPackController {
 
     @Operation(
         summary = "Get all available subscription plans",
-        description = "Retrieves a complete list of all subscription plan options available for purchase. " +
-                      "This endpoint returns different subscription tiers (e.g., monthly, yearly, premium, VIP). " +
-                      "Each subscription includes details like: " +
-                      "- Plan name and duration " +
-                      "- Pricing information " +
-                      "- List of free products/perks included (freeProducts array) " +
-                      "- Expiry date and renewal information " +
-                      "- Special benefits and features. " +
-                      "Subscriptions are recurring purchases that provide ongoing benefits. " +
-                      "The 'freeProducts' field lists IDs of items automatically unlocked with the subscription. " +
-                      "Use this endpoint to display subscription options in the game shop."
+        description = "**Returns complete list of subscription options.**\n\n" +
+                      "**What You Get:**\n" +
+                      "- All subscription tiers (monthly, yearly, VIP, etc.)\n" +
+                      "- Pricing and duration information\n" +
+                      "- List of included free products (`freeProducts` array)\n" +
+                      "- Expiry and renewal details\n" +
+                      "- Special benefits and features\n\n" +
+                      "**Product Information:**\n" +
+                      "- Category: Subscription (time-based recurring)\n" +
+                      "- Auto-unlocks items in `freeProducts` array\n" +
+                      "- Provides ongoing benefits while active\n" +
+                      "- Check `expiryDate` to verify if still active\n\n" +
+                      "**Use Case:** Display subscription options in shop."
     )
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Successfully retrieved list of subscription plans"),
@@ -51,19 +53,25 @@ public class SubscriptionPackController {
     }
 
     @Operation(
-        summary = "Get active subscriptions for a user",
-        description = "Retrieves all subscription purchases for a specific user. " +
-                      "This endpoint returns the user's subscription history and active subscriptions. " +
-                      "Each subscription entry includes: " +
-                      "- Subscription plan details " +
-                      "- Purchase/activation date " +
-                      "- Expiry date (check this to determine if subscription is still active) " +
-                      "- List of free products included (freeProducts). " +
-                      "Use this endpoint to: " +
-                      "1. Check if user has an active subscription (verify expiry date) " +
-                      "2. Determine which free products the user should have access to " +
-                      "3. Display subscription status in user profile. " +
-                      "Note: You need to check the expiryDate field to determine if subscription is currently active."
+        summary = "Get user's active subscriptions",
+        description = "**Returns all subscription purchases for a user.**\n\n" +
+                      "**What You Get:**\n" +
+                      "- All subscription purchase records\n" +
+                      "- Purchase/activation dates\n" +
+                      "- Expiry dates (check to see if still active)\n" +
+                      "- List of free products included\n\n" +
+                      "**How to Check if Active:**\n" +
+                      "```\n" +
+                      "if (subscription.expiryDate > currentDate) {\n" +
+                      "  // Subscription is active\n" +
+                      "  unlockFreeProducts(subscription.freeProducts);\n" +
+                      "}\n" +
+                      "```\n\n" +
+                      "**Use Cases:**\n" +
+                      "1. Check if user has active subscription\n" +
+                      "2. Determine which free products to unlock\n" +
+                      "3. Display subscription status in profile\n\n" +
+                      "⚠️ **Important:** Always check `expiryDate` field to verify subscription is still active!"
     )
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Successfully retrieved user subscriptions"),

@@ -23,12 +23,17 @@ public class DiamondsPackController {
 
     @Operation(
         summary = "Get all available diamond packs",
-        description = "Retrieves a complete list of all diamond packs available for purchase in the game store. " +
-                      "This endpoint returns all diamond bundle options with varying quantities and prices. " +
-                      "Each pack contains details like the number of diamonds, price, image URL, and special bonuses. " +
-                      "Diamonds are premium consumable items typically used for exclusive or high-value purchases. " +
-                      "They offer better value or access to premium content compared to regular coins. " +
-                      "Use this endpoint to display the premium currency shop in the game."
+        description = "**Returns complete catalog of premium diamond bundles.**\n\n" +
+                      "**What You Get:**\n" +
+                      "- All diamond pack options with varying quantities\n" +
+                      "- Premium bundle sizes and pricing\n" +
+                      "- Exclusive bonus diamonds and special deals\n\n" +
+                      "**Product Information:**\n" +
+                      "- Category: Consumable (can buy multiple times)\n" +
+                      "- Diamonds are **premium currency**\n" +
+                      "- Used for exclusive/high-value purchases\n" +
+                      "- Better value than regular coins\n\n" +
+                      "**Use Case:** Display premium diamond shop in your game UI."
     )
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Successfully retrieved list of diamond packs"),
@@ -42,14 +47,20 @@ public class DiamondsPackController {
     }
 
     @Operation(
-        summary = "Get purchased diamond packs for a user",
-        description = "Retrieves all diamond packs that have been purchased by a specific user. " +
-                      "This endpoint combines two sources: " +
-                      "1. Free diamonds included with active subscriptions (bonus diamonds from subscription perks) " +
-                      "2. Diamond packs directly purchased by the user through in-app purchases. " +
-                      "Note: This returns purchase history, not the current diamond balance. " +
-                      "Each entry represents a pack purchase transaction. " +
-                      "Use this for showing purchase history, verifying completed transactions, or tracking premium currency acquisition."
+        summary = "Get user's purchased diamond packs",
+        description = "**Returns diamond pack purchase history for a user.**\n\n" +
+                      "**Sources Combined:**\n" +
+                      "1. **Subscription Benefits** → Bonus diamonds from active subscriptions\n" +
+                      "2. **Direct Purchases** → Diamond packs bought through IAP\n\n" +
+                      "**Important Note:**\n" +
+                      "- This returns **purchase history**, not current diamond balance\n" +
+                      "- Each entry = one pack purchase transaction\n" +
+                      "- Diamonds from these packs should be added to user's wallet\n\n" +
+                      "**Use Cases:**\n" +
+                      "- Track premium currency purchase history\n" +
+                      "- Verify completed transactions\n" +
+                      "- Audit premium purchases\n\n" +
+                      "💡 **Tip:** Implement a separate wallet system to track actual diamond balance."
     )
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Successfully retrieved purchased diamond packs"),

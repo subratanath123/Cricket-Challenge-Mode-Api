@@ -27,16 +27,22 @@ import static com.example.demo.dto.util.ResourceUtils.nonConsumableProducts;
 public class KitsPackController {
 
     @Operation(
-        summary = "Get list of available teams for kits",
-        description = "Retrieves a list of cricket teams for which kits are available in the game. " +
-                      "This endpoint returns parent-level team categories with team codes (e.g., PAK, IND, AUS). " +
-                      "Each team entry includes: " +
-                      "- title: Team code (3-letter country code) " +
-                      "- imageUrl: Team logo or representative image " +
-                      "- description: Marketing description " +
-                      "- nextUrl: Navigation path to view specific kits for that team. " +
-                      "Use this endpoint to display the team selection screen before showing individual kit options. " +
-                      "Available teams: Pakistan, India, Bangladesh, Zimbabwe, Australia, South Africa, Sri Lanka, New Zealand, West Indies."
+        summary = "Get list of teams with available kits",
+        description = "**Returns list of cricket teams that have jerseys available.**\n\n" +
+                      "**What You Get:**\n" +
+                      "- Team codes (3-letter country codes like IND, PAK, AUS)\n" +
+                      "- Team logos and representative images\n" +
+                      "- Marketing descriptions\n" +
+                      "- Navigation URLs to view team-specific kits\n\n" +
+                      "**Available Teams:**\n" +
+                      "Pakistan, India, Bangladesh, Zimbabwe, Australia, South Africa, Sri Lanka, New Zealand, West Indies\n\n" +
+                      "**Use Case:** Display team selection screen before showing kit options.\n\n" +
+                      "**Integration Flow:**\n" +
+                      "```\n" +
+                      "1. Call this endpoint → Get team list\n" +
+                      "2. User selects a team → Get team code\n" +
+                      "3. Call /kits/teams/{teamCode} → Show kits for that team\n" +
+                      "```"
     )
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Successfully retrieved list of teams"),
@@ -49,14 +55,19 @@ public class KitsPackController {
 
     @Operation(
         summary = "Get kits for a specific team",
-        description = "Retrieves all available kit/jersey options for a specific cricket team. " +
-                      "This endpoint filters kits based on the team code provided in the path parameter. " +
-                      "Each kit includes details like: " +
-                      "- Kit design (home jersey, away jersey, special editions) " +
-                      "- Price information " +
-                      "- Image URLs showing the kit appearance " +
-                      "- Metadata identifying the team. " +
-                      "Use this endpoint after a user selects a team from /kits/teams to show purchasable kit options."
+        description = "**Returns all jersey/kit options for a specific cricket team.**\n\n" +
+                      "**What You Get:**\n" +
+                      "- All kit designs for the selected team\n" +
+                      "- Home jerseys, away jerseys, special editions\n" +
+                      "- Pricing information\n" +
+                      "- Preview images showing kit appearance\n\n" +
+                      "**Team Codes:** IND, PAK, AUS, BAN, SA, SRI, NZ, WI, ZIM, etc.\n\n" +
+                      "**Use Case:** Display purchasable kit options after user selects a team.\n\n" +
+                      "**Example:**\n" +
+                      "```\n" +
+                      "GET /kits/teams/IND  → Returns all India team kits\n" +
+                      "GET /kits/teams/PAK  → Returns all Pakistan team kits\n" +
+                      "```"
     )
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Successfully retrieved kits for the team"),
@@ -82,13 +93,17 @@ public class KitsPackController {
     }
 
     @Operation(
-        summary = "Get purchased kits for a user",
-        description = "Retrieves all team kits that have been purchased by a specific user across all teams. " +
-                      "This endpoint combines two sources: " +
-                      "1. Free kits included with active subscriptions (bonus kits from premium subscriptions) " +
-                      "2. Kits directly purchased by the user through in-app purchases. " +
-                      "Use this to determine which team jerseys/kits should be unlocked and available for the user in-game. " +
-                      "The response includes kits from all teams that the user owns."
+        summary = "Get user's purchased kits (all teams)",
+        description = "**Returns all team kits owned by a user across ALL teams.**\n\n" +
+                      "**Sources Combined:**\n" +
+                      "1. **Subscription Benefits** → Free kits from premium subscriptions\n" +
+                      "2. **Direct Purchases** → Kits bought through IAP\n\n" +
+                      "**What You Get:**\n" +
+                      "- All owned kits from all teams (IND, PAK, AUS, etc.)\n" +
+                      "- Not filtered by team - complete collection\n" +
+                      "- Kit details including team identification\n\n" +
+                      "**Use Case:** Unlock all owned team jerseys in the game.\n\n" +
+                      "**Integration:** Call after login to enable owned kits for all teams."
     )
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Successfully retrieved purchased kits"),

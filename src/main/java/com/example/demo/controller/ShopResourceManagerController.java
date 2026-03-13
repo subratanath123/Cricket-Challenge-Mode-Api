@@ -23,23 +23,22 @@ import static com.example.demo.dto.util.ResourceUtils.*;
 public class ShopResourceManagerController {
 
     @Operation(
-        summary = "Get list of available pack categories",
-        description = "Retrieves a high-level list of all product pack categories available in the game shop. " +
-                      "This endpoint provides the main navigation structure for the shop UI. " +
-                      "Each pack category includes: " +
-                      "- Category identifier (enum name) " +
-                      "- Display name (human-readable category name). " +
-                      "Available categories: " +
-                      "- DiamondPacks: Premium currency " +
-                      "- CoinsPacks: Standard currency " +
-                      "- StadiumPacks: Stadium/venue unlocks " +
-                      "- BatPacks: Batting equipment " +
-                      "- KitsPacks: Team jerseys and kits " +
-                      "- TournamentPacks: Tournament unlocks " +
-                      "- CommentaryPacks: Commentary voices " +
-                      "- SubscriptionPacks: Subscription plans " +
-                      "- NoAdsPacks: Ad removal options. " +
-                      "Use this endpoint to build the main shop navigation/menu."
+        summary = "Get shop pack categories",
+        description = "**Returns high-level list of all product pack categories.**\n\n" +
+                      "**Available Categories:**\n" +
+                      "- Diamond Packs (Premium currency)\n" +
+                      "- Coin Packs (Standard currency)\n" +
+                      "- Stadium Packs (Venue unlocks)\n" +
+                      "- Bat Packs (Batting equipment)\n" +
+                      "- Kits Packs (Team jerseys)\n" +
+                      "- Tournament Packs (Tournament modes)\n" +
+                      "- Commentary Packs (Voice options)\n" +
+                      "- Subscription Packs (Plans)\n" +
+                      "- NoAds Packs (Ad removal)\n\n" +
+                      "**Each Category Includes:**\n" +
+                      "- Category identifier (enum name)\n" +
+                      "- Display name (human-readable)\n\n" +
+                      "**Use Case:** Build main shop navigation/menu UI."
     )
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Successfully retrieved pack categories"),
@@ -62,20 +61,27 @@ public class ShopResourceManagerController {
     }
 
     @Operation(
-        summary = "Get In-App Purchase (IAP) product configurations",
-        description = "Retrieves all products configured for In-App Purchase integration with app stores (Google Play, Apple App Store). " +
-                      "This endpoint aggregates IAP-enabled products from all categories and provides the necessary information for IAP initialization. " +
-                      "Each IAP product includes: " +
-                      "- id: Internal product identifier " +
-                      "- price: Display price (may be overridden by store) " +
-                      "- purchaseId: Store-specific product ID (SKU for Google Play, Product ID for Apple) " +
-                      "- type: Product type ('Consumable', 'NonConsumable', or 'Subscription'). " +
-                      "Only products with valid purchaseId values are included. " +
-                      "Use this endpoint to: " +
-                      "1. Initialize IAP SDK with product list " +
-                      "2. Query store prices for products " +
-                      "3. Map store purchase callbacks to internal product IDs. " +
-                      "Returns a Set to ensure no duplicate entries."
+        summary = "Get IAP product configurations",
+        description = "**Returns all products configured for In-App Purchase (IAP) integration.**\n\n" +
+                      "**What You Get:**\n" +
+                      "All IAP-enabled products with store-specific information:\n" +
+                      "- `id`: Internal product identifier\n" +
+                      "- `price`: Display price (may be overridden by store)\n" +
+                      "- `purchaseId`: Store SKU (Google Play/Apple App Store)\n" +
+                      "- `type`: 'Consumable', 'NonConsumable', or 'Subscription'\n\n" +
+                      "**Sources:** Products from all categories that have valid `purchaseId` values\n\n" +
+                      "**Use Cases:**\n" +
+                      "1. Initialize IAP SDK with product list\n" +
+                      "2. Query store prices for products\n" +
+                      "3. Map store purchase callbacks to internal IDs\n\n" +
+                      "**Integration:**\n" +
+                      "```\n" +
+                      "1. Call this endpoint on app startup\n" +
+                      "2. Extract purchaseId values\n" +
+                      "3. Initialize IAP SDK with these SKUs\n" +
+                      "4. Use type field to configure IAP correctly\n" +
+                      "```\n\n" +
+                      "**Returns:** Set (no duplicates)"
     )
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Successfully retrieved IAP product configurations"),

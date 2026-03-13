@@ -24,10 +24,16 @@ public class BowlingPackController {
 
     @Operation(
         summary = "Get all available bowling packs",
-        description = "Retrieves a complete list of all bowling packs available in the game store. " +
-                      "This endpoint returns all bowling equipment packs regardless of purchase status. " +
-                      "Each pack contains details like pack name, price, image URL, and metadata about the bowling equipment. " +
-                      "Use this endpoint to display the bowling packs catalog in the game shop."
+        description = "**Returns complete catalog of bowling equipment packs.**\n\n" +
+                      "**What You Get:**\n" +
+                      "- All bowling packs available for purchase\n" +
+                      "- Includes both free and paid options\n" +
+                      "- Pack details: name, price, image URL, metadata\n\n" +
+                      "**Product Information:**\n" +
+                      "- Category: Non-consumable (one-time purchase)\n" +
+                      "- Once purchased, owned permanently\n" +
+                      "- Unlocks bowling equipment and ball options\n\n" +
+                      "**Use Case:** Display bowling equipment shop catalog in your game UI."
     )
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Successfully retrieved list of bowling packs"),
@@ -41,13 +47,18 @@ public class BowlingPackController {
     }
 
     @Operation(
-        summary = "Get purchased bowling packs for a user",
-        description = "Retrieves all bowling packs that have been purchased by a specific user. " +
-                      "This endpoint combines two sources: " +
-                      "1. Free bowling packs included with active subscriptions (checks if subscription provides free products or is a default subscription) " +
-                      "2. Bowling packs directly purchased by the user through in-app purchases. " +
-                      "Use this to unlock bowling equipment in the game based on user ownership. " +
-                      "The response includes all pack details for owned items only."
+        summary = "Get user's purchased bowling packs",
+        description = "**Returns all bowling packs owned by a specific user.**\n\n" +
+                      "**Sources Combined:**\n" +
+                      "1. **Subscription Benefits** → Free packs from active subscriptions\n" +
+                      "2. **Direct Purchases** → Packs bought through in-app purchases\n\n" +
+                      "**How It Works:**\n" +
+                      "- Checks user's subscription for free products\n" +
+                      "- Includes items from subscription's `freeProducts` array\n" +
+                      "- Adds directly purchased bowling packs\n" +
+                      "- Returns combined list of all owned items\n\n" +
+                      "**Use Case:** Unlock bowling equipment in the game based on user ownership.\n\n" +
+                      "**Integration:** Call this after user login to unlock owned bowling equipment."
     )
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Successfully retrieved purchased bowling packs"),

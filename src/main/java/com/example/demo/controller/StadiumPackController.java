@@ -26,15 +26,18 @@ public class StadiumPackController {
 
     @Operation(
         summary = "Get all available stadium packs",
-        description = "Retrieves a complete list of all stadium/venue packs available in the game store. " +
-                      "This endpoint returns all stadium unlock options with different iconic cricket grounds. " +
-                      "Each pack contains details like: " +
-                      "- Stadium name and location " +
-                      "- Price information " +
-                      "- Preview images of the stadium " +
-                      "- Stadium capacity and special features. " +
-                      "Stadiums are non-consumable and remain unlocked permanently once purchased. " +
-                      "Use this endpoint to display the stadium catalog in the game shop."
+        description = "**Returns complete catalog of cricket venues/stadiums.**\n\n" +
+                      "**What You Get:**\n" +
+                      "- All stadium unlock options\n" +
+                      "- Iconic cricket grounds worldwide\n" +
+                      "- Stadium details: name, location, capacity\n" +
+                      "- Preview images and special features\n\n" +
+                      "**Product Information:**\n" +
+                      "- Category: Non-consumable (one-time purchase)\n" +
+                      "- Once purchased, owned permanently\n" +
+                      "- Unlocks venue for match selection\n" +
+                      "- Adds visual variety to gameplay\n\n" +
+                      "**Use Case:** Display stadium shop catalog in your game UI."
     )
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Successfully retrieved list of stadium packs"),
@@ -48,13 +51,17 @@ public class StadiumPackController {
     }
 
     @Operation(
-        summary = "Get purchased stadium packs for a user",
-        description = "Retrieves all stadium packs that have been purchased by a specific user. " +
-                      "This endpoint combines two sources: " +
-                      "1. Free stadiums included with active subscriptions (bonus stadiums from premium subscriptions) " +
-                      "2. Stadiums directly purchased by the user through in-app purchases. " +
-                      "Use this to determine which stadium/venue options should be unlocked and available for match selection. " +
-                      "The response includes all stadium pack details for owned venues only."
+        summary = "Get user's purchased stadium packs",
+        description = "**Returns all stadiums owned by a user.**\n\n" +
+                      "**Sources Combined:**\n" +
+                      "1. **Subscription Benefits** → Free stadiums from premium subscriptions\n" +
+                      "2. **Direct Purchases** → Stadiums bought through IAP\n\n" +
+                      "**How It Works:**\n" +
+                      "- Checks subscription for included stadiums\n" +
+                      "- Adds directly purchased stadium packs\n" +
+                      "- Returns complete list of owned venues\n\n" +
+                      "**Use Case:** Determine which stadiums to unlock for match selection.\n\n" +
+                      "**Integration:** Call after login to populate available venue list in match setup."
     )
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Successfully retrieved purchased stadium packs"),

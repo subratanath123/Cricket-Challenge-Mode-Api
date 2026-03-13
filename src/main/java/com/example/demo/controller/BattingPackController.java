@@ -24,10 +24,16 @@ public class BattingPackController {
 
     @Operation(
         summary = "Get all available batting packs",
-        description = "Retrieves a complete list of all batting packs available in the game store. " +
-                      "This endpoint returns all batting equipment packs regardless of purchase status. " +
-                      "Each pack contains details like pack name, price, image URL, and metadata. " +
-                      "Use this endpoint to display the batting packs catalog in the game shop."
+        description = "**Returns complete catalog of batting equipment packs.**\n\n" +
+                      "**What You Get:**\n" +
+                      "- All batting packs available for purchase\n" +
+                      "- Includes both free and paid options\n" +
+                      "- Pack details: name, price, image URL, metadata\n\n" +
+                      "**Product Information:**\n" +
+                      "- Category: Non-consumable (one-time purchase)\n" +
+                      "- Once purchased, owned permanently\n" +
+                      "- Unlocks bats, gloves, and batting accessories\n\n" +
+                      "**Use Case:** Display batting equipment shop catalog in your game UI."
     )
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Successfully retrieved list of batting packs"),
@@ -41,13 +47,18 @@ public class BattingPackController {
     }
 
     @Operation(
-        summary = "Get purchased batting packs for a user",
-        description = "Retrieves all batting packs that have been purchased by a specific user. " +
-                      "This endpoint combines two sources: " +
-                      "1. Free batting packs included with active subscriptions (checks if subscription includes free products) " +
-                      "2. Batting packs directly purchased by the user through in-app purchases. " +
-                      "Use this to unlock batting equipment in the game based on user ownership. " +
-                      "The response includes all pack details for owned items only."
+        summary = "Get user's purchased batting packs",
+        description = "**Returns all batting packs owned by a specific user.**\n\n" +
+                      "**Sources Combined:**\n" +
+                      "1. **Subscription Benefits** → Free packs from active subscriptions\n" +
+                      "2. **Direct Purchases** → Packs bought through in-app purchases\n\n" +
+                      "**How It Works:**\n" +
+                      "- Checks user's subscription for free products\n" +
+                      "- Includes items from subscription's `freeProducts` array\n" +
+                      "- Adds directly purchased batting packs\n" +
+                      "- Returns combined list of all owned items\n\n" +
+                      "**Use Case:** Unlock batting equipment in the game based on user ownership.\n\n" +
+                      "**Integration:** Call this after user login to unlock owned batting equipment."
     )
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Successfully retrieved purchased batting packs"),

@@ -25,14 +25,17 @@ public class NoAdsPackController {
 
     @Operation(
         summary = "Get all available no-ads packs",
-        description = "Retrieves a complete list of all ad-removal pack options available for purchase. " +
-                      "This endpoint returns different tiers of ad-removal options (e.g., basic ad removal, premium ad-free experience). " +
-                      "Each pack contains details like: " +
-                      "- Pack name and description " +
-                      "- Price information " +
-                      "- Scope of ad removal (specific ad types or all ads). " +
-                      "No Ads packs are non-consumable purchases that persist permanently once bought. " +
-                      "Use this endpoint to display ad-removal options in the game shop."
+        description = "**Returns ad-removal pack options.**\n\n" +
+                      "**What You Get:**\n" +
+                      "- Different tiers of ad removal options\n" +
+                      "- Basic to premium ad-free experiences\n" +
+                      "- Scope details (which ads are removed)\n\n" +
+                      "**Product Information:**\n" +
+                      "- Category: Non-consumable (one-time purchase)\n" +
+                      "- Once purchased, owned permanently\n" +
+                      "- Removes advertisements from gameplay\n" +
+                      "- Provides uninterrupted gaming experience\n\n" +
+                      "**Use Case:** Display ad-removal options in shop."
     )
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Successfully retrieved list of no-ads packs"),
@@ -46,14 +49,23 @@ public class NoAdsPackController {
     }
 
     @Operation(
-        summary = "Get purchased no-ads packs for a user",
-        description = "Retrieves all ad-removal packs that have been purchased by a specific user. " +
-                      "This endpoint combines two sources: " +
-                      "1. Ad-removal included with active subscriptions (premium users typically get ad-free experience) " +
-                      "2. No-ads packs directly purchased by the user through in-app purchases. " +
-                      "Use this to determine whether to show ads to the user during gameplay. " +
-                      "If this endpoint returns any items, the user should have an ad-free experience. " +
-                      "The response includes all ad-removal pack details for owned items."
+        summary = "Check if user has ad-removal",
+        description = "**Returns user's ad-removal purchases.**\n\n" +
+                      "**Sources Combined:**\n" +
+                      "1. **Subscription Benefits** → Ad-free with premium subscriptions\n" +
+                      "2. **Direct Purchases** → No-ads packs bought through IAP\n\n" +
+                      "**How to Use:**\n" +
+                      "```\n" +
+                      "if (response.length > 0) {\n" +
+                      "  // User has ad-free access\n" +
+                      "  hideAllAds();\n" +
+                      "} else {\n" +
+                      "  // Show ads\n" +
+                      "  displayAds();\n" +
+                      "}\n" +
+                      "```\n\n" +
+                      "**Use Case:** Determine whether to show ads during gameplay.\n\n" +
+                      "**Integration:** Call on app startup to configure ad display settings."
     )
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Successfully retrieved purchased no-ads packs"),

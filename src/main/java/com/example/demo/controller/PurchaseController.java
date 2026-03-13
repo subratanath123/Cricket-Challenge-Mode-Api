@@ -24,15 +24,23 @@ import static com.example.demo.dto.util.ResourceUtils.*;
 public class PurchaseController {
 
     @Operation(
-        summary = "Purchase a subscription product",
-        description = "Records a subscription purchase for a specific user. " +
-                      "This endpoint specifically handles subscription-type products (monthly, yearly plans). " +
-                      "When a subscription is purchased: " +
-                      "1. The subscription is added to the user's subscription purchase history " +
-                      "2. The user gains access to subscription benefits including free products " +
-                      "3. Subscription metadata (expiry date, renewal info) is stored. " +
-                      "Use this endpoint when processing subscription IAP completions from app stores. " +
-                      "Returns 'purchased' on success."
+        summary = "Purchase a subscription",
+        description = "**Records a subscription purchase for a user.**\n\n" +
+                      "**What This Does:**\n" +
+                      "1. Adds subscription to user's purchase history\n" +
+                      "2. User gains access to subscription benefits\n" +
+                      "3. Free products auto-unlock (from `freeProducts` array)\n" +
+                      "4. Subscription expiry tracking begins\n\n" +
+                      "**When to Call:**\n" +
+                      "After successful in-app purchase (IAP) completion from app store.\n\n" +
+                      "**Response:** Returns `\"purchased\"` on success.\n\n" +
+                      "**Integration Flow:**\n" +
+                      "```\n" +
+                      "1. User taps subscribe in app\n" +
+                      "2. App store processes payment → Success\n" +
+                      "3. Call this endpoint with subscription ID\n" +
+                      "4. Subscription benefits activate immediately\n" +
+                      "```"
     )
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Subscription purchased successfully, returns 'purchased'"),
@@ -77,16 +85,26 @@ public class PurchaseController {
 
 
     @Operation(
-        summary = "Universal purchase endpoint for any product",
-        description = "Universal purchase endpoint that handles any type of product purchase (consumable, non-consumable, or subscription). " +
-                      "This endpoint automatically detects the product type and routes the purchase accordingly: " +
-                      "1. First checks consumable products (coins, diamonds) " +
-                      "2. Then checks non-consumable products (equipment, kits, stadiums, etc.) " +
-                      "3. Finally checks subscription products " +
-                      "4. Records the purchase to the appropriate user history based on product type. " +
-                      "Use this as a universal purchase handler when you don't want to call specific endpoints. " +
-                      "Common use case: App store purchase callback can call this single endpoint with the product ID. " +
-                      "Returns 'purchased' on success, 'failed' if product ID not found in any category."
+        summary = "Universal purchase endpoint",
+        description = "**Handles ANY product purchase - consumable, non-consumable, or subscription.**\n\n" +
+                      "**How It Works:**\n" +
+                      "1. Searches consumable products (coins, diamonds)\n" +
+                      "2. If not found → searches non-consumable (equipment, stadiums, kits)\n" +
+                      "3. If not found → searches subscriptions\n" +
+                      "4. Records purchase in appropriate history\n\n" +
+                      "**Returns:**\n" +
+                      "- `\"purchased\"` → Success (product found and recorded)\n" +
+                      "- `\"failed\"` → Product ID not found in any category\n\n" +
+                      "**Use Case:** Single purchase handler for all product types.\n\n" +
+                      "**Integration Flow:**\n" +
+                      "```\n" +
+                      "1. User selects any product in shop\n" +
+                      "2. App store completes payment → Success\n" +
+                      "3. Call: /purchase/{productId}?email=user@example.com\n" +
+                      "4. Check response: 'purchased' or 'failed'\n" +
+                      "5. Update UI to show owned item\n" +
+                      "```\n\n" +
+                      "💡 **Tip:** Use this instead of category-specific endpoints for simpler integration."
     )
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Purchase processed. Returns 'purchased' if successful, 'failed' if product not found"),

@@ -22,12 +22,17 @@ import static com.example.demo.dto.util.ResourceUtils.consumableProducts;
 public class CoinsPackController {
 
     @Operation(
-        summary = "Get all available coins packs",
-        description = "Retrieves a complete list of all coins packs available for purchase in the game store. " +
-                      "This endpoint returns all coin bundle options with varying quantities and prices. " +
-                      "Each pack contains details like the number of coins, price, image URL, and special offers. " +
-                      "Coins are consumable items that can be spent in-game. " +
-                      "Use this endpoint to display the coins shop in the game."
+        summary = "Get all available coin packs",
+        description = "**Returns complete catalog of coin bundles.**\n\n" +
+                      "**What You Get:**\n" +
+                      "- All coin pack options with varying quantities\n" +
+                      "- Different bundle sizes and price points\n" +
+                      "- Special offers and bonus coins\n\n" +
+                      "**Product Information:**\n" +
+                      "- Category: Consumable (can buy multiple times)\n" +
+                      "- Coins are standard in-game currency\n" +
+                      "- Used for purchases and transactions\n\n" +
+                      "**Use Case:** Display coin shop bundles in your game UI."
     )
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Successfully retrieved list of coin packs"),
@@ -41,14 +46,17 @@ public class CoinsPackController {
     }
 
     @Operation(
-        summary = "Get purchased coins packs for a user",
-        description = "Retrieves all coins packs that have been purchased by a specific user. " +
-                      "This endpoint combines two sources: " +
-                      "1. Free coins included with active subscriptions (bonus coins from subscription perks) " +
-                      "2. Coins packs directly purchased by the user through in-app purchases. " +
-                      "Note: This returns purchase history, not the current coin balance. " +
-                      "Each entry represents a pack purchase transaction. " +
-                      "Use this for showing purchase history or verifying completed transactions."
+        summary = "Get user's purchased coin packs",
+        description = "**Returns coin pack purchase history for a user.**\n\n" +
+                      "**Sources Combined:**\n" +
+                      "1. **Subscription Benefits** → Bonus coins from active subscriptions\n" +
+                      "2. **Direct Purchases** → Coin packs bought through IAP\n\n" +
+                      "**Important Note:**\n" +
+                      "- This returns **purchase history**, not current coin balance\n" +
+                      "- Each entry = one pack purchase transaction\n" +
+                      "- Coins from these packs should be added to user's wallet\n\n" +
+                      "**Use Case:** Track purchase history or verify completed transactions.\n\n" +
+                      "💡 **Tip:** You need a separate wallet/balance system to track actual coin count."
     )
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Successfully retrieved purchased coin packs"),

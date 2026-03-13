@@ -35,19 +35,25 @@ public class GameAssetController {
     );
 
     @Operation(
-        summary = "Get all game assets",
-        description = "Retrieves a comprehensive set of all game assets including images and metadata for all purchasable items. " +
-                      "This endpoint aggregates assets from multiple sources: " +
-                      "1. Non-consumable products (batting packs, bowling packs, stadium packs, etc.) " +
-                      "2. Consumable products (coins, diamonds) " +
-                      "3. Subscription products " +
-                      "4. Team kits parent categories. " +
-                      "Each asset contains: " +
-                      "- id: Unique identifier for the item " +
-                      "- imageUrl: CDN URL for the asset image " +
-                      "- category: Product category for organization. " +
-                      "Use this endpoint to preload all visual assets when the game starts or to build a complete asset catalog. " +
-                      "Returns a Set to ensure no duplicate assets."
+        summary = "Get all game assets for preloading",
+        description = "**Returns consolidated asset information for ALL in-game purchasable items.**\n\n" +
+                      "**Assets Included From:**\n" +
+                      "1. Non-consumable products (batting, bowling, stadiums, kits, tournaments, commentary)\n" +
+                      "2. Consumable products (coins, diamonds)\n" +
+                      "3. Subscription products\n" +
+                      "4. Team kit parent categories\n\n" +
+                      "**Each Asset Contains:**\n" +
+                      "- `id`: Unique product identifier\n" +
+                      "- `imageUrl`: CDN URL for the image\n" +
+                      "- `category`: Product category for organization\n\n" +
+                      "**Use Case:** Preload all visual assets when game starts.\n\n" +
+                      "**Integration:**\n" +
+                      "```\n" +
+                      "1. Call this endpoint on app startup\n" +
+                      "2. Download all images in background\n" +
+                      "3. Cache for quick loading in shop/inventory\n" +
+                      "```\n\n" +
+                      "**Returns:** Set (no duplicates)"
     )
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Successfully retrieved all game assets"),

@@ -25,11 +25,17 @@ public class CommentaryPackController {
 
     @Operation(
         summary = "Get all available commentary packs",
-        description = "Retrieves a complete list of all commentary packs available in the game store. " +
-                      "This endpoint returns all commentary voice pack options with different commentators, languages, and styles. " +
-                      "Each pack contains details like commentator names, languages, price, and preview audio URLs. " +
-                      "Commentary packs are non-consumable and persist once purchased. " +
-                      "Use this endpoint to display the commentary options catalog in the game shop."
+        description = "**Returns complete catalog of commentary voice options.**\n\n" +
+                      "**What You Get:**\n" +
+                      "- All commentary packs with different commentators\n" +
+                      "- Various languages and commentary styles\n" +
+                      "- Preview audio URLs and descriptions\n\n" +
+                      "**Product Information:**\n" +
+                      "- Category: Non-consumable (one-time purchase)\n" +
+                      "- Once purchased, owned permanently\n" +
+                      "- Unlocks additional commentary voices\n" +
+                      "- Enhances audio experience during matches\n\n" +
+                      "**Use Case:** Display commentary options shop in your game UI."
     )
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Successfully retrieved list of commentary packs"),
@@ -43,13 +49,17 @@ public class CommentaryPackController {
     }
 
     @Operation(
-        summary = "Get purchased commentary packs for a user",
-        description = "Retrieves all commentary packs that have been purchased by a specific user. " +
-                      "This endpoint combines two sources: " +
-                      "1. Free commentary packs included with active subscriptions (bonus commentaries from premium subscriptions) " +
-                      "2. Commentary packs directly purchased by the user through in-app purchases. " +
-                      "Use this to determine which commentary voices should be available/unlocked for the user in-game. " +
-                      "The response includes all pack details for owned commentary options only."
+        summary = "Get user's purchased commentary packs",
+        description = "**Returns all commentary packs owned by a user.**\n\n" +
+                      "**Sources Combined:**\n" +
+                      "1. **Subscription Benefits** → Free commentary from premium subscriptions\n" +
+                      "2. **Direct Purchases** → Commentary packs bought through IAP\n\n" +
+                      "**How It Works:**\n" +
+                      "- Checks subscription for included commentary\n" +
+                      "- Adds directly purchased commentary packs\n" +
+                      "- Returns complete list of owned commentary options\n\n" +
+                      "**Use Case:** Determine which commentary voices to unlock in the game.\n\n" +
+                      "**Integration:** Call after login to enable owned commentary options in settings."
     )
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Successfully retrieved purchased commentary packs"),
