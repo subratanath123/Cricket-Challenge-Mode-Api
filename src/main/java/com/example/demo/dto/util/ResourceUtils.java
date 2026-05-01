@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -23,26 +24,39 @@ public class ResourceUtils {
 
     static {
         ObjectMapper objectMapper = new ObjectMapper();
+        List<String> bangladeshPadHelmetGlovesTextureUrls = asList(
+                "https://imgur.com/a/6n9taCX",
+                "https://imgur.com/a/hMepw70",
+                "https://imgur.com/a/AdeVY7j",
+                "https://imgur.com/a/p9HrwTF",
+                "https://imgur.com/a/KRLK59G",
+                "https://imgur.com/a/suxIvIU",
+                "https://imgur.com/a/LE2FY4d",
+                "https://imgur.com/a/7x535bF",
+                "https://imgur.com/a/5fgWNeM",
+                "https://imgur.com/a/UVv7GB9",
+                "https://imgur.com/a/3o3aHHn"
+        );
 
         // Kits pack
         KitsPackGift kitsPackGift1 = new KitsPackGift
                 .Builder()
-                .setJerseyWithShoeTextureUrl("https://i.imgur.com/c3c58YT.png")
-                .setJerseyWithPadHelmetGlovesTextureUrl("https://i.imgur.com/3Dn1WP3.png")
+                .setJerseyWithShoeTextureUrls(repeatUrlForPlayingXI("https://i.imgur.com/c3c58YT.png"))
+                .setJerseyWithPadHelmetGlovesTextureUrls(bangladeshPadHelmetGlovesTextureUrls)
                 .setTeam("BAN")
                 .build();
 
         KitsPackGift kitsPackGift2 = new KitsPackGift
                 .Builder()
-                .setJerseyWithShoeTextureUrl("https://i.imgur.com/7tCXKZv.png")
-                .setJerseyWithPadHelmetGlovesTextureUrl("https://i.imgur.com/2rXDDHn.png")
+                .setJerseyWithShoeTextureUrls(repeatUrlForPlayingXI("https://i.imgur.com/7tCXKZv.png"))
+                .setJerseyWithPadHelmetGlovesTextureUrls(bangladeshPadHelmetGlovesTextureUrls)
                 .setTeam("BAN")
                 .build();
 
         KitsPackGift defaultPackKits = new KitsPackGift
                 .Builder()
-                .setJerseyWithShoeTextureUrl(" https://i.imgur.com/sEJ7Uc5.jpg")
-                .setJerseyWithPadHelmetGlovesTextureUrl("https://i.imgur.com/ao2TQ5h.jpg")
+                .setJerseyWithShoeTextureUrls(repeatUrlForPlayingXI(" https://i.imgur.com/sEJ7Uc5.jpg"))
+                .setJerseyWithPadHelmetGlovesTextureUrls(bangladeshPadHelmetGlovesTextureUrls)
                 .setTeam("BAN")
                 .build();
 
@@ -251,6 +265,10 @@ public class ResourceUtils {
 
         nonConsumableProducts.put("NoAdsPacks", noAdsPackList);
 
+    }
+
+    private static List<String> repeatUrlForPlayingXI(String url) {
+        return Collections.nCopies(11, url);
     }
 
 }

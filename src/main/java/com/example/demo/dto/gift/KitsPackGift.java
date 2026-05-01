@@ -1,25 +1,27 @@
 package com.example.demo.dto.gift;
 
+import java.util.List;
+
 public class KitsPackGift {
 
-    private String jerseyWithShoeTextureUrl;
-    private String jerseyWithPadHelmetGlovesTextureUrl;
+    private List<String> jerseyWithShoeTextureUrls;
+    private List<String> jerseyWithPadHelmetGlovesTextureUrls;
     private String team;
 
     // Private constructor to prevent direct instantiation
     private KitsPackGift(Builder builder) {
-        this.jerseyWithShoeTextureUrl = builder.jerseyWithShoeTextureUrl;
-        this.jerseyWithPadHelmetGlovesTextureUrl = builder.jerseyWithPadHelmetGlovesTextureUrl;
+        this.jerseyWithShoeTextureUrls = builder.jerseyWithShoeTextureUrls;
+        this.jerseyWithPadHelmetGlovesTextureUrls = builder.jerseyWithPadHelmetGlovesTextureUrls;
         this.team = builder.team;
     }
 
     // Getter
-    public String getJerseyWithShoeTextureUrl() {
-        return jerseyWithShoeTextureUrl;
+    public List<String> getJerseyWithShoeTextureUrls() {
+        return jerseyWithShoeTextureUrls;
     }
 
-    public String getJerseyWithPadHelmetGlovesTextureUrl() {
-        return jerseyWithPadHelmetGlovesTextureUrl;
+    public List<String> getJerseyWithPadHelmetGlovesTextureUrls() {
+        return jerseyWithPadHelmetGlovesTextureUrls;
     }
 
     public String getTeam() {
@@ -28,12 +30,12 @@ public class KitsPackGift {
 
     // Builder class
     public static class Builder {
-        private String jerseyWithShoeTextureUrl;
-        private String jerseyWithPadHelmetGlovesTextureUrl;
+        private List<String> jerseyWithShoeTextureUrls;
+        private List<String> jerseyWithPadHelmetGlovesTextureUrls;
         private String team;
 
-        public Builder setJerseyWithShoeTextureUrl(String jerseyWithShoeTextureUrl) {
-            this.jerseyWithShoeTextureUrl = jerseyWithShoeTextureUrl;
+        public Builder setJerseyWithShoeTextureUrls(List<String> jerseyWithShoeTextureUrls) {
+            this.jerseyWithShoeTextureUrls = jerseyWithShoeTextureUrls;
             return this;
         }
 
@@ -42,8 +44,8 @@ public class KitsPackGift {
             return this;
         }
 
-        public Builder setJerseyWithPadHelmetGlovesTextureUrl(String jerseyWithPadHelmetGlovesTextureUrl) {
-            this.jerseyWithPadHelmetGlovesTextureUrl = jerseyWithPadHelmetGlovesTextureUrl;
+        public Builder setJerseyWithPadHelmetGlovesTextureUrls(List<String> jerseyWithPadHelmetGlovesTextureUrls) {
+            this.jerseyWithPadHelmetGlovesTextureUrls = jerseyWithPadHelmetGlovesTextureUrls;
             return this;
         }
 
