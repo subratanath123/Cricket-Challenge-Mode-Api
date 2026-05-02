@@ -4,25 +4,14 @@ import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.info.License;
-import io.swagger.v3.oas.models.servers.Server;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import java.util.List;
 
 @Configuration
 public class OpenApiConfig {
 
     @Bean
     public OpenAPI howzatOpenAPI() {
-        Server devServer = new Server();
-        devServer.setUrl("http://localhost:8080");
-        devServer.setDescription("Development Server");
-
-        Server prodServer = new Server();
-        prodServer.setUrl("https://api.howzat.game");
-        prodServer.setDescription("Production Server");
-
         Contact contact = new Contact();
         contact.setName("Howzat Game API Support");
         contact.setEmail("support@howzat.game");
@@ -97,8 +86,9 @@ public class OpenApiConfig {
                         "5. **Challenge Mode**: Use `/levelList`, `/challengeList`, `/progress` endpoints")
                 .license(license);
 
-        return new OpenAPI()
-                .info(info)
-                .servers(List.of(devServer, prodServer));
+        // Do not set OpenAPI `servers` here. A fixed list with localhost first makes Swagger UI
+        // default all "Try it out" requests to localhost even when opened on Render or another host.
+        // Omitting servers lets Swagger use the same origin as the page (e.g. Render deployment URL).
+        return new OpenAPI().info(info);
     }
 }
