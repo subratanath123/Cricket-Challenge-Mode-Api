@@ -41,22 +41,22 @@ public class ResourceUtils {
         // Kits pack
         KitsPackGift kitsPackGift1 = new KitsPackGift
                 .Builder()
-                .setJerseyWithShoeTextureUrls(repeatUrlForPlayingXI("http://eshop.damacdiscount.com/images/Additional.jpg"))
-                .setJerseyWithPadHelmetGlovesTextureUrls(bangladeshPadHelmetGlovesTextureUrls)
+                .setJerseyWithShoeTextureUrls(bangladeshPadHelmetGlovesTextureUrls)
+                .setJerseyWithPadHelmetGlovesTextureUrls(repeatUrlForPlayingXI("http://eshop.damacdiscount.com/images/Additional.jpg"))
                 .setTeam("BAN")
                 .build();
 
         KitsPackGift kitsPackGift2 = new KitsPackGift
                 .Builder()
-                .setJerseyWithShoeTextureUrls(repeatUrlForPlayingXI("http://eshop.damacdiscount.com/images/Additional.jpg"))
-                .setJerseyWithPadHelmetGlovesTextureUrls(bangladeshPadHelmetGlovesTextureUrls)
+                .setJerseyWithShoeTextureUrls(bangladeshPadHelmetGlovesTextureUrls)
+                .setJerseyWithPadHelmetGlovesTextureUrls(repeatUrlForPlayingXI("http://eshop.damacdiscount.com/images/Additional.jpg"))
                 .setTeam("BAN")
                 .build();
 
         KitsPackGift defaultPackKits = new KitsPackGift
                 .Builder()
-                .setJerseyWithShoeTextureUrls(repeatUrlForPlayingXI("http://eshop.damacdiscount.com/images/Additional.jpg"))
-                .setJerseyWithPadHelmetGlovesTextureUrls(bangladeshPadHelmetGlovesTextureUrls)
+                .setJerseyWithShoeTextureUrls(bangladeshPadHelmetGlovesTextureUrls)
+                .setJerseyWithPadHelmetGlovesTextureUrls(repeatUrlForPlayingXI("http://eshop.damacdiscount.com/images/Additional.jpg"))
                 .setTeam("BAN")
                 .build();
 
