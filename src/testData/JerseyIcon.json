@@ -1,0 +1,131 @@
+[
+  {
+    "title": "PAK",
+    "actionName": "Details",
+    "imageUrl": "http://eshop.damacdiscount.com/images/Pakistan_cricket_team_logo.png",
+    "description": "Buy Pakistan Team Jersey & Kits",
+    "objectType": "Parent",
+    "nextUrl": "/kits/teams/PAK"
+  },
+  {
+    "title": "IND",
+    "actionName": "Details",
+    "imageUrl": "http://eshop.damacdiscount.com/images/IndiaCricektteamlogo.png.png",
+    "description": "Buy India Team Jersey & Kits",
+    "objectType": "Parent",
+    "nextUrl": "/kits/teams/IND"
+  },
+  {
+    "title": "BAN",
+    "actionName": "Details",
+    "imageUrl": "http://eshop.damacdiscount.com/images/Bangladesh.png",
+    "description": "Buy Bangladesh Team Jersey & Kits",
+    "objectType": "Parent",
+    "nextUrl": "/kits/teams/BAN"
+  },
+  {
+    "title": "ZIM",
+    "actionName": "Details",
+    "imageUrl": "http://eshop.damacdiscount.com/images/Zimbabwe_Cricket.png",
+    "description": "Buy Zimbabwe Team Jersey & Kits",
+    "objectType": "Parent",
+    "nextUrl": "/kits/teams/ZIM"
+  },
+  {
+    "title": "AUS",
+    "actionName": "Details",
+    "imageUrl": "http://eshop.damacdiscount.com/images/Australia_cricket_logo.svg.png",
+    "description": "Buy Australia Team Jersey & Kits",
+    "objectType": "Parent",
+    "nextUrl": "/kits/teams/AUS"
+  },
+  {
+    "title": "SA",
+    "actionName": "Details",
+    "imageUrl": "http://eshop.damacdiscount.com/images/Southafrica_cricket.png",
+    "description": "Buy South Africa Team Jersey & Kits",
+    "objectType": "Parent",
+    "nextUrl": "/kits/teams/SA"
+  },
+  {
+    "title": "SRI",
+    "actionName": "Details",
+    "imageUrl": "http://eshop.damacdiscount.com/images/Sri_Lanka_Cricket.png",
+    "description": "Buy Sri Lanka Team Jersey & Kits",
+    "objectType": "Parent",
+    "nextUrl": "/kits/teams/SRI"
+  },
+  {
+    "title": "NZ",
+    "actionName": "Details",
+    "imageUrl": "http://eshop.damacdiscount.com/images/NewZeland.png",
+    "description": "Buy New Zealand Team Jersey & Kits",
+    "objectType": "Parent",
+    "nextUrl": "/kits/teams/NZ"
+  },
+  {
+    "title": "WI",
+    "actionName": "Details",
+    "imageUrl": "http://eshop.damacdiscount.com/images/Cricket_West_Indies.png",
+    "description": "Buy West Indies Team Jersey & Kits",
+    "objectType": "Parent",
+    "nextUrl": "/kits/teams/WI"
+  },
+
+  {
+    "title": "AFG",
+    "actionName": "Details",
+    "imageUrl": "http://eshop.damacdiscount.com/images/Afghanistan.png",
+    "description": "Buy Afghanistan Team Jersey & Kits",
+    "objectType": "Parent",
+    "nextUrl": "/kits/teams/AFG"
+  },
+  {
+    "title": "ENG",
+    "actionName": "Details",
+    "imageUrl": "http://eshop.damacdiscount.com/images/England.png",
+    "description": "Buy England Team Jersey & Kits",
+    "objectType": "Parent",
+    "nextUrl": "/kits/teams/ENG"
+  },
+  {
+    "title": "IRE",
+    "actionName": "Details",
+    "imageUrl": "http://eshop.damacdiscount.com/images/Ireland.png",
+    "description": "Buy Ireland Team Jersey & Kits",
+    "objectType": "Parent",
+    "nextUrl": "/kits/teams/IRE"
+  },
+  {
+    "title": "NEP",
+    "actionName": "Details",
+    "imageUrl": "http://eshop.damacdiscount.com/images/Nepal_logo.svg.png",
+    "description": "Buy Nepal Team Jersey & Kits",
+    "objectType": "Parent",
+    "nextUrl": "/kits/teams/NEP"
+  },
+  {
+    "title": "NED",
+    "actionName": "Details",
+    "imageUrl": "http://eshop.damacdiscount.com/images/Netherlands.png",
+    "description": "Buy Netherlands Team Jersey & Kits",
+    "objectType": "Parent",
+    "nextUrl": "/kits/teams/NED"
+  },
+  {
+    "title": "SCO",
+    "actionName": "Details",
+    "imageUrl": "http://eshop.damacdiscount.com/images/Scotland.png",
+    "description": "Buy Scotland Team Jersey & Kits",
+    "objectType": "Parent",
+    "nextUrl": "/kits/teams/SCO"
+  },
+  {
+    "title": "UAE",
+    "actionName": "Details",
+    "imageUrl": "http://eshop.damacdiscount.com/images/UAE.png",
+    "description": "Buy UAE Team Jersey & Kits",
+    "objectType": "Parent",
+    "nextUrl": "/kits/teams/UAE"
+  }
+]

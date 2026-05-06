@@ -2,9 +2,9 @@
   {
     "id": "24",
     "category": "CoinsPacks",
-    "packName": "Coin 1 Pack",
+    "packName": "Coins pack 1",
     "metaInfo": "Starter Coin Pack for quick boost",
-    "price": "12 $",
+    "price": "0.99$"
     "expiryDate": "2026-06-03T15:58:48.146+00:00",
     "information": "Buy Now",
     "alertInformation": "Limited Time Offer! Grab your coins before it expires.",
@@ -12,17 +12,17 @@
     "imageUrl": "http://eshop.damacdiscount.com/images/coins_pack.png",
     "objectType": "ConsumableProducts",
     "freeProducts": null,
-    "purchaseId": "com.flyinfosoft.cricketworld.coinspack6",
+    "purchaseId": "com.flyinfosoft.cricketworld.coinspack1",
     "nextUrl": "/purchase/nonconsumable/CoinsPacks/24?email=#EMAIL#",
-    "payload": "{\"gift\":1000}",
+    "payload": "{\"gift\":3000}",
     "default": false
   },
   {
     "id": "25",
     "category": "CoinsPacks",
-    "packName": "Coin 2 Pack",
+    "packName": "Coins pack 2",
     "metaInfo": "Advanced Coin Pack for serious players",
-    "price": "12 $",
+    "price": "1.99 $",
     "expiryDate": "2026-06-03T15:58:48.146+00:00",
     "information": "Buy Now",
     "alertInformation": "Hurry! Limited stock available for this offer.",
@@ -30,17 +30,17 @@
     "imageUrl": "http://eshop.damacdiscount.com/images/coins_pack.png",
     "objectType": "ConsumableProducts",
     "freeProducts": null,
-    "purchaseId": "com.flyinfosoft.cricketworld.coinspack7",
+    "purchaseId": "com.flyinfosoft.cricketworld.coinspack2",
     "nextUrl": "/purchase/nonconsumable/CoinsPacks/25?email=#EMAIL#",
-    "payload": "{\"gift\":1000}",
+    "payload": "{\"gift\":8000}",
     "default": false
   },
   {
     "id": "26",
     "category": "CoinsPacks",
-    "packName": "Coin 3 Pack",
+    "packName": "Coins Pack 3",
     "metaInfo": "Pro Coin Pack for ultimate domination",
-    "price": "12 $",
+    "price": "2.99 $",
     "expiryDate": "2026-06-03T15:58:48.146+00:00",
     "information": "Buy Now",
     "alertInformation": "Exclusive Deal! Don’t miss out.",
@@ -48,9 +48,9 @@
     "imageUrl": "http://eshop.damacdiscount.com/images/coins_pack.png",
     "objectType": "ConsumableProducts",
     "freeProducts": null,
-    "purchaseId": "com.flyinfosoft.cricketworld.coinspack8",
+    "purchaseId": "com.flyinfosoft.cricketworld.coinspack3",
     "nextUrl": "/purchase/nonconsumable/CoinsPacks/26?email=#EMAIL#",
-    "payload": "{\"gift\":1000}",
+    "payload": "{\"gift\":20000}",
     "default": false
   }
 ]

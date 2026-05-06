@@ -2,9 +2,9 @@
   {
     "id": "21",
     "category": "DiamondPacks",
-    "packName": "Diamond 1 Pack",
+    "packName": "Diamonds Pack 1",
     "metaInfo": "Starter Diamond Pack for premium unlocks",
-    "price": "12 $",
+    "price": "0.99 $",
     "expiryDate": "2026-06-03T15:58:48.052+00:00",
     "information": "Buy Now",
     "alertInformation": "Limited Time Offer! Unlock premium features now.",
@@ -12,7 +12,7 @@
     "imageUrl": "http://eshop.damacdiscount.com/images/diamonds_pack.png",
     "objectType": "ConsumableProducts",
     "freeProducts": null,
-    "purchaseId": "com.flyinfosoft.cricketworld.diamondspack26",
+    "purchaseId": "com.flyinfosoft.cricketworld.diamondspack1",
     "nextUrl": "/purchase/nonconsumable/DiamondPacks/21?email=#EMAIL#",
     "payload": "{\"gift\":1000}",
     "default": false
@@ -20,9 +20,9 @@
   {
     "id": "22",
     "category": "DiamondPacks",
-    "packName": "Diamond 2 Pack",
+    "packName": "Diamonds Pack 2",
     "metaInfo": "Advanced Diamond Pack for competitive edge",
-    "price": "12 $",
+    "price": "1.99 $",
     "expiryDate": "2026-06-03T15:58:48.052+00:00",
     "information": "Buy Now",
     "alertInformation": "Hurry! Limited availability for this premium pack.",
@@ -30,17 +30,17 @@
     "imageUrl": "http://eshop.damacdiscount.com/images/diamonds_pack.png",
     "objectType": "ConsumableProducts",
     "freeProducts": null,
-    "purchaseId": "com.flyinfosoft.cricketworld.diamondspack27",
+    "purchaseId": "com.flyinfosoft.cricketworld.diamondspack2",
     "nextUrl": "/purchase/nonconsumable/DiamondPacks/22?email=#EMAIL#",
-    "payload": "{\"gift\":1000}",
+    "payload": "{\"gift\":2500}",
     "default": false
   },
   {
     "id": "23",
     "category": "DiamondPacks",
-    "packName": "Diamond 3 Pack",
+    "packName": "Diamonds Pack 3",
     "metaInfo": "Pro Diamond Pack for ultimate domination",
-    "price": "12 $",
+    "price": "2.99 $",
     "expiryDate": "2026-06-03T15:58:48.052+00:00",
     "information": "Buy Now",
     "alertInformation": "Exclusive Deal! Grab it before it's gone.",
@@ -48,9 +48,9 @@
     "imageUrl": "http://eshop.damacdiscount.com/images/diamonds_pack.png",
     "objectType": "ConsumableProducts",
     "freeProducts": null,
-    "purchaseId": "com.flyinfosoft.cricketworld.diamondspack28",
+    "purchaseId": "com.flyinfosoft.cricketworld.diamondspack3",
     "nextUrl": "/purchase/nonconsumable/DiamondPacks/23?email=#EMAIL#",
-    "payload": "{\"gift\":1000}",
+    "payload": "{\"gift\":6000}",
     "default": false
   }
 ]

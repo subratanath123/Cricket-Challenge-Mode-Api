@@ -1,0 +1,50 @@
+[
+  {
+    "id": "18011",
+    "metaInfo": "ENGLISH",
+    "category": "CommentaryPacks",
+    "packName": "English Pack",
+    "imageUrl": "http://eshop.damacdiscount.com/images/English.png",
+    "price": "12 Diamonds",
+    "information": "Enjoy professional English commentary for a realistic match experience.",
+    "alertInformation": "Default Commentary",
+    "flipInformation": "Experience the game like a live broadcast! English commentary brings professional insights, exciting reactions, and immersive match narration to every ball you play.",
+    "nextUrl": "/purchase/nonconsumable/CommentaryPacks/180?email=#EMAIL#",
+    "objectType": "NonConsumableProducts",
+    "purchaseId": null,
+    "payload": null,
+    "default": true
+  },
+  {
+    "id": "180",
+    "metaInfo": "BANGLA",
+    "category": "CommentaryPacks",
+    "packName": "Bangla Pack",
+    "imageUrl": "http://eshop.damacdiscount.com/images/Bengali.png",
+    "price": "12 Diamonds",
+    "information": "Play with exciting Bangla commentary for a local match vibe.",
+    "alertInformation": "Limited Time Offer! Unlock Bangla commentary.",
+    "flipInformation": "Feel the emotion of cricket in Bangla! Enjoy energetic and passionate commentary that brings every moment to life. Perfect for players who love a local and expressive match experience.",
+    "nextUrl": "/purchase/nonconsumable/CommentaryPacks/180?email=#EMAIL#",
+    "objectType": "NonConsumableProducts",
+    "purchaseId": null,
+    "payload": null,
+    "default": false
+  },
+  {
+    "id": "181",
+    "metaInfo": "TAMIL",
+    "category": "CommentaryPacks",
+    "packName": "Tamil Pack",
+    "imageUrl": "http://eshop.damacdiscount.com/images/Tamil.png",
+    "price": "12 Diamonds",
+    "information": "Experience matches with dynamic Tamil commentary.",
+    "alertInformation": "Limited Time Offer! Unlock now.",
+    "flipInformation": "Bring your matches to life with Tamil commentary! Enjoy vibrant expressions, energetic calls, and an immersive cricket atmosphere that enhances every moment on the field.",
+    "nextUrl": "/purchase/nonconsumable/CommentaryPacks/181?email=#EMAIL#",
+    "objectType": "NonConsumableProducts",
+    "purchaseId": null,
+    "payload": null,
+    "default": false
+  }
+]

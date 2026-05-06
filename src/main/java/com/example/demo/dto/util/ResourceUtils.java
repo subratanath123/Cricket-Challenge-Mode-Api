@@ -1,15 +1,8 @@
 package com.example.demo.dto.util;
 
-import com.example.demo.dto.gift.*;
 import com.example.demo.dto.subscription.ConsumableProducts;
 import com.example.demo.dto.subscription.NonConsumableProducts;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.time.Instant;
-import java.time.temporal.ChronoUnit;
-import java.util.Collections;
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,72 +16,18 @@ public class ResourceUtils {
     public static final Map<String, List<ConsumableProducts>> subscriptionProducts = new HashMap<>();
 
     static {
-        ObjectMapper objectMapper = new ObjectMapper();
-        List<String> jerseyTextureUrls = asList(
-                "http://eshop.damacdiscount.com/images/1.jpg",
-                "http://eshop.damacdiscount.com/images/2.jpg",
-                "http://eshop.damacdiscount.com/images/3.jpg",
-                "http://eshop.damacdiscount.com/images/4.jpg",
-                "http://eshop.damacdiscount.com/images/5.jpg",
-                "http://eshop.damacdiscount.com/images/6.jpg",
-                "http://eshop.damacdiscount.com/images/7.jpg",
-                "http://eshop.damacdiscount.com/images/8.jpg",
-                "http://eshop.damacdiscount.com/images/9.jpg",
-                "http://eshop.damacdiscount.com/images/10.jpg",
-                "http://eshop.damacdiscount.com/images/11.jpg"
-        );
-
-        // Kits pack
-        KitsPackGift kitsPackGift1 = new KitsPackGift
-                .Builder()
-                .setJerseyWithShoeTextureUrls(jerseyTextureUrls)
-                .setJerseyWithPadHelmetGlovesTextureUrls(repeatUrlForPlayingXI("http://eshop.damacdiscount.com/images/Additional.jpg"))
-                .setTeam("BAN")
-                .build();
-
-        KitsPackGift kitsPackGift2 = new KitsPackGift
-                .Builder()
-                .setJerseyWithShoeTextureUrls(jerseyTextureUrls)
-                .setJerseyWithPadHelmetGlovesTextureUrls(repeatUrlForPlayingXI("http://eshop.damacdiscount.com/images/Additional.jpg"))
-                .setTeam("BAN")
-                .build();
-
-        KitsPackGift defaultPackKits = new KitsPackGift
-                .Builder()
-                .setJerseyWithShoeTextureUrls(jerseyTextureUrls)
-                .setJerseyWithPadHelmetGlovesTextureUrls(repeatUrlForPlayingXI("http://eshop.damacdiscount.com/images/Additional.jpg"))
-                .setTeam("BAN")
-                .build();
-
-        String kitsPackGift1Json = null;
-        String kitsPackGift2Json = null;
-        String defaultPackKitsJson = null;
-
-        try {
-
-            kitsPackGift1Json = objectMapper.writeValueAsString(kitsPackGift1);
-            kitsPackGift2Json = objectMapper.writeValueAsString(kitsPackGift2);
-            defaultPackKitsJson = objectMapper.writeValueAsString(defaultPackKits);
-
-        } catch (JsonProcessingException e) {
-        }
-
-        List<NonConsumableProducts> nonConsuambleKitList = asList(
-                new NonConsumableProducts("11111", "BAN", "Exclusive Default Pack", "12 $", "Buy", "https://i.imgur.com/SxACcBl.png", "Kits", "/purchase/nonconsumable/Kits/1?email=#EMAIL#", "com.pack0", defaultPackKitsJson, true),
-                new NonConsumableProducts("111", "BAN", "Exclusive 1 Pack", "12 $", "Buy", "https://i.imgur.com/5qGmuny.png", "Kits", "/purchase/nonconsumable/Kits/1?email=#EMAIL#", "com.pack0", kitsPackGift1Json, false),
-                new NonConsumableProducts("222", "BAN", "Exclusive 2 Pack", "12 Diamonds", "Buy", "https://i.imgur.com/U4AxZin.png", "Kits", "/purchase/nonconsumable/Kits/2?email=#EMAIL#", kitsPackGift2Json, false),
-                new NonConsumableProducts("333", "BAN", "Exclusive 3 Pack", "12 Diamonds", "Buy", "https://i.imgur.com/U4AxZin.png", "Kits", "/purchase/nonconsumable/Kits/3?email=#EMAIL#", kitsPackGift2Json, false),
-
+        List<NonConsumableProducts> nonConsuambleKitList = new ArrayList<>(
+                TestDataResourceLoader.loadNonConsumableProducts("testData/JerseyPacksBan.json"));
+        nonConsuambleKitList.addAll(asList(
                 new NonConsumableProducts("11114", "PAK", "Exclusive Default Pack", "12 $", "Buy", "https://i.imgur.com/zwokeqa.png", "Kits", "/purchase/nonconsumable/Kits/4?email=#EMAIL#", "com.pack1", null, true),
                 new NonConsumableProducts("4", "PAK", "Exclusive 1 Pack", "12 $", "Buy", "https://i.imgur.com/zwokeqa.png", "Kits", "/purchase/nonconsumable/Kits/4?email=#EMAIL#", "com.pack1", null, false),
                 new NonConsumableProducts("5", "PAK", "Exclusive 2 Pack", "12 $", "Buy", "https://i.imgur.com/zwokeqa.png", "Kits", "/purchase/nonconsumable/Kits/5?email=#EMAIL#", "com.pack2", null, false),
                 new NonConsumableProducts("6", "PAK", "Exclusive 3 Pack", "12 $", "Buy", "https://i.imgur.com/zwokeqa.png", "Kits", "/purchase/nonconsumable/Kits/6?email=#EMAIL#", "com.pack3", null, false),
-
                 new NonConsumableProducts("711111", "SA", "Exclusive Default Pack", "12 Coins", "Buy", "https://i.imgur.com/zwokeqa.png", "Kits", "/purchase/nonconsumable/Kits/7?email=#EMAIL#", null, true),
                 new NonConsumableProducts("7", "SA", "Exclusive 1 Pack", "12 Coins", "Buy", "https://i.imgur.com/zwokeqa.png", "Kits", "/purchase/nonconsumable/Kits/7?email=#EMAIL#", null, false),
                 new NonConsumableProducts("8", "SA", "Exclusive 2 Pack", "12 Coins", "Buy", "https://i.imgur.com/zwokeqa.png", "Kits", "/purchase/nonconsumable/Kits/8?email=#EMAIL#", null, false),
                 new NonConsumableProducts("9", "SA", "Exclusive 3 Pack", "12 Coins", "Buy", "https://i.imgur.com/zwokeqa.png", "Kits", "/purchase/nonconsumable/Kits/9?email=#EMAIL#", null, false)
-        );
+        ));
 
         nonConsumableProducts.put("Kits", nonConsuambleKitList);
 
@@ -97,11 +36,8 @@ public class ResourceUtils {
 
         nonConsumableProducts.put("StadiumPacks", staudiumPackList);
 
-        List<NonConsumableProducts> commentaryPackList = asList(
-                new NonConsumableProducts("18011", "ENGLISH", "English Pack", "12 Diamonds", "Buy", "https://i.imgur.com/be0dQgb.png", "CommentaryPacks", "/purchase/nonconsumable/CommentaryPacks/180?email=#EMAIL#", null, true),
-                new NonConsumableProducts("180", "BANGLA", "Bangla Pack", "12 Diamonds", "Buy", "https://i.imgur.com/be0dQgb.png", "CommentaryPacks", "/purchase/nonconsumable/CommentaryPacks/180?email=#EMAIL#", null, false),
-                new NonConsumableProducts("181", "TAMIL", "Tamil Pack", "12 Diamonds", "Buy", "https://i.imgur.com/be0dQgb.png", "CommentaryPacks", "/purchase/nonconsumable/CommentaryPacks/181?email=#EMAIL#", null, false)
-        );
+        List<NonConsumableProducts> commentaryPackList =
+                TestDataResourceLoader.loadNonConsumableProducts("testData/Commentary.json");
 
         nonConsumableProducts.put("CommentaryPacks", commentaryPackList);
 
@@ -128,24 +64,8 @@ public class ResourceUtils {
 
 
         ////Subscription packlist
-        List<ConsumableProducts> subscriptionPackList = asList(
-                new ConsumableProducts("19",
-                        "Premium Subscription",
-                        "Premium Subscription. Get Unlimited Offers",
-                        "Subscription",
-                        "50 $",
-                        Date.from(Instant.now().plus(30, ChronoUnit.DAYS)),
-                        "Get Limited Time Offer",
-                        "Subscription",
-                        "https://i.postimg.cc/YjB9Nzvp/Subs.png",
-                        asList("1", "2", "3", "4", "5", "7", "8", "9", "10", "11", "12", "13", "1116", "1117",
-                                "1118", "16", "17", "18", "13", "14", "15", "16", "111", "222", "333"),
-                        "/purchase/subscription/19?email=#EMAIL#",
-                        "com.pack100",
-                        null, false)
-        );
-
-
+        List<ConsumableProducts> subscriptionPackList =
+                TestDataResourceLoader.loadConsumableProducts("testData/SubscriptionsPack.json");
         subscriptionProducts.put("Subscription", subscriptionPackList);
 
 
@@ -165,9 +85,4 @@ public class ResourceUtils {
         nonConsumableProducts.put("NoAdsPacks", noAdsPackList);
 
     }
-
-    private static List<String> repeatUrlForPlayingXI(String url) {
-        return Collections.nCopies(11, url);
-    }
-
 }

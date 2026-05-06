@@ -15,8 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.example.demo.dto.util.CacheUtils.getActiveSubscriptions;
 import static com.example.demo.dto.util.CacheUtils.nonConsumablePurchaseHistory;
-import static com.example.demo.dto.util.CacheUtils.subscriptionPurchaseHistory;
 import static com.example.demo.dto.util.ResourceUtils.nonConsumableProducts;
 
 @RestController
@@ -80,7 +80,7 @@ public class StadiumPackController {
     ) {
         List<NonConsumableProducts> purchasedProducts = new ArrayList<>(nonConsumableProducts.get("StadiumPacks"))
                 .stream()
-                .filter(product -> subscriptionPurchaseHistory.getOrDefault(email, new ArrayList<>())
+                .filter(product -> getActiveSubscriptions(email)
                         .stream()
                         .anyMatch(consumableProducts -> consumableProducts.getFreeProducts().contains(product.getId())))
                 .collect(Collectors.toList());

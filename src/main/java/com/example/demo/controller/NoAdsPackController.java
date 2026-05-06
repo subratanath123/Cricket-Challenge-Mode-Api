@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.example.demo.dto.util.CacheUtils.getActiveSubscriptions;
 import static com.example.demo.dto.util.CacheUtils.*;
 import static com.example.demo.dto.util.ResourceUtils.consumableProducts;
 import static com.example.demo.dto.util.ResourceUtils.nonConsumableProducts;
@@ -84,7 +85,7 @@ public class NoAdsPackController {
     ) {
         List<NonConsumableProducts> purchasedProducts = new ArrayList<>(nonConsumableProducts.get("NoAdsPacks"))
                 .stream()
-                .filter(product -> subscriptionPurchaseHistory.getOrDefault(email, new ArrayList<>())
+                .filter(product -> getActiveSubscriptions(email)
                         .stream()
                         .anyMatch(consumableProducts -> consumableProducts.getFreeProducts().contains(product.getId())))
                 .collect(Collectors.toList());

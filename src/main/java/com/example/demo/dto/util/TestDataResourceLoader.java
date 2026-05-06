@@ -1,5 +1,6 @@
 package com.example.demo.dto.util;
 
+import com.example.demo.dto.kits.CardItem;
 import com.example.demo.dto.subscription.ConsumableProducts;
 import com.example.demo.dto.subscription.NonConsumableProducts;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -15,14 +16,14 @@ import java.util.List;
 /**
  * Loads catalog rows from JSON under {@code classpath:testData/} (sourced from {@code src/testData} at build time).
  */
-final class TestDataResourceLoader {
+public final class TestDataResourceLoader {
 
     private static final ObjectMapper MAPPER = new ObjectMapper().findAndRegisterModules();
 
     private TestDataResourceLoader() {
     }
 
-    static List<NonConsumableProducts> loadNonConsumableProducts(String classpathRelativePath) {
+    public static List<NonConsumableProducts> loadNonConsumableProducts(String classpathRelativePath) {
         try (InputStream in = open(classpathRelativePath)) {
             List<NonConsumableJsonRow> rows = MAPPER.readValue(in, new TypeReference<>() {
             });
@@ -32,11 +33,23 @@ final class TestDataResourceLoader {
         }
     }
 
-    static List<ConsumableProducts> loadConsumableProducts(String classpathRelativePath) {
+    public static List<ConsumableProducts> loadConsumableProducts(String classpathRelativePath) {
         try (InputStream in = open(classpathRelativePath)) {
             List<ConsumableJsonRow> rows = MAPPER.readValue(in, new TypeReference<>() {
             });
             return rows.stream().map(TestDataResourceLoader::toConsumable).toList();
+        } catch (IOException e) {
+            throw new IllegalStateException("Failed to load test data: " + classpathRelativePath, e);
+        }
+    }
+
+    public static List<CardItem> loadCardItems(String classpathRelativePath) {
+        try (InputStream in = open(classpathRelativePath)) {
+            List<CardItemJsonRow> rows = MAPPER.readValue(in, new TypeReference<>() {
+            });
+            return rows.stream()
+                    .map(r -> new CardItem(r.title, r.imageUrl, r.description, r.actionName, r.objectType, r.nextUrl))
+                    .toList();
         } catch (IOException e) {
             throw new IllegalStateException("Failed to load test data: " + classpathRelativePath, e);
         }
@@ -144,5 +157,15 @@ final class TestDataResourceLoader {
         public String payload;
         @JsonProperty("default")
         public boolean defaultProduct;
+    }
+
+    @SuppressWarnings("unused")
+    private static class CardItemJsonRow {
+        public String title;
+        public String actionName;
+        public String imageUrl;
+        public String description;
+        public String objectType;
+        public String nextUrl;
     }
 }

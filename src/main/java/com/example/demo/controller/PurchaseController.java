@@ -12,8 +12,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import static com.example.demo.dto.util.CacheUtils.*;
@@ -68,15 +71,18 @@ public class PurchaseController {
 
         List<ConsumableProducts> purchaseHistoryOrDefault = subscriptionPurchaseHistory.getOrDefault(email, new ArrayList<>());
 
-        purchaseHistoryOrDefault
-                .add(
-                        subscriptionProducts
-                                .get("Subscription")
-                                .stream()
-                                .filter(consumableProducts -> consumableProducts.getId().equals(id))
-                                .findFirst()
-                                .orElse(null)
-                );
+        ConsumableProducts matchedSubscriptionProduct = subscriptionProducts
+                .get("Subscription")
+                .stream()
+                .filter(consumableProducts -> consumableProducts.getId().equals(id))
+                .findFirst()
+                .orElse(null);
+
+        if (matchedSubscriptionProduct == null) {
+            return "failed";
+        }
+
+        purchaseHistoryOrDefault.add(createPurchasedSubscription(matchedSubscriptionProduct));
 
         subscriptionPurchaseHistory.put(email, purchaseHistoryOrDefault);
 
@@ -171,13 +177,36 @@ public class PurchaseController {
                 .orElse(null);
 
         if (matchedSubscriptionProduct != null) {
-            subscriptionPurchaseHistoryOrDefault.add(matchedSubscriptionProduct);
+            subscriptionPurchaseHistoryOrDefault.add(createPurchasedSubscription(matchedSubscriptionProduct));
             subscriptionPurchaseHistory.put(email, subscriptionPurchaseHistoryOrDefault);
             return "purchased";
         }
 
 
         return "failed";
+    }
+
+    private ConsumableProducts createPurchasedSubscription(ConsumableProducts template) {
+        Date expiryDate = Date.from(Instant.now().plus(365, ChronoUnit.DAYS));
+        ConsumableProducts purchasedSubscription = new ConsumableProducts(
+                template.getId(),
+                template.getCategory(),
+                template.getPackName(),
+                template.getMetaInfo(),
+                template.getPrice(),
+                expiryDate,
+                template.getInformation(),
+                template.getObjectType(),
+                template.getImageUrl(),
+                template.getFreeProducts(),
+                template.getNextUrl(),
+                template.getPurchaseId(),
+                template.getPayload(),
+                template.isDefault()
+        );
+        purchasedSubscription.setAlertInformation(template.getAlertInformation());
+        purchasedSubscription.setFlipInformation(template.getFlipInformation());
+        return purchasedSubscription;
     }
 
 }

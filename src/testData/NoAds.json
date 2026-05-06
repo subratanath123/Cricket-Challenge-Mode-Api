@@ -3,15 +3,15 @@
     "id": "126",
     "metaInfo": "Ad-Free Experience Pack",
     "category": "NoAdsPacks",
-    "packName": "No Ads 1 Pack",
+    "packName": "No Ads",
     "imageUrl": "http://eshop.damacdiscount.com/images/No-Ads.png",
-    "price": "12 $",
+    "price": "3 $",
     "information": "Buy Now",
     "alertInformation": "Limited Time Offer! Enjoy uninterrupted gameplay.",
     "flipInformation": "Play without distractions! Remove all ads and enjoy a smooth, immersive cricket experience. Focus on your matches, build your squad, and enjoy the game the way it’s meant to be played—clean and uninterrupted.",
     "nextUrl": "/purchase/NoAdsPacks/NoAdsPacks/126?email=#EMAIL#",
     "objectType": "NonConsumableProducts",
-    "purchaseId": "com.flyinfosoft.cricketworld.Noadspack1",
+    "purchaseId": "com.flyinfosoft.cricketworld.noadspack",
     "payload": null,
     "default": false
   }

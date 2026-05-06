@@ -1,0 +1,34 @@
+[
+  {
+    "id": "11111",
+    "metaInfo": "BAN",
+    "category": "Kits",
+    "packName": "Exclusive Default Pack",
+    "imageUrl": "http://eshop.damacdiscount.com/images/BanDefault.png",
+    "price": "12 Coins",
+    "information": "Equip your team with the official Bangladesh kit.",
+    "alertInformation": "Default Kit Unlocked",
+    "flipInformation": "Step onto the field with pride! This Bangladesh kit gives your team a complete professional look with jersey, pads, gloves, and shoes. Play with confidence and represent your nation in style.",
+    "nextUrl": "/purchase/nonconsumable/Kits/1?email=#EMAIL#",
+    "objectType": "NonConsumableProducts",
+    "purchaseId": null,
+    "payload": "{\"jerseyWithShoeTextureUrls\":[\"http://eshop.damacdiscount.com/images/1.jpg\",\"http://eshop.damacdiscount.com/images/2.jpg\",\"http://eshop.damacdiscount.com/images/3.jpg\",\"http://eshop.damacdiscount.com/images/4.jpg\",\"http://eshop.damacdiscount.com/images/5.jpg\",\"http://eshop.damacdiscount.com/images/6.jpg\",\"http://eshop.damacdiscount.com/images/7.jpg\",\"http://eshop.damacdiscount.com/images/8.jpg\",\"http://eshop.damacdiscount.com/images/9.jpg\",\"http://eshop.damacdiscount.com/images/10.jpg\",\"http://eshop.damacdiscount.com/images/11.jpg\"],\"jerseyWithPadHelmetGlovesTextureUrls\":[\"http://eshop.damacdiscount.com/images/BanJersey1-Pad.jpg\",\"http://eshop.damacdiscount.com/images/BanJersey1-Pad.jpg\",\"http://eshop.damacdiscount.com/images/BanJersey1-Pad.jpg\",\"http://eshop.damacdiscount.com/images/BanJersey1-Pad.jpg\",\"http://eshop.damacdiscount.com/images/BanJersey1-Pad.jpg\",\"http://eshop.damacdiscount.com/images/BanJersey1-Pad.jpg\",\"http://eshop.damacdiscount.com/images/BanJersey1-Pad.jpg\",\"http://eshop.damacdiscount.com/images/BanJersey1-Pad.jpg\",\"http://eshop.damacdiscount.com/images/BanJersey1-Pad.jpg\",\"http://eshop.damacdiscount.com/images/BanJersey1-Pad.jpg\",\"http://eshop.damacdiscount.com/images/BanJersey1-Pad.jpg\"],\"team\":\"BAN\"}",
+    "default": true
+  },
+  {
+    "id": "333",
+    "metaInfo": "BAN",
+    "category": "Kits",
+    "packName": "Exclusive 3 Pack",
+    "imageUrl": "http://eshop.damacdiscount.com/images/BanJersey1.png",
+    "price": "12 Coins",
+    "information": "Unlock exclusive Bangladesh jerseys and stand out on the field.",
+    "alertInformation": "Limited Time Offer! Grab your exclusive kit now.",
+    "flipInformation": "Upgrade your style with exclusive Bangladesh jerseys! Customize your team’s appearance with premium designs and full gear. Play with identity, confidence, and make every match visually unique.",
+    "nextUrl": "/purchase/nonconsumable/Kits/3?email=#EMAIL#",
+    "objectType": "NonConsumableProducts",
+    "purchaseId": null,
+    "payload": "{\"jerseyWithShoeTextureUrls\":[\"http://eshop.damacdiscount.com/images/Bangladesh-Team-Jersey01.jpg\",\"http://eshop.damacdiscount.com/images/Bangladesh-Team-Jersey02.jpg\",\"http://eshop.damacdiscount.com/images/Bangladesh-Team-Jersey03.jpg\",\"http://eshop.damacdiscount.com/images/Bangladesh-Team-Jersey04.jpg\",\"http://eshop.damacdiscount.com/images/Bangladesh-Team-Jersey05.jpg\",\"http://eshop.damacdiscount.com/images/Bangladesh-Team-Jersey06.jpg\",\"http://eshop.damacdiscount.com/images/Bangladesh-Team-Jersey07.jpg\",\"http://eshop.damacdiscount.com/images/Bangladesh-Team-Jersey08.jpg\",\"http://eshop.damacdiscount.com/images/Bangladesh-Team-Jersey09.jpg\",\"http://eshop.damacdiscount.com/images/Bangladesh-Team-Jersey10.jpg\",\"http://eshop.damacdiscount.com/images/Bangladesh-Team-Jersey11.jpg\"],\"jerseyWithPadHelmetGlovesTextureUrls\":[\"http://eshop.damacdiscount.com/images/BanJersey1-Pad.jpg\",\"http://eshop.damacdiscount.com/images/BanJersey1-Pad.jpg\",\"http://eshop.damacdiscount.com/images/BanJersey1-Pad.jpg\",\"http://eshop.damacdiscount.com/images/BanJersey1-Pad.jpg\",\"http://eshop.damacdiscount.com/images/BanJersey1-Pad.jpg\",\"http://eshop.damacdiscount.com/images/BanJersey1-Pad.jpg\",\"http://eshop.damacdiscount.com/images/BanJersey1-Pad.jpg\",\"http://eshop.damacdiscount.com/images/BanJersey1-Pad.jpg\",\"http://eshop.damacdiscount.com/images/BanJersey1-Pad.jpg\",\"http://eshop.damacdiscount.com/images/BanJersey1-Pad.jpg\",\"http://eshop.damacdiscount.com/images/BanJersey1-Pad.jpg\"],\"team\":\"BAN\"}",
+    "default": false
+  }
+]

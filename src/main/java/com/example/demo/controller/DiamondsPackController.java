@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.example.demo.dto.util.CacheUtils.getActiveSubscriptions;
 import static com.example.demo.dto.util.CacheUtils.*;
 import static com.example.demo.dto.util.ResourceUtils.consumableProducts;
 
@@ -79,7 +80,7 @@ public class DiamondsPackController {
     ) {
         List<ConsumableProducts> purchasedProducts = new ArrayList<>(consumableProducts.get("DiamondPacks"))
                 .stream()
-                .filter(product -> subscriptionPurchaseHistory.getOrDefault(email, new ArrayList<>())
+                .filter(product -> getActiveSubscriptions(email)
                         .stream()
                         .anyMatch(consumableProducts -> consumableProducts.getFreeProducts().contains(product.getId())))
                 .collect(Collectors.toList());
