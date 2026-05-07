@@ -42,7 +42,7 @@ public class ChallengeModeData {
     @JsonProperty("Rewards")
     private Rewards rewards;
 
-    private ChallengeModeData() {}
+    public ChallengeModeData() {}
 
     public static class Builder {
         private final ChallengeModeData challengeModeData = new ChallengeModeData();
@@ -106,6 +106,19 @@ public class ChallengeModeData {
             return challengeModeData;
         }
     }
+
+    // Setters for Jackson deserialization
+    public void setChallengeId(int challengeId) { this.challengeId = challengeId; }
+    public void setChallengeTitle(String challengeTitle) { this.challengeTitle = challengeTitle; }
+    public void setMyTeam(String myTeam) { this.myTeam = myTeam; }
+    public void setOpponentTeam(String opponentTeam) { this.opponentTeam = opponentTeam; }
+    public void setMatchType(String matchType) { this.matchType = matchType; }
+    public void setVenue(String venue) { this.venue = venue; }
+    public void setChallengeRole(String challengeRole) { this.challengeRole = challengeRole; }
+    public void setChallengeDetails(ChallengeDetails challengeDetails) { this.challengeDetails = challengeDetails; }
+    public void setBattingRole(BattingRole battingRole) { this.battingRole = battingRole; }
+    public void setBowlingRole(BowlingRole bowlingRole) { this.bowlingRole = bowlingRole; }
+    public void setRewards(Rewards rewards) { this.rewards = rewards; }
 
     // Getters
     public int getChallengeId() { return challengeId; }

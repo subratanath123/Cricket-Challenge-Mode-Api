@@ -10,7 +10,7 @@ public class BattingRole {
     @JsonProperty("OverLimitation")
     private int overLimitation;
 
-    private BattingRole() {}
+    public BattingRole() {}
 
     public static class Builder {
         private final BattingRole battingRole = new BattingRole();
@@ -34,6 +34,11 @@ public class BattingRole {
             return battingRole;
         }
     }
+
+    // Setters for Jackson deserialization
+    public void setWicketLimit(int wicketLimit) { this.wicketLimit = wicketLimit; }
+    public void setTargetRun(int targetRun) { this.targetRun = targetRun; }
+    public void setOverLimitation(int overLimitation) { this.overLimitation = overLimitation; }
 
     // Getters
     public int getWicketLimit() { return wicketLimit; }

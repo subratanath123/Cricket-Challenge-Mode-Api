@@ -16,6 +16,9 @@ public class LevelList {
         this.levelList = levelList;
     }
 
+    public LevelList() {
+    }
+
     public LevelList(List<String> levelList) {
         this.levelList = levelList;
     }

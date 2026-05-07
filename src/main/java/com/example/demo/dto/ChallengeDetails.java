@@ -13,7 +13,7 @@ public class ChallengeDetails {
     @JsonProperty("Level")
     private String level;
 
-    private ChallengeDetails() {}
+    public ChallengeDetails() {}
 
     public static class Builder {
         private final ChallengeDetails challengeDetails = new ChallengeDetails();
@@ -32,6 +32,10 @@ public class ChallengeDetails {
             return challengeDetails;
         }
     }
+
+    // Setters for Jackson deserialization
+    public void setDifficulty(ChallengeModeData.Difficulty difficulty) { this.difficulty = difficulty; }
+    public void setLevel(String level) { this.level = level; }
 
     // Getters
     public ChallengeModeData.Difficulty getDifficulty() { return difficulty; }

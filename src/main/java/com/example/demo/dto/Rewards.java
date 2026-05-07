@@ -12,7 +12,7 @@ public class Rewards {
     @JsonProperty("Stars")
     private int stars;
 
-    private Rewards() {}
+    public Rewards() {}
 
     public static class Builder {
         private final Rewards rewards = new Rewards();
@@ -41,6 +41,12 @@ public class Rewards {
             return rewards;
         }
     }
+
+    // Setters for Jackson deserialization
+    public void setXps(int xps) { this.xps = xps; }
+    public void setCoins(int coins) { this.coins = coins; }
+    public void setDiamonds(int diamonds) { this.diamonds = diamonds; }
+    public void setStars(int stars) { this.stars = stars; }
 
     // Getters
     public int getXps() { return xps; }

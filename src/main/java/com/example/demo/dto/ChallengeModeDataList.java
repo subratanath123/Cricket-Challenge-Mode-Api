@@ -8,6 +8,9 @@ public class ChallengeModeDataList {
     @JsonProperty("ChallengeModeDataList")
     private List<ChallengeModeData>  challengeModeDataList;
 
+    public ChallengeModeDataList() {
+    }
+
     public ChallengeModeDataList(List<ChallengeModeData> challengeModeDataList) {
         this.challengeModeDataList = challengeModeDataList;
     }

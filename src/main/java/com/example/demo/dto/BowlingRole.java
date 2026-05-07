@@ -8,7 +8,7 @@ public class BowlingRole {
     @JsonProperty("OverLimitation")
     private int overLimitation;
 
-    private BowlingRole() {}
+    public BowlingRole() {}
 
     public static class Builder {
         private final BowlingRole bowlingRole = new BowlingRole();
@@ -27,6 +27,10 @@ public class BowlingRole {
             return bowlingRole;
         }
     }
+
+    // Setters for Jackson deserialization
+    public void setTargetRun(int targetRun) { this.targetRun = targetRun; }
+    public void setOverLimitation(int overLimitation) { this.overLimitation = overLimitation; }
 
     // Getters
     public int getTargetRun() { return targetRun; }

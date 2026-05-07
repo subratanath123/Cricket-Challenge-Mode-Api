@@ -81,15 +81,10 @@ public class ChallengeApiController {
             ChallengeModeDataList challengeModeDataList = OBJECT_MAPPER.readValue(in, ChallengeModeDataList.class);
             return challengeModeDataList.getChallengeModeDataList()
                     .stream()
-                    .map(challengeModeData -> {
-                        String effectiveMyTeam = challengeModeData.getMyTeam();
-                        if (effectiveMyTeam == null || effectiveMyTeam.isBlank()) {
-                            effectiveMyTeam = myTeam;
-                        }
-                        return cloneChallengeWithMyTeam(challengeModeData, effectiveMyTeam);
-                    })
+                    .map(challengeModeData -> cloneChallengeWithMyTeam(challengeModeData, myTeam))
                     .collect(Collectors.toList());
         } catch (Exception ex) {
+            System.out.println(ex);
             return getHardcodedChallengeModeData(myTeam);
         }
     }
@@ -236,6 +231,7 @@ public class ChallengeApiController {
         try (InputStream in = new URL(CHALLENGE_LEVELS_URL).openStream()) {
             return OBJECT_MAPPER.readValue(in, LevelList.class);
         } catch (Exception ex) {
+            System.out.println(ex);
             return new LevelList(Arrays.asList(
                     "Level 1", "Level 2", "Level 3", "Level 4", "Level 5", "Level 6", "Level 7"
             ));
