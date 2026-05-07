@@ -9,7 +9,6 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
@@ -22,8 +21,11 @@ import static com.example.demo.dto.util.TestDataResourceLoader.loadCardItems;
 @RestController
 @Tag(name = "Game Assets", description = "API endpoints for managing game asset resources. This provides consolidated asset information including images and metadata for all in-game purchasable items. Used for preloading and caching visual assets in the game client.")
 public class GameAssetController {
+    private static final String TEST_DATA_BASE_URL = "https://cwapi.flyhr.net/IpJson/";
 
-    public static List<CardItem> teamListForKits = loadCardItems("testData/JerseyIcon.json");
+    public static List<CardItem> teamListForKits = loadCardItems(
+            TEST_DATA_BASE_URL + "JerseyIcon.json",
+            "testData/JerseyIcon.json");
 
     @Operation(
         summary = "Get all game assets for preloading",

@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.dto.*;
 import com.example.demo.dto.ChallengeModeData.Difficulty;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -11,12 +12,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.InputStream;
+import java.net.URL;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
 @Tag(name = "Challenge Mode", description = "API endpoints for the Challenge Mode game feature. Challenge Mode offers structured single-player challenges with specific objectives (batting/bowling targets) across different difficulty levels. Players progress through levels by completing challenges to earn rewards.")
 public class ChallengeApiController {
+    private static final String CHALLENGE_DATA_URL = "https://cwapi.flyhr.net/IpJson/ChallengeModeData.json";
+    private static final String CHALLENGE_LEVELS_URL = "https://cwapi.flyhr.net/IpJson/ChallengesLevel.json";
+    private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
 
     @Operation(
@@ -61,7 +69,33 @@ public class ChallengeApiController {
         @RequestParam(defaultValue = "BAN") String myTeam
     ) {
 
-        return new ChallengeModeDataList(Arrays.asList(
+        return new ChallengeModeDataList(getChallengeModeDataWithFallback(myTeam)
+                .stream()
+                .filter(challengeModeData -> challengeModeData.getChallengeDetails().getLevel().equals(level))
+                .collect(Collectors.toList())
+        );
+    }
+
+    private List<ChallengeModeData> getChallengeModeDataWithFallback(String myTeam) {
+        try (InputStream in = new URL(CHALLENGE_DATA_URL).openStream()) {
+            ChallengeModeDataList challengeModeDataList = OBJECT_MAPPER.readValue(in, ChallengeModeDataList.class);
+            return challengeModeDataList.getChallengeModeDataList()
+                    .stream()
+                    .map(challengeModeData -> {
+                        String effectiveMyTeam = challengeModeData.getMyTeam();
+                        if (effectiveMyTeam == null || effectiveMyTeam.isBlank()) {
+                            effectiveMyTeam = myTeam;
+                        }
+                        return cloneChallengeWithMyTeam(challengeModeData, effectiveMyTeam);
+                    })
+                    .collect(Collectors.toList());
+        } catch (Exception ex) {
+            return getHardcodedChallengeModeData(myTeam);
+        }
+    }
+
+    private List<ChallengeModeData> getHardcodedChallengeModeData(String myTeam) {
+        return Arrays.asList(
                         getChallengeModeData("BATTING", myTeam, "IND", 12, 101, Difficulty.EASY, "Level 1"),
                         getChallengeModeData("BATTING", myTeam, "PAK", 15, 102, Difficulty.EASY, "Level 1"),
                         getChallengeModeData("BOWLING", myTeam, "AFG", 16, 103, Difficulty.EASY, "Level 1"),
@@ -75,10 +109,6 @@ public class ChallengeApiController {
                         getChallengeModeData("BOWLING", myTeam, "PAK", 26, 111, Difficulty.HARD, "Level 3"),
                         getChallengeModeData("BOWLING", myTeam, "NZ", 29, 112, Difficulty.HARD, "Level 3"),
                         getChallengeModeData("BATTING", myTeam, "WI", 33, 113, Difficulty.HARD, "Level 3")
-                )
-                .stream()
-                .filter(challengeModeData -> challengeModeData.getChallengeDetails().getLevel().equals(level))
-                .collect(Collectors.toList())
         );
     }
 
@@ -203,11 +233,29 @@ public class ChallengeApiController {
     })
     @GetMapping("/levelList")
     public LevelList getLevelsList() {
+        try (InputStream in = new URL(CHALLENGE_LEVELS_URL).openStream()) {
+            return OBJECT_MAPPER.readValue(in, LevelList.class);
+        } catch (Exception ex) {
+            return new LevelList(Arrays.asList(
+                    "Level 1", "Level 2", "Level 3", "Level 4", "Level 5", "Level 6", "Level 7"
+            ));
+        }
+    }
 
-        return new LevelList(Arrays.asList(
-                "Level 1", "Level 2", "Level 3", "Level 4", "Level 5", "Level 6", "Level 7"
-        ));
-
+    private ChallengeModeData cloneChallengeWithMyTeam(ChallengeModeData challengeModeData, String myTeam) {
+        return new ChallengeModeData.Builder()
+                .setChallengeId(challengeModeData.getChallengeId())
+                .setChallengeTitle(challengeModeData.getChallengeTitle())
+                .setMyTeam(myTeam)
+                .setOpponentTeam(challengeModeData.getOpponentTeam())
+                .setMatchType(challengeModeData.getMatchType())
+                .setVenue(challengeModeData.getVenue())
+                .setChallengeRole(challengeModeData.getChallengeRole())
+                .setChallengeDetails(challengeModeData.getChallengeDetails())
+                .setBattingRole(challengeModeData.getBattingRole())
+                .setBowlingRole(challengeModeData.getBowlingRole())
+                .setRewards(challengeModeData.getRewards())
+                .build();
     }
 
     private static ChallengeModeData getChallengeModeData(String challengeRole, String myTeam, String team, int run, int challengeId, Difficulty difficulty, String level) {

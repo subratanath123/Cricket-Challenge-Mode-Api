@@ -10,6 +10,7 @@ import java.util.Map;
 import static java.util.Arrays.asList;
 
 public class ResourceUtils {
+    private static final String TEST_DATA_BASE_URL = "https://cwapi.flyhr.net/IpJson/";
 
     public static final Map<String, List<NonConsumableProducts>> nonConsumableProducts = new HashMap<>();
     public static final Map<String, List<ConsumableProducts>> consumableProducts = new HashMap<>();
@@ -17,7 +18,9 @@ public class ResourceUtils {
 
     static {
         List<NonConsumableProducts> nonConsuambleKitList = new ArrayList<>(
-                TestDataResourceLoader.loadNonConsumableProducts("testData/JerseyPacksBan.json"));
+                TestDataResourceLoader.loadNonConsumableProducts(
+                        TEST_DATA_BASE_URL + "JerseyPacksBan.json",
+                        "testData/JerseyPacksBan.json"));
         nonConsuambleKitList.addAll(asList(
                 new NonConsumableProducts("11114", "PAK", "Exclusive Default Pack", "12 $", "Buy", "https://i.imgur.com/zwokeqa.png", "Kits", "/purchase/nonconsumable/Kits/4?email=#EMAIL#", "com.pack1", null, true),
                 new NonConsumableProducts("4", "PAK", "Exclusive 1 Pack", "12 $", "Buy", "https://i.imgur.com/zwokeqa.png", "Kits", "/purchase/nonconsumable/Kits/4?email=#EMAIL#", "com.pack1", null, false),
@@ -32,32 +35,37 @@ public class ResourceUtils {
         nonConsumableProducts.put("Kits", nonConsuambleKitList);
 
         List<NonConsumableProducts> staudiumPackList =
-                TestDataResourceLoader.loadNonConsumableProducts("testData/StadiumsPack.json");
+                TestDataResourceLoader.loadNonConsumableProducts(
+                        TEST_DATA_BASE_URL + "StadiumsPack.json",
+                        "testData/StadiumsPack.json");
 
         nonConsumableProducts.put("StadiumPacks", staudiumPackList);
 
         List<NonConsumableProducts> commentaryPackList =
-                TestDataResourceLoader.loadNonConsumableProducts("testData/Commentary.json");
+                TestDataResourceLoader.loadNonConsumableProducts(
+                        TEST_DATA_BASE_URL + "Commentary.json",
+                        "testData/Commentary.json");
 
         nonConsumableProducts.put("CommentaryPacks", commentaryPackList);
 
-        List<NonConsumableProducts> tournamentPackList = asList(
-                new NonConsumableProducts("1123345", "T-20 World Cup", "T-20 World Cup", "12 Coins", "Buy", "https://i.imgur.com/mf71noQ.png", "TournamentPacks", "/purchase/nonconsumable/TournamentPacks/13?email=#EMAIL#", null, true),
-                new NonConsumableProducts("13", "World Cup", "World Cup Pack", "12 Coins", "Buy", "https://i.imgur.com/MzAL53H.png", "TournamentPacks", "/purchase/nonconsumable/TournamentPacks/13?email=#EMAIL#", null, false),
-                new NonConsumableProducts("14", "Champions Trophy", "Champions Trophy Pack", "12 $", "Buy", "https://i.imgur.com/xGM1KQy.png", "TournamentPacks", "/purchase/nonconsumable/TournamentPacks/14?email=#EMAIL#", "com.pack5", null, false),
-                new NonConsumableProducts("15", "M15", "M15 Pack", "12 Coins", "Buy", "https://i.imgur.com/pkOsFaW.png", "TournamentPacks", "/purchase/nonconsumable/TournamentPacks/15?email=#EMAIL#", null, false),
-                new NonConsumableProducts("16", "Legends Cup Journey", "Legends Cup Journey Pack", "12 Coins", "Buy", "https://i.imgur.com/iKXRRD6.png", "TournamentPacks", "/purchase/nonconsumable/TournamentPacks/16?email=#EMAIL#", null, false)
-        );
+        List<NonConsumableProducts> tournamentPackList =
+                TestDataResourceLoader.loadNonConsumableProducts(
+                        TEST_DATA_BASE_URL + "TournamentsPack.json",
+                        "testData/TournamentsPack.json");
 
         nonConsumableProducts.put("TournamentPacks", tournamentPackList);
 
         List<NonConsumableProducts> battingPackList =
-                TestDataResourceLoader.loadNonConsumableProducts("testData/BatsPack.json");
+                TestDataResourceLoader.loadNonConsumableProducts(
+                        TEST_DATA_BASE_URL + "BatsPack.json",
+                        "testData/BatsPack.json");
 
         nonConsumableProducts.put("BattingPacks", battingPackList);
 
         List<NonConsumableProducts> bowlingPackList =
-                TestDataResourceLoader.loadNonConsumableProducts("testData/BallsPack.json");
+                TestDataResourceLoader.loadNonConsumableProducts(
+                        TEST_DATA_BASE_URL + "Ballspack.json",
+                        "testData/BallsPack.json");
 
         nonConsumableProducts.put("BowlingPacks", bowlingPackList);
 
@@ -65,22 +73,30 @@ public class ResourceUtils {
 
         ////Subscription packlist
         List<ConsumableProducts> subscriptionPackList =
-                TestDataResourceLoader.loadConsumableProducts("testData/SubscriptionsPack.json");
+                TestDataResourceLoader.loadConsumableProducts(
+                        TEST_DATA_BASE_URL + "SubscriptionsPack.json",
+                        "testData/SubscriptionsPack.json");
         subscriptionProducts.put("Subscription", subscriptionPackList);
 
 
         List<ConsumableProducts> diamondPackList =
-                TestDataResourceLoader.loadConsumableProducts("testData/DiamondsPack.json");
+                TestDataResourceLoader.loadConsumableProducts(
+                        TEST_DATA_BASE_URL + "DiamondsPack.json",
+                        "testData/DiamondsPack.json");
 
         consumableProducts.put("DiamondPacks", diamondPackList);
 
         List<ConsumableProducts> coinPackList =
-                TestDataResourceLoader.loadConsumableProducts("testData/CoinsPack.json");
+                TestDataResourceLoader.loadConsumableProducts(
+                        TEST_DATA_BASE_URL + "CoinsPack.json",
+                        "testData/CoinsPack.json");
 
         consumableProducts.put("CoinsPacks", coinPackList);
 
         List<NonConsumableProducts> noAdsPackList =
-                TestDataResourceLoader.loadNonConsumableProducts("testData/NoAds.json");
+                TestDataResourceLoader.loadNonConsumableProducts(
+                        TEST_DATA_BASE_URL + "NoAds.json",
+                        "testData/NoAds.json");
 
         nonConsumableProducts.put("NoAdsPacks", noAdsPackList);
 

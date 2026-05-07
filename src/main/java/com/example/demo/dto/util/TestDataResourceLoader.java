@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 import java.time.Instant;
 import java.util.Date;
 import java.util.List;
@@ -23,42 +24,69 @@ public final class TestDataResourceLoader {
     private TestDataResourceLoader() {
     }
 
-    public static List<NonConsumableProducts> loadNonConsumableProducts(String classpathRelativePath) {
-        try (InputStream in = open(classpathRelativePath)) {
+    public static List<NonConsumableProducts> loadNonConsumableProducts(String pathOrUrl) {
+        try (InputStream in = open(pathOrUrl)) {
             List<NonConsumableJsonRow> rows = MAPPER.readValue(in, new TypeReference<>() {
             });
             return rows.stream().map(TestDataResourceLoader::toNonConsumable).toList();
         } catch (IOException e) {
-            throw new IllegalStateException("Failed to load test data: " + classpathRelativePath, e);
+            throw new IllegalStateException("Failed to load test data: " + pathOrUrl, e);
         }
     }
 
-    public static List<ConsumableProducts> loadConsumableProducts(String classpathRelativePath) {
-        try (InputStream in = open(classpathRelativePath)) {
+    public static List<NonConsumableProducts> loadNonConsumableProducts(String url, String fallbackClasspathPath) {
+        try {
+            return loadNonConsumableProducts(url);
+        } catch (Exception ex) {
+            return loadNonConsumableProducts(fallbackClasspathPath);
+        }
+    }
+
+    public static List<ConsumableProducts> loadConsumableProducts(String pathOrUrl) {
+        try (InputStream in = open(pathOrUrl)) {
             List<ConsumableJsonRow> rows = MAPPER.readValue(in, new TypeReference<>() {
             });
             return rows.stream().map(TestDataResourceLoader::toConsumable).toList();
         } catch (IOException e) {
-            throw new IllegalStateException("Failed to load test data: " + classpathRelativePath, e);
+            throw new IllegalStateException("Failed to load test data: " + pathOrUrl, e);
         }
     }
 
-    public static List<CardItem> loadCardItems(String classpathRelativePath) {
-        try (InputStream in = open(classpathRelativePath)) {
+    public static List<ConsumableProducts> loadConsumableProducts(String url, String fallbackClasspathPath) {
+        try {
+            return loadConsumableProducts(url);
+        } catch (Exception ex) {
+            return loadConsumableProducts(fallbackClasspathPath);
+        }
+    }
+
+    public static List<CardItem> loadCardItems(String pathOrUrl) {
+        try (InputStream in = open(pathOrUrl)) {
             List<CardItemJsonRow> rows = MAPPER.readValue(in, new TypeReference<>() {
             });
             return rows.stream()
                     .map(r -> new CardItem(r.title, r.imageUrl, r.description, r.actionName, r.objectType, r.nextUrl))
                     .toList();
         } catch (IOException e) {
-            throw new IllegalStateException("Failed to load test data: " + classpathRelativePath, e);
+            throw new IllegalStateException("Failed to load test data: " + pathOrUrl, e);
         }
     }
 
-    private static InputStream open(String classpathRelativePath) {
-        String path = classpathRelativePath.startsWith("/")
-                ? classpathRelativePath.substring(1)
-                : classpathRelativePath;
+    public static List<CardItem> loadCardItems(String url, String fallbackClasspathPath) {
+        try {
+            return loadCardItems(url);
+        } catch (Exception ex) {
+            return loadCardItems(fallbackClasspathPath);
+        }
+    }
+
+    private static InputStream open(String pathOrUrl) throws IOException {
+        if (pathOrUrl.startsWith("http://") || pathOrUrl.startsWith("https://")) {
+            return new URL(pathOrUrl).openStream();
+        }
+        String path = pathOrUrl.startsWith("/")
+                ? pathOrUrl.substring(1)
+                : pathOrUrl;
         InputStream in = TestDataResourceLoader.class.getClassLoader().getResourceAsStream(path);
         if (in == null) {
             throw new IllegalStateException("Classpath resource not found: " + path);
