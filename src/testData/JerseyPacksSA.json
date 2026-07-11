@@ -1,0 +1,34 @@
+[
+  {
+    "id": "11111",
+    "metaInfo": "SA",
+    "category": "Kits",
+    "packName": "Exclusive Default Pack",
+    "imageUrl": "https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/Default/SouthAfrica_Thumbnail.png",
+    "price": "12 Coins",
+    "information": "Equip your team with the official South Africa kit.",
+    "alertInformation": "Default Kit Unlocked",
+    "flipInformation": "Step onto the field with pride! This South Africa kit gives your team a complete professional look with jersey, pads, gloves, and shoes. Play with confidence and represent your nation in style.",
+    "nextUrl": "/purchase/nonconsumable/Kits/1?email=#EMAIL#",
+    "objectType": "NonConsumableProducts",
+    "purchaseId": null,
+    "payload": "{\"jerseyWithShoeTextureUrls\":[\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/Default/1.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/Default/2.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/Default/3.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/Default/4.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/Default/5.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/Default/6.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/Default/7.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/Default/8.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/Default/9.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/Default/10.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/Default/11.jpg\"],\"jerseyWithPadHelmetGlovesTextureUrls\":[\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/Default/Additional.jpg\"],\"team\":\"SA\"}",
+    "default": true
+  },
+  {
+    "id": "333",
+    "metaInfo": "SA",
+    "category": "Kits",
+    "packName": "Exclusive 3 Pack",
+    "imageUrl": "https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/SA-Jersey-Thumb.png",
+    "price": "12 Coins",
+    "information": "Unlock exclusive South Africa jerseys and stand out on the field.",
+    "alertInformation": "Limited Time Offer! Grab your exclusive kit now.",
+    "flipInformation": "Upgrade your style with exclusive South Africa jerseys! Customize your team’s appearance with premium designs and full gear. Play with identity, confidence, and make every match visually unique.",
+    "nextUrl": "/purchase/nonconsumable/Kits/3?email=#EMAIL#",
+    "objectType": "NonConsumableProducts",
+    "purchaseId": null,
+    "payload": "{\"jerseyWithShoeTextureUrls\":[\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/SA-Jersey-01.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/SA-Jersey-02.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/SA-Jersey-03.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/SA-Jersey-04.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/SA-Jersey-05.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/SA-Jersey-06.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/SA-Jersey-07.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/SA-Jersey-08.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/SA-Jersey-09.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/SA-Jersey-10.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/SA-Jersey-11.jpg\"],\"jerseyWithPadHelmetGlovesTextureUrls\":[\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/SA-Jersey-pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/SA-Jersey-pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/SA-Jersey-pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/SA-Jersey-pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/SA-Jersey-pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/SA-Jersey-pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/SA-Jersey-pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/SA-Jersey-pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/SA-Jersey-pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/SA-Jersey-pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/SA/SA-Jersey-pad.jpg\"],\"team\":\"SA\"}",
+    "default": false
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "id": "11111",
+    "metaInfo": "NMB",
+    "category": "Kits",
+    "packName": "Exclusive Default Pack",
+    "imageUrl": "https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/Default/NMB_Thumbnail.png",
+    "price": "12 Coins",
+    "information": "Equip your team with the official NMB kit.",
+    "alertInformation": "Default Kit Unlocked",
+    "flipInformation": "Step onto the field with pride! This NMB kit gives your team a complete professional look with jersey, pads, gloves, and shoes. Play with confidence and represent your nation in style.",
+    "nextUrl": "/purchase/nonconsumable/Kits/1?email=#EMAIL#",
+    "objectType": "NonConsumableProducts",
+    "purchaseId": null,
+    "payload": "{\"jerseyWithShoeTextureUrls\":[\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/Default/1.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/Default/2.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/Default/3.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/Default/4.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/Default/5.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/Default/6.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/Default/7.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/Default/8.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/Default/9.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/Default/10.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/Default/11.jpg\"],\"jerseyWithPadHelmetGlovesTextureUrls\":[\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/Default/Additional.jpg\"],\"team\":\"NMB\"}",
+    "default": true
+  },
+  {
+    "id": "333",
+    "metaInfo": "NMB",
+    "category": "Kits",
+    "packName": "Exclusive 3 Pack",
+    "imageUrl": "https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/NMB-Jersey-Thumb.png",
+    "price": "12 Coins",
+    "information": "Unlock exclusive NMB jerseys and stand out on the field.",
+    "alertInformation": "Limited Time Offer! Grab your exclusive kit now.",
+    "flipInformation": "Upgrade your style with exclusive NMB jerseys! Customize your team’s appearance with premium designs and full gear. Play with identity, confidence, and make every match visually unique.",
+    "nextUrl": "/purchase/nonconsumable/Kits/3?email=#EMAIL#",
+    "objectType": "NonConsumableProducts",
+    "purchaseId": null,
+    "payload": "{\"jerseyWithShoeTextureUrls\":[\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/NMB-Jersey-01.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/NMB-Jersey-02.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/NMB-Jersey-03.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/NMB-Jersey-04.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/NMB-Jersey-05.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/NMB-Jersey-06.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/NMB-Jersey-07.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/NMB-Jersey-08.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/NMB-Jersey-09.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/NMB-Jersey-10.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/NMB-Jersey-11.jpg\"],\"jerseyWithPadHelmetGlovesTextureUrls\":[\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/NMB-Jersey-Pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/NMB-Jersey-Pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/NMB-Jersey-Pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/NMB-Jersey-Pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/NMB-Jersey-Pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/NMB-Jersey-Pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/NMB-Jersey-Pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/NMB-Jersey-Pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/NMB-Jersey-Pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/NMB-Jersey-Pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/NMB/NMB-Jersey-Pad.jpg\"],\"team\":\"NMB\"}",
+    "default": false
+  }
+]

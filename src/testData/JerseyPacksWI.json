@@ -1,0 +1,34 @@
+[
+  {
+    "id": "11111",
+    "metaInfo": "WI",
+    "category": "Kits",
+    "packName": "Exclusive Default Pack",
+    "imageUrl": "https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/Default/WestIndies_Thumbnail.png",
+    "price": "12 Coins",
+    "information": "Equip your team with the official West Indies kit.",
+    "alertInformation": "Default Kit Unlocked",
+    "flipInformation": "Step onto the field with pride! This West Indies kit gives your team a complete professional look with jersey, pads, gloves, and shoes. Play with confidence and represent your nation in style.",
+    "nextUrl": "/purchase/nonconsumable/Kits/1?email=#EMAIL#",
+    "objectType": "NonConsumableProducts",
+    "purchaseId": null,
+    "payload": "{\"jerseyWithShoeTextureUrls\":[\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/Default/1.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/Default/2.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/Default/3.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/Default/4.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/Default/5.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/Default/6.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/Default/7.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/Default/8.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/Default/9.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/Default/10.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/Default/11.jpg\"],\"jerseyWithPadHelmetGlovesTextureUrls\":[\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/Default/Additional.jpg\"],\"team\":\"WI\"}",
+    "default": true
+  },
+  {
+    "id": "333",
+    "metaInfo": "WI",
+    "category": "Kits",
+    "packName": "Exclusive 3 Pack",
+    "imageUrl": "https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/WI-Jersey-Thumb.png",
+    "price": "12 Coins",
+    "information": "Unlock exclusive West Indies jerseys and stand out on the field.",
+    "alertInformation": "Limited Time Offer! Grab your exclusive kit now.",
+    "flipInformation": "Upgrade your style with exclusive West Indies jerseys! Customize your team’s appearance with premium designs and full gear. Play with identity, confidence, and make every match visually unique.",
+    "nextUrl": "/purchase/nonconsumable/Kits/3?email=#EMAIL#",
+    "objectType": "NonConsumableProducts",
+    "purchaseId": null,
+    "payload": "{\"jerseyWithShoeTextureUrls\":[\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/WI-Jersey-01.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/WI-Jersey-02.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/WI-Jersey-03.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/WI-Jersey-04.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/WI-Jersey-05.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/WI-Jersey-06.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/WI-Jersey-07.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/WI-Jersey-08.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/WI-Jersey-09.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/WI-Jersey-10.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/WI-Jersey-11.jpg\"],\"jerseyWithPadHelmetGlovesTextureUrls\":[\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/WI-Jersey-Pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/WI-Jersey-Pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/WI-Jersey-Pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/WI-Jersey-Pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/WI-Jersey-Pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/WI-Jersey-Pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/WI-Jersey-Pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/WI-Jersey-Pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/WI-Jersey-Pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/WI-Jersey-Pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/WI/WI-Jersey-Pad.jpg\"],\"team\":\"WI\"}",
+    "default": false
+  }
+]

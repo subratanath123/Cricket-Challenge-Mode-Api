@@ -1,0 +1,34 @@
+[
+  {
+    "id": "11111",
+    "metaInfo": "ZIM",
+    "category": "Kits",
+    "packName": "Exclusive Default Pack",
+    "imageUrl": "https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/Default/Zimbabwe_Thumbnail.png",
+    "price": "12 Coins",
+    "information": "Equip your team with the official Zimbabwe kit.",
+    "alertInformation": "Default Kit Unlocked",
+    "flipInformation": "Step onto the field with pride! This Zimbabwe kit gives your team a complete professional look with jersey, pads, gloves, and shoes. Play with confidence and represent your nation in style.",
+    "nextUrl": "/purchase/nonconsumable/Kits/1?email=#EMAIL#",
+    "objectType": "NonConsumableProducts",
+    "purchaseId": null,
+    "payload": "{\"jerseyWithShoeTextureUrls\":[\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/Default/1.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/Default/2.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/Default/3.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/Default/4.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/Default/5.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/Default/6.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/Default/7.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/Default/8.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/Default/9.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/Default/10.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/Default/11.jpg\"],\"jerseyWithPadHelmetGlovesTextureUrls\":[\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/Default/Additional.jpg\"],\"team\":\"ZIM\"}",
+    "default": true
+  },
+  {
+    "id": "333",
+    "metaInfo": "ZIM",
+    "category": "Kits",
+    "packName": "Exclusive 3 Pack",
+    "imageUrl": "https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/ZIM-Jersey-Thumb.png",
+    "price": "12 Coins",
+    "information": "Unlock exclusive Zimbabwe jerseys and stand out on the field.",
+    "alertInformation": "Limited Time Offer! Grab your exclusive kit now.",
+    "flipInformation": "Upgrade your style with exclusive Zimbabwe jerseys! Customize your team’s appearance with premium designs and full gear. Play with identity, confidence, and make every match visually unique.",
+    "nextUrl": "/purchase/nonconsumable/Kits/3?email=#EMAIL#",
+    "objectType": "NonConsumableProducts",
+    "purchaseId": null,
+    "payload": "{\"jerseyWithShoeTextureUrls\":[\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/ZIM-Jersey-01.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/ZIM-Jersey-02.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/ZIM-Jersey-03.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/ZIM-Jersey-04.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/ZIM-Jersey-05.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/ZIM-Jersey-06.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/ZIM-Jersey-07.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/ZIM-Jersey-08.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/ZIM-Jersey-09.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/ZIM-Jersey-10.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/ZIM-Jersey-11.jpg\"],\"jerseyWithPadHelmetGlovesTextureUrls\":[\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/ZIM-Jersey-Pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/ZIM-Jersey-Pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/ZIM-Jersey-Pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/ZIM-Jersey-Pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/ZIM-Jersey-Pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/ZIM-Jersey-Pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/ZIM-Jersey-Pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/ZIM-Jersey-Pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/ZIM-Jersey-Pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/ZIM-Jersey-Pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/ZIM/ZIM-Jersey-Pad.jpg\"],\"team\":\"ZIM\"}",
+    "default": false
+  }
+]

@@ -7,32 +7,37 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static java.util.Arrays.asList;
-
 public class ResourceUtils {
     private static final String TEST_DATA_BASE_URL = "https://cwapi.flyhr.net/Fileserver/Cricket%20World/Json/";
+
+    private static final String[] JERSEY_PACK_FILES = {
+            "JerseyPacksAFG.json",
+            "JerseyPacksAUS.json",
+            "JerseyPacksBan.json",
+            "JerseyPacksENG.json",
+            "JerseyPacksIND.json",
+            "JerseyPacksIRE.json",
+            "JerseyPacksNEP.json",
+            "JerseyPacksNET.json",
+            "JerseyPacksNMB.json",
+            "JerseyPacksNZ.json",
+            "JerseyPacksOMAN.json",
+            "JerseyPacksPAK.json",
+            "JerseyPacksPNG.json",
+            "JerseyPacksSA.json",
+            "JerseyPacksSCO.json",
+            "JerseyPacksSRI.json",
+            "JerseyPacksUAE.json",
+            "JerseyPacksWI.json",
+            "JerseyPacksZIM.json"
+    };
 
     public static final Map<String, List<NonConsumableProducts>> nonConsumableProducts = new HashMap<>();
     public static final Map<String, List<ConsumableProducts>> consumableProducts = new HashMap<>();
     public static final Map<String, List<ConsumableProducts>> subscriptionProducts = new HashMap<>();
 
     static {
-        List<NonConsumableProducts> nonConsuambleKitList = new ArrayList<>(
-                TestDataResourceLoader.loadNonConsumableProducts(
-                        TEST_DATA_BASE_URL + "JerseyPacksBan.json",
-                        "testData/JerseyPacksBan.json"));
-        nonConsuambleKitList.addAll(asList(
-                new NonConsumableProducts("11114", "PAK", "Exclusive Default Pack", "12 $", "Buy", "https://i.imgur.com/zwokeqa.png", "Kits", "/purchase/nonconsumable/Kits/4?email=#EMAIL#", "com.pack1", null, true),
-                new NonConsumableProducts("4", "PAK", "Exclusive 1 Pack", "12 $", "Buy", "https://i.imgur.com/zwokeqa.png", "Kits", "/purchase/nonconsumable/Kits/4?email=#EMAIL#", "com.pack1", null, false),
-                new NonConsumableProducts("5", "PAK", "Exclusive 2 Pack", "12 $", "Buy", "https://i.imgur.com/zwokeqa.png", "Kits", "/purchase/nonconsumable/Kits/5?email=#EMAIL#", "com.pack2", null, false),
-                new NonConsumableProducts("6", "PAK", "Exclusive 3 Pack", "12 $", "Buy", "https://i.imgur.com/zwokeqa.png", "Kits", "/purchase/nonconsumable/Kits/6?email=#EMAIL#", "com.pack3", null, false),
-                new NonConsumableProducts("711111", "SA", "Exclusive Default Pack", "12 Coins", "Buy", "https://i.imgur.com/zwokeqa.png", "Kits", "/purchase/nonconsumable/Kits/7?email=#EMAIL#", null, true),
-                new NonConsumableProducts("7", "SA", "Exclusive 1 Pack", "12 Coins", "Buy", "https://i.imgur.com/zwokeqa.png", "Kits", "/purchase/nonconsumable/Kits/7?email=#EMAIL#", null, false),
-                new NonConsumableProducts("8", "SA", "Exclusive 2 Pack", "12 Coins", "Buy", "https://i.imgur.com/zwokeqa.png", "Kits", "/purchase/nonconsumable/Kits/8?email=#EMAIL#", null, false),
-                new NonConsumableProducts("9", "SA", "Exclusive 3 Pack", "12 Coins", "Buy", "https://i.imgur.com/zwokeqa.png", "Kits", "/purchase/nonconsumable/Kits/9?email=#EMAIL#", null, false)
-        ));
-
-        nonConsumableProducts.put("Kits", nonConsuambleKitList);
+        nonConsumableProducts.put("Kits", loadAllJerseyPacks());
 
         List<NonConsumableProducts> staudiumPackList =
                 TestDataResourceLoader.loadNonConsumableProducts(
@@ -100,5 +105,16 @@ public class ResourceUtils {
 
         nonConsumableProducts.put("NoAdsPacks", noAdsPackList);
 
+    }
+
+    private static List<NonConsumableProducts> loadAllJerseyPacks() {
+        List<NonConsumableProducts> kits = new ArrayList<>();
+
+        for (String fileName : JERSEY_PACK_FILES) {
+            String url = TEST_DATA_BASE_URL + fileName;
+            kits.addAll(TestDataResourceLoader.loadNonConsumableProducts(url));
+        }
+
+        return kits;
     }
 }

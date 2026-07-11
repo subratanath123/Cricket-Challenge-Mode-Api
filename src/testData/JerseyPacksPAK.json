@@ -1,0 +1,34 @@
+[
+  {
+    "id": "11111",
+    "metaInfo": "PAK",
+    "category": "Kits",
+    "packName": "Exclusive Default Pack",
+    "imageUrl": "https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/Default/Pakistan_Thumbnail.png",
+    "price": "12 Coins",
+    "information": "Equip your team with the official Pakistan kit.",
+    "alertInformation": "Default Kit Unlocked",
+    "flipInformation": "Step onto the field with pride! This Pakistan kit gives your team a complete professional look with jersey, pads, gloves, and shoes. Play with confidence and represent your nation in style.",
+    "nextUrl": "/purchase/nonconsumable/Kits/1?email=#EMAIL#",
+    "objectType": "NonConsumableProducts",
+    "purchaseId": null,
+    "payload": "{\"jerseyWithShoeTextureUrls\":[\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/Default/1.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/Default/2.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/Default/3.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/Default/4.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/Default/5.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/Default/6.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/Default/7.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/Default/8.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/Default/9.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/Default/10.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/Default/11.jpg\"],\"jerseyWithPadHelmetGlovesTextureUrls\":[\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/Default/Additional.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/Default/Additional.jpg\"],\"team\":\"PAK\"}",
+    "default": true
+  },
+  {
+    "id": "333",
+    "metaInfo": "PAK",
+    "category": "Kits",
+    "packName": "Exclusive 3 Pack",
+    "imageUrl": "https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/Pak-Jersey-Thumb.png",
+    "price": "12 Coins",
+    "information": "Unlock exclusive Pakistan jerseys and stand out on the field.",
+    "alertInformation": "Limited Time Offer! Grab your exclusive kit now.",
+    "flipInformation": "Upgrade your style with exclusive Pakistan jerseys! Customize your team’s appearance with premium designs and full gear. Play with identity, confidence, and make every match visually unique.",
+    "nextUrl": "/purchase/nonconsumable/Kits/3?email=#EMAIL#",
+    "objectType": "NonConsumableProducts",
+    "purchaseId": null,
+    "payload": "{\"jerseyWithShoeTextureUrls\":[\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/PAK-Jersey-01.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/PAK-Jersey-02.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/PAK-Jersey-03.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/PAK-Jersey-04.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/PAK-Jersey-05.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/PAK-Jersey-06.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/PAK-Jersey-07.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/PAK-Jersey-08.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/PAK-Jersey-09.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/PAK-Jersey-10.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/PAK-Jersey-11.jpg\"],\"jerseyWithPadHelmetGlovesTextureUrls\":[\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/PAK-Pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/PAK-Pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/PAK-Pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/PAK-Pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/PAK-Pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/PAK-Pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/PAK-Pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/PAK-Pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/PAK-Pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/PAK-Pad.jpg\",\"https://cwapi.flyhr.net/Fileserver/Cricket%20World/IAP%20Item/All%20Jersey/All%20Jersey/PAK/PAK-Pad.jpg\"],\"team\":\"PAK\"}",
+    "default": false
+  }
+]
