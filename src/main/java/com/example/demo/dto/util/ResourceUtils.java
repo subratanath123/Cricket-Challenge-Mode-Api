@@ -10,7 +10,7 @@ import java.util.Map;
 import static java.util.Arrays.asList;
 
 public class ResourceUtils {
-    private static final String TEST_DATA_BASE_URL = "https://cwapi.flyhr.net/IpJson/";
+    private static final String TEST_DATA_BASE_URL = "https://cwapi.flyhr.net/Fileserver/Cricket%20World/Json/";
 
     public static final Map<String, List<NonConsumableProducts>> nonConsumableProducts = new HashMap<>();
     public static final Map<String, List<ConsumableProducts>> consumableProducts = new HashMap<>();
