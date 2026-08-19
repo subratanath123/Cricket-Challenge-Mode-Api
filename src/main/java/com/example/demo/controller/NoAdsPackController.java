@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
-import com.example.demo.dto.subscription.ConsumableProducts;
 import com.example.demo.dto.subscription.NonConsumableProducts;
+import com.example.demo.service.PurchaseHistoryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -15,14 +15,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.example.demo.dto.util.CacheUtils.getActiveSubscriptions;
-import static com.example.demo.dto.util.CacheUtils.*;
-import static com.example.demo.dto.util.ResourceUtils.consumableProducts;
 import static com.example.demo.dto.util.ResourceUtils.nonConsumableProducts;
 
 @RestController
 @Tag(name = "No Ads Packs", description = "API endpoints for managing ad-removal packs. No Ads packs are non-consumable in-app purchases that permanently remove advertisements from the game, providing an uninterrupted gaming experience.")
 public class NoAdsPackController {
+
+    private final PurchaseHistoryService purchaseHistoryService;
+
+    public NoAdsPackController(PurchaseHistoryService purchaseHistoryService) {
+        this.purchaseHistoryService = purchaseHistoryService;
+    }
 
     @Operation(
         summary = "Get all available no-ads packs",
@@ -85,12 +88,12 @@ public class NoAdsPackController {
     ) {
         List<NonConsumableProducts> purchasedProducts = new ArrayList<>(nonConsumableProducts.get("NoAdsPacks"))
                 .stream()
-                .filter(product -> getActiveSubscriptions(email)
+                .filter(product -> purchaseHistoryService.getActiveSubscriptions(email)
                         .stream()
                         .anyMatch(consumableProducts -> consumableProducts.getFreeProducts().contains(product.getId())))
                 .collect(Collectors.toList());
 
-        purchasedProducts.addAll(nonConsumablePurchaseHistory.getOrDefault(email, new ArrayList<>())
+        purchasedProducts.addAll(purchaseHistoryService.getNonConsumablePurchases(email)
                 .stream()
                 .filter(nonConsumableProducts -> nonConsumableProducts.getCategory().equals("NoAdsPacks"))
                 .collect(Collectors.toList()));

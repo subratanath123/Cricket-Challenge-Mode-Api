@@ -1,0 +1,13 @@
+.git
+.gradle
+build
+.idea
+.vscode
+*.iml
+*.iws
+*.ipr
+.attach_pid*
+.env
+*.log
+HELP.md
+SWAGGER_UPDATE_SUMMARY.md

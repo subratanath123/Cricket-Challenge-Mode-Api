@@ -1,13 +1,13 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.subscription.NonConsumableProducts;
+import com.example.demo.service.PurchaseHistoryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,13 +15,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.example.demo.dto.util.CacheUtils.getActiveSubscriptions;
-import static com.example.demo.dto.util.CacheUtils.nonConsumablePurchaseHistory;
 import static com.example.demo.dto.util.ResourceUtils.nonConsumableProducts;
 
 @RestController
 @Tag(name = "Stadium Packs", description = "API endpoints for managing stadium/venue packs. Stadium packs are non-consumable in-game items that unlock different cricket venues and grounds where matches can be played, enhancing the visual variety and immersion of the game.")
 public class StadiumPackController {
+
+    private final PurchaseHistoryService purchaseHistoryService;
+
+    public StadiumPackController(PurchaseHistoryService purchaseHistoryService) {
+        this.purchaseHistoryService = purchaseHistoryService;
+    }
 
 
     @Operation(
@@ -80,13 +84,13 @@ public class StadiumPackController {
     ) {
         List<NonConsumableProducts> purchasedProducts = new ArrayList<>(nonConsumableProducts.get("StadiumPacks"))
                 .stream()
-                .filter(product -> getActiveSubscriptions(email)
+                .filter(product -> purchaseHistoryService.getActiveSubscriptions(email)
                         .stream()
                         .anyMatch(consumableProducts -> consumableProducts.getFreeProducts().contains(product.getId())))
                 .collect(Collectors.toList());
 
 
-        purchasedProducts.addAll(nonConsumablePurchaseHistory.getOrDefault(email, new ArrayList<>())
+        purchasedProducts.addAll(purchaseHistoryService.getNonConsumablePurchases(email)
                 .stream()
                 .filter(nonConsumableProducts -> nonConsumableProducts.getCategory().equals("StadiumPacks"))
                 .collect(Collectors.toList()));

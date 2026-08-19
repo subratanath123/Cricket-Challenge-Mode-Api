@@ -20,6 +20,19 @@ Click any endpoint → "Try it out" → "Execute"
 
 That's it! The Swagger UI provides interactive documentation and testing for all 30 API endpoints.
 
+### Docker (API from Docker Hub + MongoDB Atlas)
+On any machine, place `docker-compose.yml` and `.env` in the same folder:
+
+```bash
+cp .env.example .env   # then fill in Docker Hub + Atlas URI
+docker compose up -d
+```
+
+Compose pulls the API image from Docker Hub and connects to MongoDB Atlas. Open:
+```
+http://localhost:8080/swagger-ui/index.html
+```
+
 ## 📚 Documentation Files
 
 | File | Purpose | When to Use |
@@ -136,9 +149,9 @@ No extra work needed - it's automatic!
 ## ⚠️ Important Notes
 
 ### Data Persistence
-- Currently uses **in-memory storage**
-- All data lost on server restart
-- For production: implement database persistence
+- Purchases and challenge progress are stored in **MongoDB**
+- User data is keyed by email and survives container restarts
+- Shop catalogs (packs, assets, challenge definitions) are still served from application code
 
 ### Authentication
 - Uses **email-only** for user identification
@@ -206,10 +219,10 @@ curl http://localhost:8080/levelList
 curl "http://localhost:8080/challengeList?level=Level%201&myTeam=IND"
 
 # Track progress
-curl "http://localhost:8080/progress?level=Level%201"
+curl "http://localhost:8080/progress?level=Level%201&email=player@example.com"
 
 # Record completion
-curl "http://localhost:8080/progress/update?level=1&challengeId=105&summary=Won"
+curl "http://localhost:8080/progress/update?level=1&challengeId=105&summary=Won&email=player@example.com"
 ```
 
 ## 🌍 Team Codes
@@ -231,10 +244,87 @@ Use these codes for kits and challenges:
 ## 🛠️ Technical Stack
 
 - **Framework**: Spring Boot 3.3.1
+- **Database**: MongoDB Atlas
 - **Documentation**: SpringDoc OpenAPI 3.0
 - **API Spec**: OpenAPI 3.0.1
 - **Java**: 17
 - **Build Tool**: Gradle 8.8
+- **Containers**: Docker / Docker Compose (image published to Docker Hub)
+
+## 🐳 Deploy with Docker Compose
+
+The GitHub Actions workflow in [`.github/workflows/docker-publish.yml`](.github/workflows/docker-publish.yml) tests, pushes `howzat-api` to Docker Hub, then SSHs into the VPS to `docker compose pull` and restart the container.
+
+### GitHub Actions secrets
+Add these on [Cricket-Challenge-Mode-Api](https://github.com/subratanath123/Cricket-Challenge-Mode-Api) → **Settings** → **Secrets and variables** → **Actions**:
+
+| Secret | Purpose |
+|---|---|
+| `DOCKERHUB_USERNAME` | Docker Hub username (e.g. `2011331031`) |
+| `DOCKERHUB_TOKEN` | Docker Hub access token |
+| `VPS_HOST` | VPS IP or hostname |
+| `VPS_USER` | SSH user (must be able to run `docker`) |
+| `VPS_SSH_PRIVATE_KEY` | Full private key (`-----BEGIN ... PRIVATE KEY-----` ... `-----END ...`) |
+| `VPS_APP_DIR` | Absolute path on the VPS that contains `docker-compose.yml` and `.env` |
+| `VPS_PORT` | Optional. SSH port, default `22` |
+| `VPS_SSH_PASSPHRASE` | Optional. Only if the private key is passphrase-protected |
+
+### SSH key for GitHub Actions (on your laptop)
+```bash
+ssh-keygen -t ed25519 -C "github-actions-howzat" -f howzat-deploy -N ""
+```
+
+On the VPS, append the **public** key and allow Docker without sudo:
+
+```bash
+mkdir -p ~/.ssh && chmod 700 ~/.ssh
+cat >> ~/.ssh/authorized_keys   # paste howzat-deploy.pub, then:
+chmod 600 ~/.ssh/authorized_keys
+sudo usermod -aG docker "$USER"
+```
+
+In GitHub, paste the **private** key file (`howzat-deploy`, not `.pub`) into `VPS_SSH_PRIVATE_KEY`. Confirm you can log in:
+
+```bash
+ssh -i howzat-deploy -p 22 USER@VPS_HOST 'cd /path/to/compose && docker compose ps'
+```
+
+Then every push to `master` will: test → push image → SSH → `docker compose pull` → recreate the container.
+
+### On the target machine
+Copy only `docker-compose.yml` and `.env` into one directory. `.env` should look like `.env.example`:
+
+```bash
+DOCKERHUB_USERNAME=your-dockerhub-username
+DOCKERHUB_TOKEN=your-dockerhub-access-token
+DOCKERHUB_IMAGE=howzat-api
+IMAGE_TAG=latest
+API_PORT=8080
+SPRING_DATA_MONGODB_URI=mongodb+srv://USER:PASSWORD@cluster0.xxxxx.mongodb.net/howzat?retryWrites=true&w=majority
+```
+
+In Atlas: create a database user, and allow this machine's IP under Network Access (or `0.0.0.0/0` if you accept that risk). URL-encode special characters in the password.
+
+Then start the API (pulls the image from Docker Hub; MongoDB stays on Atlas):
+
+```bash
+docker compose up -d
+# or: docker compose up --build
+```
+
+`--build` is not needed on the server; the image is already built and pushed. If the Hub image is private, log in first:
+
+```bash
+echo "$DOCKERHUB_TOKEN" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+docker compose up -d
+```
+
+To build and push from a local checkout instead of GitHub Actions:
+
+```bash
+cp .env.example .env
+./scripts/push-to-dockerhub.sh
+```
 
 ## 📊 Verification
 
@@ -243,7 +333,7 @@ Check everything is working:
 # Build the project
 ./gradlew build
 
-# Start the server
+# Start the server (export SPRING_DATA_MONGODB_URI first, or put it in .env)
 ./gradlew bootRun
 
 # Verify Swagger UI (open in browser)
@@ -303,12 +393,12 @@ A: Click "Schema" next to the response - every field is documented
 A: Read the "Subscription Packs" section in API_DOCUMENTATION.md
 
 **Q: Can I use this in production?**  
-A: Yes, but add authentication and database persistence first
+A: Yes. Purchases persist in MongoDB. Add authentication before exposing it publicly.
 
 ## 📈 What's Next
 
 ### For Production Deployment
-1. ✅ Add database persistence (replace in-memory maps)
+1. ✅ Database persistence (MongoDB)
 2. ✅ Implement authentication (JWT/OAuth2)
 3. ✅ Add receipt verification for app store purchases
 4. ✅ Implement subscription expiry checks

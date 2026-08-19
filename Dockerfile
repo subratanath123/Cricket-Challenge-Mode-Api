@@ -1,8 +1,15 @@
-FROM maven:3.8.5-openjdk-17 AS build
-COPY . .
-RUN chmod +x ./gradlew && ./gradlew build
+FROM eclipse-temurin:17-jdk-jammy AS build
+WORKDIR /app
 
-FROM openjdk:17.0.1-jdk-slim
-COPY --from=build build/libs/demo-0.0.1-SNAPSHOT.jar Cricket-Api.jar
-EXPOSE 8000
-ENTRYPOINT ["java", "-jar", "Cricket-Api.jar"]
+COPY gradlew settings.gradle build.gradle ./
+COPY gradle ./gradle
+RUN chmod +x ./gradlew
+
+COPY src ./src
+RUN ./gradlew bootJar -x test --no-daemon
+
+FROM eclipse-temurin:17-jre-jammy
+WORKDIR /app
+COPY --from=build /app/build/libs/demo-0.0.1-SNAPSHOT.jar app.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "app.jar"]

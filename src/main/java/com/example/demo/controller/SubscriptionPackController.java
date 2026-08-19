@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.subscription.ConsumableProducts;
+import com.example.demo.service.PurchaseHistoryService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -18,13 +19,18 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
-import static com.example.demo.dto.util.CacheUtils.subscriptionPurchaseHistory;
 import static com.example.demo.dto.util.ResourceUtils.subscriptionProducts;
 import static java.util.Arrays.asList;
 
 @RestController
 @Tag(name = "Subscription Packs", description = "API endpoints for managing subscription plans. Subscriptions provide recurring benefits including free products, exclusive content, ad-free experience, and premium features. Subscriptions are time-based with expiry dates and renewal options.")
 public class SubscriptionPackController {
+
+    private final PurchaseHistoryService purchaseHistoryService;
+
+    public SubscriptionPackController(PurchaseHistoryService purchaseHistoryService) {
+        this.purchaseHistoryService = purchaseHistoryService;
+    }
 
     @Operation(
         summary = "Get all available subscription plans",
@@ -88,7 +94,7 @@ public class SubscriptionPackController {
         )
         @RequestParam String email
     ) {
-        return new ArrayList<>(subscriptionPurchaseHistory.getOrDefault(email, new ArrayList<>()));
+        return new ArrayList<>(purchaseHistoryService.getSubscriptionPurchases(email));
     }
 
 }

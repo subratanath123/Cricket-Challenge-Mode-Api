@@ -1,0 +1,13 @@
+# Optional overlay used from a source checkout to build the API image locally
+# and tag it as the Docker Hub image name from `.env`.
+#
+#   docker compose -f docker-compose.yml -f docker-compose.build.yml build api
+#   ./scripts/push-to-dockerhub.sh
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ${DOCKERHUB_USERNAME}/${DOCKERHUB_IMAGE}:${IMAGE_TAG:-latest}
+    pull_policy: build

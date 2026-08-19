@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.dto.*;
 import com.example.demo.dto.ChallengeModeData.Difficulty;
+import com.example.demo.service.ChallengeProgressService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -25,6 +26,12 @@ public class ChallengeApiController {
     private static final String CHALLENGE_DATA_URL = "https://cwapi.flyhr.net/IpJson/ChallengeModeData.json";
     private static final String CHALLENGE_LEVELS_URL = "https://cwapi.flyhr.net/IpJson/ChallengesLevel.json";
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
+
+    private final ChallengeProgressService challengeProgressService;
+
+    public ChallengeApiController(ChallengeProgressService challengeProgressService) {
+        this.challengeProgressService = challengeProgressService;
+    }
 
 
     @Operation(
@@ -111,15 +118,11 @@ public class ChallengeApiController {
         summary = "Get challenge progress for a level",
         description = "**Retrieves challenge completion progress for a specific level.**\n\n" +
                       "**Progress Data Includes:**\n" +
-                      "- Level name (e.g., 'Beginner')\n" +
+                      "- Level name\n" +
                       "- List of completed challenge IDs\n" +
                       "- Summary text for each completion\n\n" +
-                      "**Sample Data Returned:**\n" +
-                      "- Level 1 → Challenge ID 101 marked complete\n" +
-                      "- Level 2 → Challenge ID 104 marked complete\n" +
-                      "- Level 3 → Challenge ID 108 marked complete\n\n" +
                       "**Use Case:** Display user's progress and unlocked challenges in the UI.\n\n" +
-                      "⚠️ **Note:** Currently returns mock/hardcoded data. Implement database persistence for production."
+                      "Progress is stored per user in MongoDB. Pass the same `email` used for purchases."
     )
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Successfully retrieved challenge progress"),
@@ -139,33 +142,15 @@ public class ChallengeApiController {
             required = false,
             example = "IND"
         )
-        @RequestParam(defaultValue = "BAN") String myTeam
+        @RequestParam(defaultValue = "BAN") String myTeam,
+        @Parameter(
+            description = "User's email address used as the unique identifier for stored challenge progress.",
+            required = true,
+            example = "player@example.com"
+        )
+        @RequestParam String email
     ) {
-
-        int completedChallengeID = 101;
-
-        if (level.equals("Level 1")) {
-            completedChallengeID = 101;
-
-        } else if (level.equals("Level 2")) {
-            completedChallengeID = 104;
-
-        } else if (level.equals("Level 3")) {
-            completedChallengeID = 108;
-        }
-
-        MyChallengeLevelProgress.ChallengeProgress challenge1 = new MyChallengeLevelProgress.ChallengeProgress.Builder()
-                .setMyTeamName(myTeam)
-                .setChallengeId(completedChallengeID)
-                .setSummary("Challenge Completed")
-                .build();
-
-        MyChallengeLevelProgress myChallengeLevelProgress = new MyChallengeLevelProgress.Builder()
-                .setLevel("Beginner")
-                .setChallengeProgress(Arrays.asList(challenge1))
-                .build();
-
-        return myChallengeLevelProgress;
+        return challengeProgressService.getProgress(email, level, myTeam);
     }
 
     @Operation(
@@ -179,8 +164,7 @@ public class ChallengeApiController {
                       "- Returns: `\"saved\"` on success\n\n" +
                       "**When to Call:**\n" +
                       "Call this immediately after a player successfully completes a challenge to record their progress.\n\n" +
-                      "⚠️ **Important:** This is currently a mock endpoint. Always returns 'saved' but doesn't persist to database. " +
-                      "Implement database storage for production use."
+                      "Progress is persisted in MongoDB against the user's email."
     )
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Progress saved successfully, returns 'saved'"),
@@ -206,8 +190,21 @@ public class ChallengeApiController {
             required = true,
             example = "Won by 6 wickets with 2 balls remaining"
         )
-        @RequestParam String summary
+        @RequestParam String summary,
+        @Parameter(
+            description = "User's email address to record the challenge completion against.",
+            required = true,
+            example = "player@example.com"
+        )
+        @RequestParam String email,
+        @Parameter(
+            description = "Team code used when the challenge was played. Defaults to 'BAN'.",
+            required = false,
+            example = "IND"
+        )
+        @RequestParam(defaultValue = "BAN") String myTeam
     ) {
+        challengeProgressService.saveProgress(email, level, myTeam, challengeId, summary);
         return "saved";
     }
 

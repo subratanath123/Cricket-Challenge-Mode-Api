@@ -61,3 +61,7 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### Secrets / local deploy ###
+.env
+

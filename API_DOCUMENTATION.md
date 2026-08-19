@@ -306,24 +306,15 @@ GET /kits/teams/purchased?email=user@example.com
 
 ### ⚠️ Data Persistence
 
-**This is a demo API using in-memory storage.** All data is stored in static maps:
+Purchase history and challenge progress are stored in **MongoDB Atlas**, keyed by user email.
 
-```java
-public class CacheUtils {
-    public static Map<String, List<ConsumableProducts>> consumablePurchaseHistory = new HashMap<>();
-    public static Map<String, List<NonConsumableProducts>> nonConsumablePurchaseHistory = new HashMap<>();
-    public static Map<String, List<ConsumableProducts>> subscriptionPurchaseHistory = new HashMap<>();
-}
-```
+Shop catalogs (packs, assets, challenge definitions) are still defined in application code (`ResourceUtils` and challenge controllers).
 
-**All purchase data will be lost when the server restarts.**
-
-For production:
-1. Replace static maps with database (MongoDB, PostgreSQL, etc.)
-2. Implement proper authentication (OAuth2, JWT)
-3. Add validation and error handling
-4. Implement subscription expiry checks
-5. Add purchase receipt verification
+For production hardening:
+1. Implement proper authentication (OAuth2, JWT)
+2. Add validation and error handling
+3. Implement subscription expiry checks
+4. Add purchase receipt verification
 
 ### No Authentication
 
@@ -449,14 +440,7 @@ Edit PurchaseController.java - the universal `/purchase/{id}` endpoint handles a
 
 ### Adding Database Persistence
 
-Replace static maps in CacheUtils.java with repository classes:
-
-```java
-@Repository
-public interface PurchaseRepository extends JpaRepository<Purchase, Long> {
-    List<Purchase> findByUserEmail(String email);
-}
-```
+Purchase history already persists through `PurchaseHistoryService` and Spring Data MongoDB (`UserPurchaseHistoryRepository`). Challenge progress uses `ChallengeProgressService`.
 
 ## Support
 

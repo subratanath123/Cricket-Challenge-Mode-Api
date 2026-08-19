@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.subscription.ConsumableProducts;
+import com.example.demo.service.PurchaseHistoryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -14,13 +15,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.example.demo.dto.util.CacheUtils.getActiveSubscriptions;
-import static com.example.demo.dto.util.CacheUtils.*;
 import static com.example.demo.dto.util.ResourceUtils.consumableProducts;
 
 @RestController
 @Tag(name = "Diamonds Packs", description = "API endpoints for managing diamond packs. Diamonds are premium consumable virtual currency used for exclusive in-game purchases and high-value transactions. Players can buy diamonds in different pack sizes.")
 public class DiamondsPackController {
+
+    private final PurchaseHistoryService purchaseHistoryService;
+
+    public DiamondsPackController(PurchaseHistoryService purchaseHistoryService) {
+        this.purchaseHistoryService = purchaseHistoryService;
+    }
 
     @Operation(
         summary = "Get all available diamond packs",
@@ -80,13 +85,13 @@ public class DiamondsPackController {
     ) {
         List<ConsumableProducts> purchasedProducts = new ArrayList<>(consumableProducts.get("DiamondPacks"))
                 .stream()
-                .filter(product -> getActiveSubscriptions(email)
+                .filter(product -> purchaseHistoryService.getActiveSubscriptions(email)
                         .stream()
                         .anyMatch(consumableProducts -> consumableProducts.getFreeProducts().contains(product.getId())))
                 .collect(Collectors.toList());
 
 
-        purchasedProducts.addAll(consumablePurchaseHistory.getOrDefault(email, new ArrayList<>())
+        purchasedProducts.addAll(purchaseHistoryService.getConsumablePurchases(email)
                 .stream()
                 .filter(nonConsumableProducts -> nonConsumableProducts.getCategory().equals("DiamondPacks"))
                 .collect(Collectors.toList()));

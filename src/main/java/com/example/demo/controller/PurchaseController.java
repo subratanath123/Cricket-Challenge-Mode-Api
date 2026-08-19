@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.dto.subscription.ConsumableProducts;
 import com.example.demo.dto.subscription.NonConsumableProducts;
+import com.example.demo.service.PurchaseHistoryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -12,19 +13,19 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.Instant;
-import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
-import java.util.List;
 
-import static com.example.demo.dto.util.CacheUtils.*;
 import static com.example.demo.dto.util.ResourceUtils.*;
 
 @RestController
 @Tag(name = "Purchase", description = "Universal purchase API endpoints for processing in-app purchases. Handles transactions for all product types including consumables (coins, diamonds), non-consumables (equipment, kits), and subscriptions. This is the main transaction endpoint that records purchases to user accounts.")
 public class PurchaseController {
+
+    private final PurchaseHistoryService purchaseHistoryService;
+
+    public PurchaseController(PurchaseHistoryService purchaseHistoryService) {
+        this.purchaseHistoryService = purchaseHistoryService;
+    }
 
     @Operation(
         summary = "Purchase a subscription",
@@ -69,22 +70,18 @@ public class PurchaseController {
         @PathVariable String id
     ) {
 
-        List<ConsumableProducts> purchaseHistoryOrDefault = subscriptionPurchaseHistory.getOrDefault(email, new ArrayList<>());
-
-        ConsumableProducts matchedSubscriptionProduct = subscriptionProducts
+        ConsumableProducts subscription = subscriptionProducts
                 .get("Subscription")
                 .stream()
                 .filter(consumableProducts -> consumableProducts.getId().equals(id))
                 .findFirst()
                 .orElse(null);
 
-        if (matchedSubscriptionProduct == null) {
+        if (subscription == null) {
             return "failed";
         }
 
-        purchaseHistoryOrDefault.add(createPurchasedSubscription(matchedSubscriptionProduct));
-
-        subscriptionPurchaseHistory.put(email, purchaseHistoryOrDefault);
+        purchaseHistoryService.addSubscriptionPurchase(email, subscription);
 
         return "purchased";
     }
@@ -134,8 +131,6 @@ public class PurchaseController {
         )
         @PathVariable String id
     ) {
-        List<ConsumableProducts> purchaseHistoryOrDefault = consumablePurchaseHistory.getOrDefault(email, new ArrayList<>());
-
         ConsumableProducts matchedConsumableProduct = consumableProducts
                 .values()
                 .stream()
@@ -145,12 +140,9 @@ public class PurchaseController {
                 .orElse(null);
 
         if (matchedConsumableProduct != null) {
-            purchaseHistoryOrDefault.add(matchedConsumableProduct);
-            consumablePurchaseHistory.put(email, purchaseHistoryOrDefault);
+            purchaseHistoryService.addConsumablePurchase(email, matchedConsumableProduct);
             return "purchased";
         }
-
-        List<NonConsumableProducts> nonConsumablePurchaseHistoryOrDefault = nonConsumablePurchaseHistory.getOrDefault(email, new ArrayList<>());
 
         NonConsumableProducts matchedNonConsumableProduct = nonConsumableProducts
                 .values()
@@ -161,12 +153,9 @@ public class PurchaseController {
                 .orElse(null);
 
         if (matchedNonConsumableProduct != null) {
-            nonConsumablePurchaseHistoryOrDefault.add(matchedNonConsumableProduct);
-            nonConsumablePurchaseHistory.put(email, nonConsumablePurchaseHistoryOrDefault);
+            purchaseHistoryService.addNonConsumablePurchase(email, matchedNonConsumableProduct);
             return "purchased";
         }
-
-        List<ConsumableProducts> subscriptionPurchaseHistoryOrDefault = subscriptionPurchaseHistory.getOrDefault(email, new ArrayList<>());
 
         ConsumableProducts matchedSubscriptionProduct = subscriptionProducts
                 .values()
@@ -177,36 +166,12 @@ public class PurchaseController {
                 .orElse(null);
 
         if (matchedSubscriptionProduct != null) {
-            subscriptionPurchaseHistoryOrDefault.add(createPurchasedSubscription(matchedSubscriptionProduct));
-            subscriptionPurchaseHistory.put(email, subscriptionPurchaseHistoryOrDefault);
+            purchaseHistoryService.addSubscriptionPurchase(email, matchedSubscriptionProduct);
             return "purchased";
         }
 
 
         return "failed";
-    }
-
-    private ConsumableProducts createPurchasedSubscription(ConsumableProducts template) {
-        Date expiryDate = Date.from(Instant.now().plus(365, ChronoUnit.DAYS));
-        ConsumableProducts purchasedSubscription = new ConsumableProducts(
-                template.getId(),
-                template.getCategory(),
-                template.getPackName(),
-                template.getMetaInfo(),
-                template.getPrice(),
-                expiryDate,
-                template.getInformation(),
-                template.getObjectType(),
-                template.getImageUrl(),
-                template.getFreeProducts(),
-                template.getNextUrl(),
-                template.getPurchaseId(),
-                template.getPayload(),
-                template.isDefault()
-        );
-        purchasedSubscription.setAlertInformation(template.getAlertInformation());
-        purchasedSubscription.setFlipInformation(template.getFlipInformation());
-        return purchasedSubscription;
     }
 
 }

@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.subscription.NonConsumableProducts;
+import com.example.demo.service.PurchaseHistoryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -14,13 +15,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.example.demo.dto.util.CacheUtils.getActiveSubscriptions;
-import static com.example.demo.dto.util.CacheUtils.nonConsumablePurchaseHistory;
 import static com.example.demo.dto.util.ResourceUtils.nonConsumableProducts;
 
 @RestController
 @Tag(name = "Tournament Packs", description = "API endpoints for managing tournament packs. Tournament packs are non-consumable in-game items that unlock special tournament modes, leagues, and championship events, providing access to exclusive competitive gameplay experiences.")
 public class TournamentPackController {
+
+    private final PurchaseHistoryService purchaseHistoryService;
+
+    public TournamentPackController(PurchaseHistoryService purchaseHistoryService) {
+        this.purchaseHistoryService = purchaseHistoryService;
+    }
 
 
     @Operation(
@@ -79,13 +84,13 @@ public class TournamentPackController {
     ) {
         List<NonConsumableProducts> purchasedProducts = new ArrayList<>(nonConsumableProducts.get("TournamentPacks"))
                 .stream()
-                .filter(product -> getActiveSubscriptions(email)
+                .filter(product -> purchaseHistoryService.getActiveSubscriptions(email)
                         .stream()
                         .anyMatch(consumableProducts -> consumableProducts.getFreeProducts().contains(product.getId())))
                 .collect(Collectors.toList());
 
 
-        purchasedProducts.addAll(nonConsumablePurchaseHistory.getOrDefault(email, new ArrayList<>())
+        purchasedProducts.addAll(purchaseHistoryService.getNonConsumablePurchases(email)
                 .stream()
                 .filter(nonConsumableProducts -> nonConsumableProducts.getCategory().equals("TournamentPacks"))
                 .collect(Collectors.toList()));

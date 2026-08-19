@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.dto.kits.CardItem;
 import com.example.demo.dto.subscription.NonConsumableProducts;
+import com.example.demo.service.PurchaseHistoryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -18,13 +19,17 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static com.example.demo.controller.GameAssetController.teamListForKits;
-import static com.example.demo.dto.util.CacheUtils.getActiveSubscriptions;
-import static com.example.demo.dto.util.CacheUtils.nonConsumablePurchaseHistory;
 import static com.example.demo.dto.util.ResourceUtils.nonConsumableProducts;
 
 @RestController
 @Tag(name = "Kits Packs", description = "API endpoints for managing team kits and jerseys. Kits are non-consumable in-game items that allow players to customize their team's appearance with authentic cricket team jerseys and equipment.")
 public class KitsPackController {
+
+    private final PurchaseHistoryService purchaseHistoryService;
+
+    public KitsPackController(PurchaseHistoryService purchaseHistoryService) {
+        this.purchaseHistoryService = purchaseHistoryService;
+    }
 
     @Operation(
         summary = "Get list of teams with available kits",
@@ -123,13 +128,13 @@ public class KitsPackController {
 
         List<NonConsumableProducts> purchasedProducts = new ArrayList<>(nonConsumableProducts.get("Kits"))
                 .stream()
-                .filter(product -> getActiveSubscriptions(email)
+                .filter(product -> purchaseHistoryService.getActiveSubscriptions(email)
                         .stream()
                         .anyMatch(consumableProducts -> consumableProducts.getFreeProducts().contains(product.getId())))
                 .collect(Collectors.toList());
 
 
-        purchasedProducts.addAll(nonConsumablePurchaseHistory.getOrDefault(email, new ArrayList<>())
+        purchasedProducts.addAll(purchaseHistoryService.getNonConsumablePurchases(email)
                 .stream()
                 .filter(nonConsumableProducts -> nonConsumableProducts.getCategory().equals("Kits"))
                 .collect(Collectors.toList()));

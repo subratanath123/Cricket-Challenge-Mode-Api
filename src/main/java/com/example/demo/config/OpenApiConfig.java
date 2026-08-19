@@ -75,8 +75,8 @@ public class OpenApiConfig {
                         "- Items included in active subscriptions\n\n" +
                         
                         "### Data Persistence\n" +
-                        "**NOTE**: This is a demo API using in-memory storage. All purchase data is stored in " +
-                        "static maps and will be lost on server restart. For production, implement database persistence.\n\n" +
+                        "Purchase history and challenge progress are stored in MongoDB, keyed by user email. " +
+                        "Catalog data (shop packs, assets, challenge definitions) is still served from application configuration.\n\n" +
                         
                         "### Typical Integration Flow\n" +
                         "1. **Game Startup**: Call `/assets` and `/iapPacks` to initialize\n" +

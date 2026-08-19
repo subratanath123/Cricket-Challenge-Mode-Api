@@ -1,0 +1,21 @@
+# Howzat API (MongoDB Atlas)
+#
+# Copy this file and `.env` onto the target machine (same directory), then:
+#   docker compose up -d
+#
+# The API image is pulled from Docker Hub. `--build` is not required on the
+# server because GitHub Actions already builds and pushes the image.
+# `docker compose up --build` still starts the stack; it just has nothing local to build.
+# MongoDB runs on Atlas — put the connection string in SPRING_DATA_MONGODB_URI.
+
+services:
+  api:
+    image: ${DOCKERHUB_USERNAME}/${DOCKERHUB_IMAGE}:${IMAGE_TAG:-latest}
+    pull_policy: always
+    restart: unless-stopped
+    environment:
+      SERVER_PORT: ${API_PORT:-8080}
+      SPRING_DATA_MONGODB_URI: ${SPRING_DATA_MONGODB_URI}
+      SPRING_DATA_MONGODB_DATABASE: ${SPRING_DATA_MONGODB_DATABASE:-howzat}
+    ports:
+      - "${API_PORT:-8080}:8080"
