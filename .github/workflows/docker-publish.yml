@@ -62,7 +62,6 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_PRIVATE_KEY }}
           port: 2765
-          passphrase: ${{ secrets.VPS_SSH_PASSPHRASE }}
           envs: DEPLOY_DIR
           script: |
             set -euo pipefail
